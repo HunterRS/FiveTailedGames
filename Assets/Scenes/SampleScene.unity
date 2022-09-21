@@ -153,7 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 2371775609043579985, guid: 82330116035645d4682350f0be2d922c, type: 3}
-  CardNum: 10
+  cardArrayTemp:
+  - {fileID: 2371775609043579985, guid: 82330116035645d4682350f0be2d922c, type: 3}
+  - {fileID: 2371775609043579985, guid: 5fd04b602b470194ba2f44032e3392a3, type: 3}
+  - {fileID: 2371775609043579985, guid: ccbb5935cb7aa0b4b8f4b9541cbb1885, type: 3}
+  CardNum: 3
 --- !u!4 &538907640
 Transform:
   m_ObjectHideFlags: 0
