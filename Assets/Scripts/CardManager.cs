@@ -51,13 +51,9 @@ public class CardManager : MonoBehaviour
 
         for (int i = 0; i < cardArray.Length; i++)
         {
-<<<<<<< Updated upstream
             NewCard = cardArray[Random.Range(0, cardArray.Length)];
             Instantiate(NewCard, new Vector3(canvas.position.x+.3f - (i* .3f), canvas.position.y-.3f, canvas.position.z), Quaternion.identity, canvas.transform);    // creates card, attaching it to placeholder.
-=======
-            NewCard = cardArray[i];
-            Instantiate(NewCard, new Vector3(canvas.position.x+(i* 30f), canvas.position.y-15f, canvas.position.z), Quaternion.identity, canvas.transform);    // creates card, attaching it to placeholder.
->>>>>>> Stashed changes
+
         }
     }
 
