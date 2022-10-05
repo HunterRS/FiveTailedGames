@@ -15,15 +15,6 @@ public class CardManager : MonoBehaviour
     public Transform canvas;
     public GameObject[] animaArrayTemp;
     public static GameObject[] animaArray;
-    public int Anima;
-    public int PlayerHealth;
-    public int EnemyHealth;
-    public int PlayerBlock;
-    public int EnemyBlock;
-    public TextMeshProUGUI PlayerHealthTxT;
-    public TextMeshProUGUI EnemyHealthTxT;
-    public TextMeshProUGUI PlayerBlockTxT;
-    public TextMeshProUGUI EnemyBlockTxT;
     public string enemyPhase;
     public GameObject phaseDetector;
     public Material phase_Material;
@@ -66,7 +57,7 @@ public class CardManager : MonoBehaviour
     {
         for (int i = 0; i < animaArray.Length; i++)
         {
-            if (CardManager.instance.Anima >= i && animaArray[i].active == false)
+            if (GameManager.instance.Anima >= i && animaArray[i].active == false)
             {
                 animaArray[i].GetComponent<AnimaScript>().Reset();
                 animaArray[i].SetActive(true);
@@ -74,7 +65,7 @@ public class CardManager : MonoBehaviour
 
 
             }
-            if (CardManager.instance.Anima <= i)
+            if (GameManager.instance.Anima <= i)
             {
                 animaArray[i].SetActive(false);
             }
@@ -85,31 +76,31 @@ public class CardManager : MonoBehaviour
     {
         if (enemyPhase == "attack")
         {
-            if (CardManager.instance.PlayerBlock > 1)
+            if (GameManager.instance.PlayerBlock > 1)
             {
-                int tempvalue = 3 - CardManager.instance.PlayerBlock;
+                int tempvalue = 3 - GameManager.instance.PlayerBlock;
                 if (tempvalue > 0)
                 {
-                    CardManager.instance.PlayerHealth = CardManager.instance.PlayerHealth - tempvalue;
-                    CardManager.instance.PlayerHealthTxT.text = CardManager.instance.PlayerHealth.ToString();
-                    CardManager.instance.PlayerBlock = 0;
-                    CardManager.instance.PlayerBlockTxT.text = CardManager.instance.PlayerBlock.ToString();
+                    GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - tempvalue;
+                    UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
+                    GameManager.instance.PlayerBlock = 0;
+                    UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
                 }
                 else if (tempvalue < 0)
                 {
-                    CardManager.instance.PlayerBlock = CardManager.instance.PlayerBlock - 3;
-                    CardManager.instance.PlayerBlockTxT.text = CardManager.instance.PlayerBlock.ToString();
+                    GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock - 3;
+                    UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
                 }
                 else
                 {
-                    CardManager.instance.PlayerBlock = 0;
-                    CardManager.instance.PlayerBlockTxT.text = CardManager.instance.PlayerBlock.ToString();
+                    GameManager.instance.PlayerBlock = 0;
+                    UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
                 }
             }
             else
             {
-                CardManager.instance.PlayerHealth = CardManager.instance.PlayerHealth - 3;
-                CardManager.instance.PlayerHealthTxT.text = CardManager.instance.PlayerHealth.ToString();
+                GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
+                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
             }
 
             phase_Material.color = new Color(0f, 0f, 1f);
@@ -117,8 +108,8 @@ public class CardManager : MonoBehaviour
         }
         else
         {
-            CardManager.instance.EnemyBlock = CardManager.instance.EnemyBlock + 3;
-            CardManager.instance.EnemyBlockTxT.text = CardManager.instance.EnemyBlock.ToString();
+            GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
+            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
             phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }

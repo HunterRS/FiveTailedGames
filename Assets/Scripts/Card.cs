@@ -24,60 +24,60 @@ public class Card : MonoBehaviour
         switch (Type)
         {
             case "anima":
-                CardManager.instance.Anima = CardManager.instance.Anima + animaCost;
-                if (CardManager.instance.Anima > 4)
+                GameManager.instance.Anima = GameManager.instance.Anima + animaCost;
+                if (GameManager.instance.Anima > 4)
                 {
-                    CardManager.instance.Anima = 4;
+                    GameManager.instance.Anima = 4;
                 }
                 CardManager.AnimaChange();
                 break;
             case "attack":
-                if (CardManager.instance.Anima >= animaCost)
+                if (GameManager.instance.Anima >= animaCost)
                 {
-                    CardManager.instance.Anima = CardManager.instance.Anima - animaCost;
-                    if (CardManager.instance.EnemyBlock > 0)
+                    GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
+                    if (GameManager.instance.EnemyBlock > 0)
                     {
-                        int tempvalue = value - CardManager.instance.EnemyBlock;
+                        int tempvalue = value - GameManager.instance.EnemyBlock;
                         Debug.Log(tempvalue);
                         if (tempvalue > 0)
                         {
-                            CardManager.instance.EnemyHealth = CardManager.instance.EnemyHealth - tempvalue;
-                            CardManager.instance.EnemyHealthTxT.text = CardManager.instance.EnemyHealth.ToString();
-                            CardManager.instance.EnemyBlock = 0;
-                            CardManager.instance.EnemyBlockTxT.text = CardManager.instance.EnemyBlock.ToString();
+                            GameManager.instance.EnemyHealth = GameManager.instance.EnemyHealth - tempvalue;
+                            UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyHealth.ToString();
+                            GameManager.instance.EnemyBlock = 0;
+                            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
                         }
                         else if (tempvalue < 0)
                         {
-                            CardManager.instance.EnemyBlock = CardManager.instance.EnemyBlock - value;
-                            CardManager.instance.EnemyBlockTxT.text = CardManager.instance.EnemyBlock.ToString();
+                            GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock - value;
+                            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
                         }
                         else
                         {
-                            CardManager.instance.EnemyBlock = 0;
-                            CardManager.instance.EnemyBlockTxT.text = CardManager.instance.EnemyBlock.ToString();
+                            GameManager.instance.EnemyBlock = 0;
+                            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
                         }
                     }
                     else
                     {
-                        CardManager.instance.EnemyHealth = CardManager.instance.EnemyHealth - value;
-                        CardManager.instance.EnemyHealthTxT.text = CardManager.instance.EnemyHealth.ToString();
+                        GameManager.instance.EnemyHealth = GameManager.instance.EnemyHealth - value;
+                        UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyHealth.ToString();
                     }
-                    if (CardManager.instance.Anima < 0)
+                    if (GameManager.instance.Anima < 0)
                     {
-                        CardManager.instance.Anima = 0;
+                        GameManager.instance.Anima = 0;
                     }
                     CardManager.AnimaChange();
                 }
                 break;
             case "defend":
-                if (CardManager.instance.Anima >= animaCost)
+                if (GameManager.instance.Anima >= animaCost)
                 {
-                    CardManager.instance.Anima = CardManager.instance.Anima - animaCost;
-                    CardManager.instance.PlayerBlock = CardManager.instance.PlayerBlock + value;
-                    CardManager.instance.PlayerBlockTxT.text = CardManager.instance.PlayerBlock.ToString();
-                    if (CardManager.instance.Anima < 0)
+                    GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
+                    GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock + value;
+                    UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+                    if (GameManager.instance.Anima < 0)
                     {
-                        CardManager.instance.Anima = 0;
+                        GameManager.instance.Anima = 0;
                     }
                     CardManager.AnimaChange();
                 }

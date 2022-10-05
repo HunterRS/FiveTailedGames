@@ -5,12 +5,24 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     public int playerCorruption = 0;
 
     public ParticleSystem corruptFrame;
     public Image corruptVignette;
+    public int Anima;
+    public int PlayerHealth;
+    public int EnemyHealth;
+    public int PlayerBlock;
+    public int EnemyBlock;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
     }
