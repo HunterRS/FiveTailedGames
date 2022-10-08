@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 595547486074260289, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_Name
-      value: CardBase
+      value: CleanseCard
       objectReference: {fileID: 0}
     - target: {fileID: 893772953530493344, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +54,26 @@ PrefabInstance:
     - target: {fileID: 893772953530493344, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891257270936820066, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_text
+      value: Cleanse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: ID
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: Type
+      value: corruption
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: value
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: animaCost
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
