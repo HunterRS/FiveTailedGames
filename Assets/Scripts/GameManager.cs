@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        CardManager.instance.DeckCreate();
     }
 
     // Update is called once per frame

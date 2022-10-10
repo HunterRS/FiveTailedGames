@@ -28,6 +28,16 @@ public class CardManager : MonoBehaviour
     {
         phase_Material = phaseDetector.GetComponent<Renderer>().material;
         phase_Material.color = new Color(1f, 0f, 0f);
+    }
+
+    // Update is called once per frame
+        void Update()
+    {
+        
+    }
+
+    public void DeckCreate()
+    {
         animaArray = new GameObject[animaArrayTemp.Length]; // creates Arrays with number of entries equal to cardNum
         for (int i = 0; i < animaArrayTemp.Length; i++)
         {
@@ -40,19 +50,18 @@ public class CardManager : MonoBehaviour
             cardArray[i] = cardArrayTemp[i];
         }
 
+
+    }
+    public void DrawCard()
+    {
         for (int i = 0; i < cardArray.Length; i++)
         {
             NewCard = cardArray[Random.Range(0, cardArray.Length)];
-            Instantiate(NewCard, new Vector3(canvas.position.x+.3f - (i* .3f), canvas.position.y-.3f, canvas.position.z), Quaternion.identity, canvas.transform);    // creates card, attaching it to placeholder.
+            Instantiate(NewCard, new Vector3(canvas.position.x + .3f - (i * .3f), canvas.position.y - .3f, canvas.position.z), Quaternion.identity, canvas.transform);    // creates card, attaching it to placeholder.
 
         }
     }
 
-    // Update is called once per frame
-        void Update()
-    {
-        
-    }
     public static void AnimaChange()
     {
         for (int i = 0; i < animaArray.Length; i++)

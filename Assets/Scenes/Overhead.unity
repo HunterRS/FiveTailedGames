@@ -5311,8 +5311,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardArrayTemp:
   - {fileID: 8324511413229513733, guid: 23769c5c4bf8c394e9d4d62869bece12, type: 3}
+  - {fileID: 8324511413229513733, guid: 23769c5c4bf8c394e9d4d62869bece12, type: 3}
+  - {fileID: 8324511413229513733, guid: 23769c5c4bf8c394e9d4d62869bece12, type: 3}
+  - {fileID: 7797011056092032361, guid: 691a2fc4555d66a48be49a2562eea6f3, type: 3}
+  - {fileID: 7797011056092032361, guid: 691a2fc4555d66a48be49a2562eea6f3, type: 3}
   - {fileID: 7797011056092032361, guid: 691a2fc4555d66a48be49a2562eea6f3, type: 3}
   - {fileID: 8520119545592729383, guid: 0332fcdb3f8c61d46ad7f4fc49bae990, type: 3}
+  - {fileID: 8520119545592729383, guid: 0332fcdb3f8c61d46ad7f4fc49bae990, type: 3}
+  - {fileID: 5537692646374465108, guid: e8e9ee9e53935fa4f8b59f07bb24244b, type: 3}
   - {fileID: 5537692646374465108, guid: e8e9ee9e53935fa4f8b59f07bb24244b, type: 3}
   - {fileID: 3553345969603315353, guid: 1646b7a094f01ac40830ad7c3f2532db, type: 3}
   canvas: {fileID: 1243679449}
