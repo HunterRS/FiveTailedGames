@@ -18,6 +18,11 @@ public class CardManager : MonoBehaviour
     public string enemyPhase;
     public GameObject phaseDetector;
     public Material phase_Material;
+    [SerializeField]    private List<Card> StartDeckList = new List<Card>();
+    [SerializeField]    private List<Card> CardList = new List<Card>();
+    [HideInInspector]   public List<Card> CurrentDeckList = new List<Card>();
+    [HideInInspector]   public List<Card> HandList = new List<Card>();
+    [HideInInspector]   public List<Card> Discard = new List<Card>();
     // Start is called before the first frame update
     private void Awake()
     {
@@ -91,29 +96,26 @@ public class CardManager : MonoBehaviour
                 if (tempvalue > 0)
                 {
                     GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - tempvalue;
-                    UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
                     GameManager.instance.PlayerBlock = 0;
-                    UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
                 }
                 else if (tempvalue < 0)
                 {
                     GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock - 3;
-                    UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
                 }
                 else
                 {
                     GameManager.instance.PlayerBlock = 0;
-                    UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
                 }
             }
             else
             {
                 GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
-                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
             }
 
             phase_Material.color = new Color(0f, 0f, 1f);
             enemyPhase = "block";
+            UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
+            UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
         }
         else
         {

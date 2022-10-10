@@ -5330,6 +5330,11 @@ MonoBehaviour:
   enemyPhase: attack
   phaseDetector: {fileID: 2130505454}
   phase_Material: {fileID: 0}
+  StartDeckList: []
+  CardList: []
+  CurrentDeckList: []
+  HandList: []
+  Discard: []
 --- !u!4 &538907640
 Transform:
   m_ObjectHideFlags: 0
