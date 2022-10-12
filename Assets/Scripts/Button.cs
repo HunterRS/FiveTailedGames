@@ -17,6 +17,8 @@ public class Button : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        CardManager.instance.endTurn();
+        Debug.Log("TEST");
+        GameManager.instance.endTurn();
+        Debug.Log("TEST");
     }
     }

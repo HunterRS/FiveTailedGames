@@ -15,9 +15,6 @@ public class CardManager : MonoBehaviour
     public Transform canvas;
     public GameObject[] animaArrayTemp;
     public static GameObject[] animaArray;
-    public string enemyPhase;
-    public GameObject phaseDetector;
-    public Material phase_Material;
     [SerializeField]    private List<Card> StartDeckList = new List<Card>();
     [SerializeField]    private List<Card> CardList = new List<Card>();
     [HideInInspector]   public List<Card> CurrentDeckList = new List<Card>();
@@ -31,8 +28,6 @@ public class CardManager : MonoBehaviour
 
     void Start()
     {
-        phase_Material = phaseDetector.GetComponent<Renderer>().material;
-        phase_Material.color = new Color(1f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -85,44 +80,5 @@ public class CardManager : MonoBehaviour
             }
         }
 
-    }
-    public void endTurn()
-    {
-        if (enemyPhase == "attack")
-        {
-            if (GameManager.instance.PlayerBlock > 1)
-            {
-                int tempvalue = 3 - GameManager.instance.PlayerBlock;
-                if (tempvalue > 0)
-                {
-                    GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - tempvalue;
-                    GameManager.instance.PlayerBlock = 0;
-                }
-                else if (tempvalue < 0)
-                {
-                    GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock - 3;
-                }
-                else
-                {
-                    GameManager.instance.PlayerBlock = 0;
-                }
-            }
-            else
-            {
-                GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
-            }
-
-            phase_Material.color = new Color(0f, 0f, 1f);
-            enemyPhase = "block";
-            UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
-            UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
-        }
-        else
-        {
-            GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
-            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
-            phase_Material.color = new Color(1f, 0f, 0f);
-            enemyPhase = "attack";
-        }
     }
 }
