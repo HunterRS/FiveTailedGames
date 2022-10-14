@@ -15,9 +15,14 @@ public class CardManager : MonoBehaviour
     public Transform canvas;
     public GameObject[] animaArrayTemp;
     public static GameObject[] animaArray;
+
+    [SerializeField] private GameObject HandArea;
+
     [SerializeField]    private List<Card> StartDeckList = new List<Card>();
     [SerializeField]    private List<Card> CardList = new List<Card>();
     [HideInInspector]   public List<Card> CurrentDeckList = new List<Card>();
+
+    [HideInInspector] public List<Card> CurrentBattleDeckList = new List<Card>();
     [HideInInspector]   public List<Card> HandList = new List<Card>();
     [HideInInspector]   public List<Card> Discard = new List<Card>();
     // Start is called before the first frame update
@@ -52,13 +57,13 @@ public class CardManager : MonoBehaviour
 
 
     }
-    public void DrawCard()
+    public void DrawCard(int CardAmount)
     {
-        for (int i = 0; i < cardArray.Length; i++)
+        for (int i = 0; i < CardAmount; i++)
         {
             NewCard = cardArray[Random.Range(0, cardArray.Length)];
-            Instantiate(NewCard, new Vector3(canvas.position.x + .3f - (i * .3f), canvas.position.y - .3f, canvas.position.z), Quaternion.identity, canvas.transform);    // creates card, attaching it to placeholder.
-
+            NewCard = Instantiate(NewCard, new Vector3(canvas.position.x, canvas.position.y, canvas.position.z), Quaternion.identity, canvas.transform);
+            NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
 

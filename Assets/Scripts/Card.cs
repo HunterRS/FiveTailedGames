@@ -29,7 +29,7 @@ public class Card : MonoBehaviour
                 {
                     GameManager.instance.Anima = 4;
                 }
-                CardManager.AnimaChange();
+                //CardManager.AnimaChange();
                 break;
             case "attack":
                 if (GameManager.instance.Anima >= animaCost)
@@ -66,7 +66,7 @@ public class Card : MonoBehaviour
                     {
                         GameManager.instance.Anima = 0;
                     }
-                    CardManager.AnimaChange();
+                    //CardManager.AnimaChange();
                 }
                 break;
             case "defend":
@@ -79,9 +79,10 @@ public class Card : MonoBehaviour
                     {
                         GameManager.instance.Anima = 0;
                     }
-                    CardManager.AnimaChange();
+                    //CardManager.AnimaChange();
                 }
                 break;
         }
+        Destroy(this.gameObject);
     }
 }

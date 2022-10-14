@@ -91,5 +91,6 @@ public class GameManager : MonoBehaviour
             phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
+        CardManager.instance.DrawCard(3);
     }
 }

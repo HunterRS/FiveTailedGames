@@ -17,8 +17,6 @@ public class Button : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("TEST");
         GameManager.instance.endTurn();
-        Debug.Log("TEST");
     }
     }
