@@ -8,8 +8,6 @@ public class CardManager : MonoBehaviour
 {
     public static CardManager instance;
 
-    public static Card[] cardArray;     // Array of all cards
-    public Card[] cardArrayTemp;     // Array of all cards
     private Card placeholder;
     private Card NewCard;
     public Transform canvas;
@@ -22,7 +20,7 @@ public class CardManager : MonoBehaviour
     [SerializeField]    private List<Card> CardList = new List<Card>();
     [HideInInspector]   public List<Card> CurrentDeckList = new List<Card>();
 
-    [HideInInspector] public List<Card> CurrentBattleDeckList = new List<Card>();
+    [HideInInspector]   public List<Card> DrawDeckList = new List<Card>();
     [HideInInspector]   public List<Card> HandList = new List<Card>();
     [HideInInspector]   public List<Card> Discard = new List<Card>();
     // Start is called before the first frame update
@@ -49,19 +47,17 @@ public class CardManager : MonoBehaviour
             animaArray[i] = animaArrayTemp[i];
             animaArray[i].SetActive(false);
         }
-        cardArray = new Card[cardArrayTemp.Length]; // creates Arrays with number of entries equal to cardNum
-        for (int i = 0; i < cardArrayTemp.Length; i++)
+        for (int i = 0; i < StartDeckList.Count; i++)
         {
-            cardArray[i] = cardArrayTemp[i];
+            CurrentDeckList.Add(StartDeckList[i]);
         }
-
 
     }
     public void DrawCard(int CardAmount)
     {
         for (int i = 0; i < CardAmount; i++)
         {
-            NewCard = cardArray[Random.Range(0, cardArray.Length)];
+            NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count)];
             NewCard = Instantiate(NewCard, new Vector3(canvas.position.x, canvas.position.y, canvas.position.z), Quaternion.identity, canvas.transform);
             NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
