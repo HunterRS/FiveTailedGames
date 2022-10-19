@@ -17,6 +17,6 @@ public class Button : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        CardManager.instance.endTurn();
+        GameManager.instance.endTurn();
     }
     }
