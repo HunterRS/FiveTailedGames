@@ -16,6 +16,10 @@ public class CardManager : MonoBehaviour
 
     [SerializeField] private GameObject HandArea;
 
+    [SerializeField] private Transform DiscardParent;
+    [SerializeField] private Transform HandParent;
+    [SerializeField] private Transform DeckParent;
+
     [SerializeField]    private List<Card> StartDeckList = new List<Card>();
     [SerializeField]    private List<Card> CardList = new List<Card>();
     [HideInInspector]   public List<Card> CurrentDeckList = new List<Card>();
@@ -57,12 +61,35 @@ public class CardManager : MonoBehaviour
     {
         for (int i = 0; i < CardAmount; i++)
         {
+            if (CurrentDeckList.Count == 0)
+            {
+                ReshuffleDeck();
+            }
             NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count)];
-            NewCard = Instantiate(NewCard, new Vector3(canvas.position.x, canvas.position.y, canvas.position.z), Quaternion.identity, canvas.transform);
+            NewCard.transform.SetParent(HandParent);
+            CurrentDeckList.Remove(NewCard);
+            HandList.Add(NewCard);
             NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            NewCard.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
-
+    public void MoveToDiscard(Card DiscardCard)
+    {
+        HandList.Remove(DiscardCard);
+        Discard.Add(DiscardCard);
+        DiscardCard.transform.SetParent(DiscardParent);
+        DiscardCard.transform.localPosition = new Vector3(0, 0, 0);
+    }
+    public void ReshuffleDeck()
+    {
+        foreach (Card DiscardedCard in Discard)
+        {
+            CurrentDeckList.Add(DiscardedCard);
+            DiscardedCard.transform.SetParent(DeckParent);
+            DiscardedCard.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        Discard.Clear();
+    }
     public static void AnimaChange()
     {
         for (int i = 0; i < animaArray.Length; i++)

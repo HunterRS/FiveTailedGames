@@ -83,6 +83,6 @@ public class Card : MonoBehaviour
                 }
                 break;
         }
-        Destroy(this.gameObject);
+        CardManager.instance.MoveToDiscard(this);
     }
 }
