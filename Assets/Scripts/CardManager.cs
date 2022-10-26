@@ -22,11 +22,12 @@ public class CardManager : MonoBehaviour
 
     [SerializeField]    private List<Card> StartDeckList = new List<Card>();
     [SerializeField]    private List<Card> CardList = new List<Card>();
-    [HideInInspector]   public List<Card> CurrentDeckList = new List<Card>();
 
-    [HideInInspector]   public List<Card> DrawDeckList = new List<Card>();
-    [HideInInspector]   public List<Card> HandList = new List<Card>();
-    [HideInInspector]   public List<Card> Discard = new List<Card>();
+    public List<Card> CurrentDeckList = new List<Card>();
+
+    public List<Card> DrawDeckList = new List<Card>();
+    public List<Card> HandList = new List<Card>();
+    public List<Card> Discard = new List<Card>();
     // Start is called before the first frame update
     private void Awake()
     {
@@ -65,7 +66,7 @@ public class CardManager : MonoBehaviour
             {
                 ReshuffleDeck();
             }
-            NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count)];
+            NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count -1)];
             NewCard.transform.SetParent(HandParent);
             CurrentDeckList.Remove(NewCard);
             HandList.Add(NewCard);

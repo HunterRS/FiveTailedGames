@@ -9,6 +9,8 @@ public class Card : MonoBehaviour
     public int animaCost;
     public int value;
     public bool CardAnima;
+    public bool Profane;
+    public bool Reinforced;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +31,9 @@ public class Card : MonoBehaviour
                 {
                     GameManager.instance.Anima = 4;
                 }
-                //CardManager.AnimaChange();
+                CardManager.AnimaChange();
                 break;
+
             case "attack":
                 if (GameManager.instance.Anima >= animaCost)
                 {
@@ -66,9 +69,10 @@ public class Card : MonoBehaviour
                     {
                         GameManager.instance.Anima = 0;
                     }
-                    //CardManager.AnimaChange();
+                    CardManager.AnimaChange();
                 }
                 break;
+
             case "defend":
                 if (GameManager.instance.Anima >= animaCost)
                 {
@@ -79,7 +83,7 @@ public class Card : MonoBehaviour
                     {
                         GameManager.instance.Anima = 0;
                     }
-                    //CardManager.AnimaChange();
+                    CardManager.AnimaChange();
                 }
                 break;
         }
