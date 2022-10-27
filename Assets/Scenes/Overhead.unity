@@ -229,7 +229,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bcb3c77af5bc84041beaf5130a1ad3f7, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bcb3c77af5bc84041beaf5130a1ad3f7, type: 3}
       propertyPath: m_LocalScale.x
@@ -2129,12 +2129,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.24099489, y: 0.6647717, z: -0.2409949, w: 0.6647718}
-  m_LocalPosition: {x: -4.51, y: 4.87, z: -0}
+  m_LocalPosition: {x: -4.51, y: 4.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3520169676168527104}
   m_Father: {fileID: 1092779459}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 39.853, y: 90, z: 0}
 --- !u!82 &963194229
 AudioSource:
@@ -2509,9 +2510,8 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1767555057}
-  - {fileID: 3520169676168527104}
   - {fileID: 963194228}
+  - {fileID: 1767555057}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 12.163, z: 0}
@@ -2527,7 +2527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081fef7b1f1df3a4a918b7e957be779e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charSpeed: 10
+  charSpeed: 50
   maxSpeed: 100
 --- !u!54 &1092779461
 Rigidbody:
@@ -10384,16 +10384,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3520169676168527105}
-  m_LocalRotation: {x: -0, y: -0.00953927, z: -0, w: 0.9999545}
-  m_LocalPosition: {x: 5.25, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0.23868501, y: -0.6710829, z: 0.24328287, w: 0.6584001}
+  m_LocalPosition: {x: 0, y: 2.5158353, z: 10.613439}
+  m_LocalScale: {x: 0.099999994, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3520169674397176282}
   - {fileID: 3520169675342000542}
   - {fileID: 3520169675321931013}
-  m_Father: {fileID: 1092779459}
-  m_RootOrder: 1
+  m_Father: {fileID: 963194228}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 11.07, z: 0}
 --- !u!1 &3520169676168527105
 GameObject:
