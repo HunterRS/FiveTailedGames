@@ -530,7 +530,7 @@ PrefabInstance:
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: Enemy
       value: 
-      objectReference: {fileID: 919132149155446097, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
+      objectReference: {fileID: 214638033415366548, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: SpawnPoint
       value: 
