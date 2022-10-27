@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float maxSpeed;
     private Rigidbody RB;
     private bool running;
+    public Animator playerAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        running = false;
         if(RB.velocity.magnitude <= maxSpeed){
             if(Input.GetKey("a")){
             RB.velocity += gameObject.transform.forward * charSpeed;
@@ -34,6 +36,10 @@ public class PlayerScript : MonoBehaviour
             RB.velocity += gameObject.transform.right * -charSpeed;
             running = true;
         }
+        if(running)
+            playerAnim.SetBool("Run",true);
+        else
+            playerAnim.SetBool("Run",false);
 
         
         }
@@ -45,4 +51,6 @@ public class PlayerScript : MonoBehaviour
         //RB.velocity = RB.velocity.normalized * charSpeed;
 
     }
+
+    
 }
