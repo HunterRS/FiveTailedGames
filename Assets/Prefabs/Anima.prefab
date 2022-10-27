@@ -1092,7 +1092,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1219,11 +1219,11 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -0.7182228
-          outSlope: -0.7182228
+          inSlope: 0.102808565
+          outSlope: 0.102808565
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.3685568
+          inWeight: 0.13144344
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4210,13 +4210,13 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 5
+    ribbonCount: 10
     shadowBias: 0.5
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
-    inheritParticleColor: 1
+    inheritParticleColor: 0
     generateLightingData: 0
     splitSubEmitterRibbons: 1
     attachRibbonsToTransform: 0
@@ -4311,12 +4311,12 @@ ParticleSystem:
           outWeight: 0.45529735
         - serializedVersion: 3
           time: 1
-          value: 0.25
-          inSlope: -1.7991524
-          outSlope: -1.7991524
+          value: 0.10810809
+          inSlope: 1.3626504
+          outSlope: 1.3626504
           tangentMode: 0
           weightedMode: 3
-          inWeight: 0.5314642
+          inWeight: 0.83153594
           outWeight: 1
         m_PreInfinity: 2
         m_PostInfinity: 2

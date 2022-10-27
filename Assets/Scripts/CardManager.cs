@@ -66,7 +66,7 @@ public class CardManager : MonoBehaviour
             {
                 ReshuffleDeck();
             }
-            NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count -1)];
+            NewCard = CurrentDeckList[Random.Range(1, CurrentDeckList.Count)];
             NewCard.transform.SetParent(HandParent);
             CurrentDeckList.Remove(NewCard);
             HandList.Add(NewCard);
