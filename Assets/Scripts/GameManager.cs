@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public string enemyPhase;
     public GameObject phaseDetector;
     public Material phase_Material;
+    public GameObject Enemy;
 
     // Start is called before the first frame update
     private void Awake()

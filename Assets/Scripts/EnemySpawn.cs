@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    public Rigidbody Playerrigidbody;
+    public GameObject BattleCamera;
 
     [SerializeField] private GameObject Enemy;
     [SerializeField] private Transform SpawnPoint;
@@ -23,8 +25,10 @@ public class EnemySpawn : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-        Instantiate(Enemy, SpawnPoint.position, transform.rotation);
+        GameManager.instance.Enemy = Instantiate(Enemy, SpawnPoint.position, transform.rotation);
         Debug.Log(other);
+        Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        BattleCamera.SetActive(true);
         }
     }
 }
