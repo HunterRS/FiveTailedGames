@@ -60,13 +60,14 @@ public class CardManager : MonoBehaviour
     }
     public void DrawCard(int CardAmount)
     {
+        Debug.Log(CurrentDeckList.Count);
         for (int i = 0; i < CardAmount; i++)
         {
             if (CurrentDeckList.Count == 0)
             {
                 ReshuffleDeck();
             }
-            NewCard = CurrentDeckList[Random.Range(1, CurrentDeckList.Count)];
+            NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count - 1)];
             NewCard.transform.SetParent(HandParent);
             CurrentDeckList.Remove(NewCard);
             HandList.Add(NewCard);
@@ -83,6 +84,7 @@ public class CardManager : MonoBehaviour
     }
     public void ReshuffleDeck()
     {
+        Debug.Log(Discard.Count);
         foreach (Card DiscardedCard in Discard)
         {
             CurrentDeckList.Add(DiscardedCard);
