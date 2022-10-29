@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject phaseDetector;
     public Material phase_Material;
     public GameObject Enemy;
+    public EnemyStats EnemyStats;
 
     // Start is called before the first frame update
     private void Awake()
@@ -56,7 +57,11 @@ public class GameManager : MonoBehaviour
     }
     public void endTurn()
     {
-        if (enemyPhase == "attack")
+        if (EnemyStats.MovePattern[0] == "attack")
+        {
+
+        }
+        /*if (enemyPhase == "attack")
         {
             if (GameManager.instance.PlayerBlock > 1)
             {
@@ -92,6 +97,7 @@ public class GameManager : MonoBehaviour
             phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
+        */
         CardManager.instance.DrawCard(3);
     }
 }

@@ -26,6 +26,7 @@ public class EnemySpawn : MonoBehaviour
         if (other.tag == "Player")
         {
         GameManager.instance.Enemy = Instantiate(Enemy, SpawnPoint.position, transform.rotation);
+        GameManager.instance.EnemyStats = Enemy.GetComponent<EnemyStats>();
         Debug.Log(other);
         Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);

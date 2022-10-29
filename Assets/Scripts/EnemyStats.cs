@@ -8,8 +8,8 @@ public class EnemyStats : MonoBehaviour
     public int Block;
     public int MoveNum;
 
-    [SerializeField] private List<string> MovePattern = new List<string>();
-    [SerializeField] private List<int> MovePatternNum = new List<int>();
+    public List<string> MovePattern = new List<string>();
+    public List<int> MovePatternNum = new List<int>();
 
     // Start is called before the first frame update
     void Start()
