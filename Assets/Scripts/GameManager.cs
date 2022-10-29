@@ -57,10 +57,17 @@ public class GameManager : MonoBehaviour
     }
     public void endTurn()
     {
-        if (EnemyStats.MovePattern[0] == "attack")
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack")
         {
 
+
         }
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
+        {
+
+
+        }
+
         /*if (enemyPhase == "attack")
         {
             if (GameManager.instance.PlayerBlock > 1)
