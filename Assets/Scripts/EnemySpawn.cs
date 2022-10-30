@@ -10,6 +10,8 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private GameObject Enemy;
     [SerializeField] private Transform SpawnPoint;
 
+    [SerializeField] private List<GameObject> AnimaList = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,11 @@ public class EnemySpawn : MonoBehaviour
         Debug.Log(other);
         Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);
+        foreach (GameObject Anima in AnimaList)
+        {
+            Anima.SetActive(true);
+            Anima.SetActive(false);
+        }
         }
     }
 }

@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
 
         }
-        EnemyStats.MoveNum++;
+        //EnemyStats.MoveNum++;
         /*if (enemyPhase == "attack")
         {
             if (GameManager.instance.PlayerBlock > 1)

@@ -7,8 +7,8 @@ public class Card : MonoBehaviour
     public int ID;
     public string Type;
     public int animaCost;
+    public int profanedAnima;
     public int value;
-    public bool CardAnima;
     public bool Profane;
     public bool Reinforced;
     // Start is called before the first frame update
@@ -23,70 +23,76 @@ public class Card : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        switch (Type)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            case "anima":
-                GameManager.instance.Anima = GameManager.instance.Anima + animaCost;
-                if (GameManager.instance.Anima > 4)
-                {
-                    GameManager.instance.Anima = 4;
-                }
-                CardManager.AnimaChange();
-                break;
-
-            case "attack":
-                if (GameManager.instance.Anima >= animaCost)
-                {
-                    GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
-                    if (GameManager.instance.EnemyBlock > 0)
+            GameManager.instance.Anima = GameManager.instance.Anima + profanedAnima;
+            if (GameManager.instance.Anima > 4)
+            {
+                GameManager.instance.Anima = 4;
+            }
+            CardManager.AnimaChange();
+            Profane = true;
+            CardManager.instance.MoveToDiscard(this);
+        }
+        else
+        {
+            switch (Type)
+            {
+                case "attack":
+                    if (GameManager.instance.Anima >= animaCost)
                     {
-                        int tempvalue = value - GameManager.instance.EnemyBlock;
-                        Debug.Log(tempvalue);
-                        if (tempvalue > 0)
+                        GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
+                        if (GameManager.instance.EnemyBlock > 0)
                         {
-                            GameManager.instance.EnemyHealth = GameManager.instance.EnemyHealth - tempvalue;
-                            UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyHealth.ToString();
-                            GameManager.instance.EnemyBlock = 0;
-                            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
-                        }
-                        else if (tempvalue < 0)
-                        {
-                            GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock - value;
-                            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+                            int tempvalue = value - GameManager.instance.EnemyBlock;
+                            Debug.Log(tempvalue);
+                            if (tempvalue > 0)
+                            {
+                                GameManager.instance.EnemyHealth = GameManager.instance.EnemyHealth - tempvalue;
+                                UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyHealth.ToString();
+                                GameManager.instance.EnemyBlock = 0;
+                                UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+                            }
+                            else if (tempvalue < 0)
+                            {
+                                GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock - value;
+                                UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+                            }
+                            else
+                            {
+                                GameManager.instance.EnemyBlock = 0;
+                                UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+                            }
                         }
                         else
                         {
-                            GameManager.instance.EnemyBlock = 0;
-                            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+                            GameManager.instance.EnemyHealth = GameManager.instance.EnemyHealth - value;
+                            UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyHealth.ToString();
                         }
+                        if (GameManager.instance.Anima < 0)
+                        {
+                            GameManager.instance.Anima = 0;
+                        }
+                        CardManager.AnimaChange();
+                        CardManager.instance.MoveToDiscard(this);
                     }
-                    else
-                    {
-                        GameManager.instance.EnemyHealth = GameManager.instance.EnemyHealth - value;
-                        UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyHealth.ToString();
-                    }
-                    if (GameManager.instance.Anima < 0)
-                    {
-                        GameManager.instance.Anima = 0;
-                    }
-                    CardManager.AnimaChange();
-                }
-                break;
+                    break;
 
-            case "defend":
-                if (GameManager.instance.Anima >= animaCost)
-                {
-                    GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
-                    GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock + value;
-                    UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
-                    if (GameManager.instance.Anima < 0)
+                case "defend":
+                    if (GameManager.instance.Anima >= animaCost)
                     {
-                        GameManager.instance.Anima = 0;
+                        GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
+                        GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock + value;
+                        UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+                        if (GameManager.instance.Anima < 0)
+                        {
+                            GameManager.instance.Anima = 0;
+                        }
+                        CardManager.AnimaChange();
+                        CardManager.instance.MoveToDiscard(this);
                     }
-                    CardManager.AnimaChange();
-                }
-                break;
+                    break;
+            }
         }
-        CardManager.instance.MoveToDiscard(this);
     }
-}
+    }
