@@ -511,7 +511,7 @@ PrefabInstance:
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: Enemy
       value: 
-      objectReference: {fileID: 214638033415366548, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+      objectReference: {fileID: 6765689790105501355, guid: 49cc30775af741d41a6f2130d97f16e1, type: 3}
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: SpawnPoint
       value: 
@@ -1092,6 +1092,8 @@ MonoBehaviour:
   phase_Material: {fileID: 2100000, guid: 66970767088b6854195f7d5f1f1a07e5, type: 2}
   Enemy: {fileID: 0}
   EnemyStats: {fileID: 0}
+  Playerrigidbody: {fileID: 1092779461}
+  BattleCamera: {fileID: 3520169676168527105}
 --- !u!4 &629412297
 Transform:
   m_ObjectHideFlags: 0

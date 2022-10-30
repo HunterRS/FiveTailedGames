@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public GameObject Enemy;
     public EnemyStats EnemyStats;
 
+    public Rigidbody Playerrigidbody;
+    public GameObject BattleCamera;
+
     // Start is called before the first frame update
     private void Awake()
     {

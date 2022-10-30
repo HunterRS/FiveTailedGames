@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e706b3856391f42904c93249864fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 30
+  Health: 20
   Block: 0
-  MoveNum: 0
+  MoveNum: 1
   MovePattern:
   - attack
   - block

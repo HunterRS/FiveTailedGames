@@ -42,32 +42,27 @@ public class Card : MonoBehaviour
                     if (GameManager.instance.Anima >= animaCost)
                     {
                         GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
-                        if (GameManager.instance.EnemyBlock > 0)
+                        if (GameManager.instance.EnemyStats.Block > 0)
                         {
-                            int tempvalue = value - GameManager.instance.EnemyBlock;
+                            int tempvalue = value - GameManager.instance.EnemyStats.Block;
                             Debug.Log(tempvalue);
                             if (tempvalue > 0)
                             {
-                                GameManager.instance.EnemyHealth = GameManager.instance.EnemyHealth - tempvalue;
-                                UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyHealth.ToString();
-                                GameManager.instance.EnemyBlock = 0;
-                                UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+                                GameManager.instance.EnemyStats.Health = GameManager.instance.EnemyStats.Health - tempvalue;
+                                GameManager.instance.EnemyStats.Block = 0;
                             }
                             else if (tempvalue < 0)
                             {
-                                GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock - value;
-                                UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+                                GameManager.instance.EnemyStats.Block = GameManager.instance.EnemyStats.Block - value;
                             }
                             else
                             {
-                                GameManager.instance.EnemyBlock = 0;
-                                UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+                                GameManager.instance.EnemyStats.Block = 0;
                             }
                         }
                         else
                         {
-                            GameManager.instance.EnemyHealth = GameManager.instance.EnemyHealth - value;
-                            UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyHealth.ToString();
+                            GameManager.instance.EnemyStats.Health = GameManager.instance.EnemyStats.Health - value;
                         }
                         if (GameManager.instance.Anima < 0)
                         {
@@ -76,8 +71,15 @@ public class Card : MonoBehaviour
                         CardManager.AnimaChange();
                         CardManager.instance.MoveToDiscard(this);
                     }
+                    if (GameManager.instance.EnemyStats.Health <= 0)
+                    {
+                        Object.Destroy(GameManager.instance.Enemy);
+                        GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+                        GameManager.instance.BattleCamera.SetActive(false);
+                    }
+                    UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
+                    UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyStats.Block.ToString();
                     break;
-
                 case "defend":
                     if (GameManager.instance.Anima >= animaCost)
                     {
