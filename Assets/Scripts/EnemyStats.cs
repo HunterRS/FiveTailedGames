@@ -24,4 +24,3 @@ public class EnemyStats : MonoBehaviour
     }
 
 }
-dsadsa
