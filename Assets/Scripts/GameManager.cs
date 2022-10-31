@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack")
         {
-            if (GameManager.instance.PlayerBlock > 1)
+            if (GameManager.instance.PlayerBlock > 0)
             {
                 int tempvalue = 3 - GameManager.instance.PlayerBlock;
                 if (tempvalue > 0)
@@ -78,7 +78,13 @@ public class GameManager : MonoBehaviour
                 {
                     GameManager.instance.PlayerBlock = 0;
                 }
+                UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
                 Debug.Log("Test");
+            }
+            else if (GameManager.instance.PlayerBlock == 0) {
+                GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
+                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
             }
         }
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
