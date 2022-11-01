@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public GameObject Enemy;
     public EnemyStats EnemyStats;
 
+    public Rigidbody Playerrigidbody;
+    public GameObject BattleCamera;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -57,13 +60,9 @@ public class GameManager : MonoBehaviour
     }
     public void endTurn()
     {
-        if (EnemyStats.MovePattern[0] == "attack")
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack")
         {
-
-        }
-        /*if (enemyPhase == "attack")
-        {
-            if (GameManager.instance.PlayerBlock > 1)
+            if (GameManager.instance.PlayerBlock > 0)
             {
                 int tempvalue = 3 - GameManager.instance.PlayerBlock;
                 if (tempvalue > 0)
@@ -79,25 +78,25 @@ public class GameManager : MonoBehaviour
                 {
                     GameManager.instance.PlayerBlock = 0;
                 }
+                UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
+                Debug.Log("Test");
             }
-            else
-            {
+            else if (GameManager.instance.PlayerBlock == 0) {
                 GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
+                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
             }
-
-            phase_Material.color = new Color(0f, 0f, 1f);
-            enemyPhase = "block";
-            UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
-            UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
         }
-        else
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
         {
             GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
             UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
             phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
-        */
         CardManager.instance.DrawCard(3);
+        if (EnemyStats.MoveNum == EnemyStats.MovePattern.Count - 1) {
+            EnemyStats.MoveNum = 0;
+        } else {EnemyStats.MoveNum++;}
     }
 }
