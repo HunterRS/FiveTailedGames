@@ -84,6 +84,7 @@ public class CardManager : MonoBehaviour
     }
     public void ReshuffleDeck()
     {
+        Debug.Log(Discard.Count);
         foreach (Card DiscardedCard in Discard)
         {
             CurrentDeckList.Add(DiscardedCard);
