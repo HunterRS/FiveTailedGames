@@ -9,7 +9,7 @@ public class AnimaScript : MonoBehaviour
 
     private bool isSet = false;
     private float rate = 0;
-    private Rigidbody RB;
+    public Rigidbody RB;
     // Start is called before the first frame update
     void Start()
     {

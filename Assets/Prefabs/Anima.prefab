@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoint: {fileID: 0}
   SetPoint: {fileID: 0}
+  RB: {fileID: 81052662503144888}
 --- !u!54 &81052662503144888
 Rigidbody:
   m_ObjectHideFlags: 0
