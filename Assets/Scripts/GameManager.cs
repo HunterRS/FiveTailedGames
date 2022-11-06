@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public ParticleSystem corruptFrame;
     public Image corruptVignette;
+    public GameObject HBar;
     public int Anima;
     public int PlayerHealth;
     public int EnemyHealth;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         updateCorruption();
+        updateHP();
     }
 
     private void updateCorruption()
@@ -58,6 +60,12 @@ public class GameManager : MonoBehaviour
             corruptVignette.color = new Color(1, 1, 1, (float)playerCorruption/100);
         }
     }
+
+    private void updateHP()
+    {
+        HBar.transform.localScale = Vector3.MoveTowards(HBar.transform.localScale, new Vector3((float)PlayerHealth/30,.8f,.8f), .0005f);
+    }
+
     public void endTurn()
     {
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack")

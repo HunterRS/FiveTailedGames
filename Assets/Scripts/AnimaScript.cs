@@ -13,7 +13,6 @@ public class AnimaScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RB = GetComponent<Rigidbody>();
         Reset();
         VelReset();
     }
@@ -25,12 +24,18 @@ public class AnimaScript : MonoBehaviour
         {
             RB.AddForce((Vector3)(SetPoint.position - transform.position).normalized * 20);
             transform.position = Vector3.MoveTowards(transform.position, SetPoint.position, rate);
+
             if (Random.value > .985 && transform.position != SetPoint.position)
                 RB.AddForce(new Vector3(Random.value*2-1, Random.value*2-1, Random.value*2-1).normalized * 1);
             if (transform.position == SetPoint.position && RB.velocity == Vector3.zero)
                 isSet = true;
             if (rate < 1)
-                rate += .0005f;
+                rate += .0002f;
+        }
+        if (!isActiveAndEnabled)
+        {
+            Reset();
+            VelReset();
         }
     }
 
@@ -43,6 +48,6 @@ public class AnimaScript : MonoBehaviour
 
     public void VelReset()
     {
-        RB.AddForce(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)).normalized * 1);
+        RB.AddForce(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)).normalized * 100);
     }
 }

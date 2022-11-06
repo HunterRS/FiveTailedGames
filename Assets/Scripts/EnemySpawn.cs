@@ -7,6 +7,8 @@ public class EnemySpawn : MonoBehaviour
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
 
+    private GameObject EnemyInst = new GameObject();
+
     [SerializeField] private GameObject Enemy;
     [SerializeField] private Transform SpawnPoint;
 
@@ -25,9 +27,9 @@ public class EnemySpawn : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-        GameManager.instance.Enemy = Instantiate(Enemy, SpawnPoint.position, transform.rotation);
-        GameManager.instance.EnemyStats = Enemy.GetComponent<EnemyStats>();
-        Debug.Log(other);
+        EnemyInst = Instantiate(Enemy, SpawnPoint.position, transform.rotation);
+        GameManager.instance.Enemy = EnemyInst;
+        GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
         Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);
         }

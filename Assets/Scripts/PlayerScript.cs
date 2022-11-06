@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float maxSpeed;
     public GameObject playerMeshObj;
 
-    private Rigidbody RB;
+    public Rigidbody RB;
     private bool running;
     private Animator playerAnim;
 
@@ -16,7 +16,6 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RB = GetComponent<Rigidbody>();
         playerAnim = playerMeshObj.GetComponent<Animator>();
     }
 

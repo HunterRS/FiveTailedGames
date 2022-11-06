@@ -23,6 +23,7 @@ public class Card : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        Debug.Log("click");
         if (Input.GetKey(KeyCode.LeftShift))
         {
             GameManager.instance.Anima = GameManager.instance.Anima + profanedAnima;

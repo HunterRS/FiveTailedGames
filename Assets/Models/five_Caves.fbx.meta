@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 32788917cd6942b4ab36dbafca3886f0
+guid: 39dc5d03c8ed88245bdec4d59a920891
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: 1827226128182048838
-    second: Take 001
+      74: 5161638068303961212
+    second: Cave_T2|Cave_T2.001|Cave_T2|Cave_T2Action
+  - first:
+      74: 1022525248214278072
+    second: Cave_T2|Cave_T2.001|Cave_T2|Cave_T2Action.001
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -18,7 +21,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
-    motionNodeName: skeleton
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -79,7 +82,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -94,11 +97,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

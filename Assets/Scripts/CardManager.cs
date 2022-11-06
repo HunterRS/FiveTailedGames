@@ -58,6 +58,7 @@ public class CardManager : MonoBehaviour
         }
 
     }
+
     public void DrawCard(int CardAmount)
     {
         Debug.Log(CurrentDeckList.Count);
@@ -73,8 +74,10 @@ public class CardManager : MonoBehaviour
             HandList.Add(NewCard);
             NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
             NewCard.transform.localPosition = new Vector3(0, 0, 0);
+            NewCard.transform.localScale = new Vector3(.2f,.2f,.2f);
         }
     }
+
     public void MoveToDiscard(Card DiscardCard)
     {
         HandList.Remove(DiscardCard);
@@ -82,6 +85,7 @@ public class CardManager : MonoBehaviour
         DiscardCard.transform.SetParent(DiscardParent);
         DiscardCard.transform.localPosition = new Vector3(0, 0, 0);
     }
+
     public void ReshuffleDeck()
     {
         Debug.Log(Discard.Count);
