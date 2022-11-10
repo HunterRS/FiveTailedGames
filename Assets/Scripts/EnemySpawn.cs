@@ -32,6 +32,11 @@ public class EnemySpawn : MonoBehaviour
         GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
         Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);
+        GameManager.instance.AnimaPlaque.SetActive(true);
+        
+        UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
+        UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyStats.Block.ToString();
+        CardManager.instance.DrawCard(3);
         }
     }
 }

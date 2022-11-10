@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
+    public GameObject AnimaPlaque;
 
     // Start is called before the first frame update
     private void Awake()
@@ -103,7 +104,9 @@ public class GameManager : MonoBehaviour
             phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
+
         CardManager.instance.DrawCard(3);
+        
         if (EnemyStats.MoveNum == EnemyStats.MovePattern.Count - 1)
         {
             EnemyStats.MoveNum = 0;

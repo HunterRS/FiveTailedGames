@@ -14,6 +14,7 @@ public class Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -43,44 +44,49 @@ public class Card : MonoBehaviour
                     if (GameManager.instance.Anima >= animaCost)
                     {
                         GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
+                        
                         if (GameManager.instance.EnemyStats.Block > 0)
                         {
                             int tempvalue = value - GameManager.instance.EnemyStats.Block;
                             Debug.Log(tempvalue);
-                            if (tempvalue > 0)
+                            if (tempvalue >= 0)
                             {
                                 GameManager.instance.EnemyStats.Health = GameManager.instance.EnemyStats.Health - tempvalue;
                                 GameManager.instance.EnemyStats.Block = 0;
                             }
-                            else if (tempvalue < 0)
-                            {
-                                GameManager.instance.EnemyStats.Block = GameManager.instance.EnemyStats.Block - value;
-                            }
                             else
                             {
-                                GameManager.instance.EnemyStats.Block = 0;
+                                GameManager.instance.EnemyStats.Block = GameManager.instance.EnemyStats.Block - value;
                             }
                         }
                         else
                         {
                             GameManager.instance.EnemyStats.Health = GameManager.instance.EnemyStats.Health - value;
                         }
+
                         if (GameManager.instance.Anima < 0)
                         {
                             GameManager.instance.Anima = 0;
                         }
+
                         CardManager.AnimaChange();
                         CardManager.instance.MoveToDiscard(this);
                     }
+
                     if (GameManager.instance.EnemyStats.Health <= 0)
                     {
                         Object.Destroy(GameManager.instance.Enemy);
                         GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
                         GameManager.instance.BattleCamera.SetActive(false);
+                        GameManager.instance.AnimaPlaque.SetActive(false);
+                        GameManager.instance.Anima = 0;
+                        CardManager.AnimaChange();
                     }
+
                     UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
                     UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyStats.Block.ToString();
                     break;
+                    
                 case "defend":
                     if (GameManager.instance.Anima >= animaCost)
                     {

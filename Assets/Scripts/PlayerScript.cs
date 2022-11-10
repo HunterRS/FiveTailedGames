@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     private bool running;
     private Animator playerAnim;
 
+    private Vector3 tempDirection = new Vector3(1,0,0);
     private Vector3 runDirection;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         running = false;
         if(RB.velocity.magnitude <= maxSpeed){
@@ -52,7 +53,9 @@ public class PlayerScript : MonoBehaviour
         else
             playerAnim.SetBool("Run",false);
 
-        playerMeshObj.transform.LookAt(playerMeshObj.transform.position + runDirection);
+        
+        tempDirection = Vector3.RotateTowards(playerMeshObj.transform.forward,runDirection,(float)maxSpeed*Time.deltaTime,0.0f);
+        playerMeshObj.transform.rotation = Quaternion.LookRotation(tempDirection);
         }
         if(Input.GetKeyDown("space")){
             RB.AddForce(gameObject.transform.up * charSpeed * 2000);
