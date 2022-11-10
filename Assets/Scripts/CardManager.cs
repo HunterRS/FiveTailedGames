@@ -28,6 +28,7 @@ public class CardManager : MonoBehaviour
     public List<Card> DrawDeckList = new List<Card>();
     public List<Card> HandList = new List<Card>();
     public List<Card> Discard = new List<Card>();
+    public Card[] selectionCards;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -114,6 +115,14 @@ public class CardManager : MonoBehaviour
                 animaArray[i].SetActive(false);
             }
         }
+
+    }
+    public static void StartSelection()
+    {
+
+    }
+    public static void EndSelection()
+    {
 
     }
 }

@@ -11,6 +11,7 @@ public class Card : MonoBehaviour
     public int value;
     public bool Profane;
     public bool Reinforced;
+    public bool selection;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,10 @@ public class Card : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (selection = true)
+        {
+
+        }
         Debug.Log("click");
         if (Input.GetKey(KeyCode.LeftShift))
         {
