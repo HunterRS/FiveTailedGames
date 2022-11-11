@@ -32,6 +32,7 @@ public class CardManager : MonoBehaviour
 
     [SerializeField] private GameObject selectionUI;
     public Card[] selectionCards;
+    public bool selection = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -129,6 +130,30 @@ public class CardManager : MonoBehaviour
         NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
         NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
         selectionCards[0] = NewCard;
+        NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        while (NewCard.ID == selectionCards[0].ID)
+        {
+            NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        }
+        NewCard = Instantiate(NewCard, new Vector3(0, 0, 0), Quaternion.identity);
+        NewCard.transform.SetParent(SelectionParent);
+        NewCard.transform.localPosition = new Vector3(0, 0, 0);
+        NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
+        NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        selectionCards[1] = NewCard;
+        NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        while (NewCard.ID == selectionCards[0].ID || NewCard.ID == selectionCards[1].ID)
+        {
+            NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        }
+        NewCard = Instantiate(NewCard, new Vector3(0, 0, 0), Quaternion.identity);
+        NewCard.transform.SetParent(SelectionParent);
+        NewCard.transform.localPosition = new Vector3(0, 0, 0);
+        NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
+        NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        selectionCards[2] = NewCard;
+
+        selection = true;
     }
     public void EndSelection()
     {

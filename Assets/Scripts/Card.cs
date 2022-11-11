@@ -11,7 +11,6 @@ public class Card : MonoBehaviour
     public int value;
     public bool Profane;
     public bool Reinforced;
-    public bool selection;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +19,13 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
     private void OnMouseDown()
     {
-        if (selection = true)
+        if (CardManager.instance.selection == true)
         {
-
+            CardManager.instance.CurrentDeckList.Add(this);
+            CardManager.instance.EndSelection();
         }
         Debug.Log("click");
         if (Input.GetKey(KeyCode.LeftShift))
