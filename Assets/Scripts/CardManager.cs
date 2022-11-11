@@ -19,6 +19,7 @@ public class CardManager : MonoBehaviour
     [SerializeField] private Transform DiscardParent;
     [SerializeField] private Transform HandParent;
     [SerializeField] private Transform DeckParent;
+    [SerializeField] private Transform SelectionParent;
 
     [SerializeField]    private List<Card> StartDeckList = new List<Card>();
     [SerializeField]    private List<Card> CardList = new List<Card>();
@@ -28,6 +29,8 @@ public class CardManager : MonoBehaviour
     public List<Card> DrawDeckList = new List<Card>();
     public List<Card> HandList = new List<Card>();
     public List<Card> Discard = new List<Card>();
+
+    [SerializeField] private GameObject selectionUI;
     public Card[] selectionCards;
     // Start is called before the first frame update
     private void Awake()
@@ -117,11 +120,17 @@ public class CardManager : MonoBehaviour
         }
 
     }
-    public static void StartSelection()
+    public void StartSelection()
     {
-
+        selectionUI.SetActive(true);
+        NewCard = Instantiate(CardList[Random.Range(0, CardList.Count - 1)], new Vector3( 0,0,0), Quaternion.identity);
+        NewCard.transform.SetParent(SelectionParent);
+        NewCard.transform.localPosition = new Vector3(0, 0, 0);
+        NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
+        NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        selectionCards[0] = NewCard;
     }
-    public static void EndSelection()
+    public void EndSelection()
     {
 
     }

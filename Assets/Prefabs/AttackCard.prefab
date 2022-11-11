@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 2778366278270623581, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: Type
       value: attack

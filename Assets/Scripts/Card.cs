@@ -82,6 +82,7 @@ public class Card : MonoBehaviour
                         Object.Destroy(GameManager.instance.Enemy);
                         GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
                         GameManager.instance.BattleCamera.SetActive(false);
+                        CardManager.instance.StartSelection();
                     }
                     UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
                     UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyStats.Block.ToString();
