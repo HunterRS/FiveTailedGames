@@ -90,7 +90,16 @@ public class CardManager : MonoBehaviour
         DiscardCard.transform.SetParent(DiscardParent);
         DiscardCard.transform.localPosition = new Vector3(0, 0, 0);
     }
-
+    public void DiscardHand()
+    {
+        foreach (Card HandCard in HandList)
+        {
+            Discard.Add(HandCard);
+            HandCard.transform.SetParent(HandParent);
+            HandCard.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        HandList.Clear();
+    }
     public void ReshuffleDeck()
     {
         Debug.Log(Discard.Count);
@@ -123,6 +132,7 @@ public class CardManager : MonoBehaviour
     }
     public void StartSelection()
     {
+        GameManager.instance.BattleCamera.SetActive(false);
         selectionUI.SetActive(true);
         NewCard = Instantiate(CardList[Random.Range(0, CardList.Count - 1)], new Vector3( 0,0,0), Quaternion.identity);
         NewCard.transform.SetParent(SelectionParent);
@@ -157,6 +167,9 @@ public class CardManager : MonoBehaviour
     }
     public void EndSelection()
     {
-
+        DiscardHand();
+        ReshuffleDeck();
+        GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        selectionUI.SetActive(false);
     }
 }

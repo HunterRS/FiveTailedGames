@@ -29,9 +29,11 @@ public class EnemySpawn : MonoBehaviour
         {
         EnemyInst = Instantiate(Enemy, SpawnPoint.position, transform.rotation);
         GameManager.instance.Enemy = EnemyInst;
+       // GameManager.instance.EnemySpawner = this.gameObject;
         GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
         Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);
+        Destroy(this.gameObject);
         }
     }
 }

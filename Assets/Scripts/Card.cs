@@ -26,6 +26,7 @@ public class Card : MonoBehaviour
         {
             CardManager.instance.CurrentDeckList.Add(this);
             CardManager.instance.EndSelection();
+            return;
         }
         Debug.Log("click");
         if (Input.GetKey(KeyCode.LeftShift))
@@ -79,8 +80,6 @@ public class Card : MonoBehaviour
                     if (GameManager.instance.EnemyStats.Health <= 0)
                     {
                         Object.Destroy(GameManager.instance.Enemy);
-                        GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-                        GameManager.instance.BattleCamera.SetActive(false);
                         CardManager.instance.StartSelection();
                     }
                     UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
