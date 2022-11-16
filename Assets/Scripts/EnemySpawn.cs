@@ -29,14 +29,11 @@ public class EnemySpawn : MonoBehaviour
         {
         EnemyInst = Instantiate(Enemy, SpawnPoint.position, transform.rotation);
         GameManager.instance.Enemy = EnemyInst;
+       // GameManager.instance.EnemySpawner = this.gameObject;
         GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
         Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);
-        GameManager.instance.AnimaPlaque.SetActive(true);
-        
-        UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
-        UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyStats.Block.ToString();
-        CardManager.instance.DrawCard(3);
+        Destroy(this.gameObject);
         }
     }
 }

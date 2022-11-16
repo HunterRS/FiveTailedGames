@@ -19,6 +19,7 @@ public class CardManager : MonoBehaviour
     [SerializeField] private Transform DiscardParent;
     [SerializeField] private Transform HandParent;
     [SerializeField] private Transform DeckParent;
+    [SerializeField] private Transform SelectionParent;
 
     [SerializeField]    private List<Card> StartDeckList = new List<Card>();
     [SerializeField]    private List<Card> CardList = new List<Card>();
@@ -28,6 +29,10 @@ public class CardManager : MonoBehaviour
     public List<Card> DrawDeckList = new List<Card>();
     public List<Card> HandList = new List<Card>();
     public List<Card> Discard = new List<Card>();
+
+    [SerializeField] private GameObject selectionUI;
+    public Card[] selectionCards;
+    public bool selection = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -85,7 +90,16 @@ public class CardManager : MonoBehaviour
         DiscardCard.transform.SetParent(DiscardParent);
         DiscardCard.transform.localPosition = new Vector3(0, 0, 0);
     }
-
+    public void DiscardHand()
+    {
+        foreach (Card HandCard in HandList)
+        {
+            Discard.Add(HandCard);
+            HandCard.transform.SetParent(HandParent);
+            HandCard.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        HandList.Clear();
+    }
     public void ReshuffleDeck()
     {
         Debug.Log(Discard.Count);
@@ -115,5 +129,47 @@ public class CardManager : MonoBehaviour
             }
         }
 
+    }
+    public void StartSelection()
+    {
+        GameManager.instance.BattleCamera.SetActive(false);
+        selectionUI.SetActive(true);
+        NewCard = Instantiate(CardList[Random.Range(0, CardList.Count - 1)], new Vector3( 0,0,0), Quaternion.identity);
+        NewCard.transform.SetParent(SelectionParent);
+        NewCard.transform.localPosition = new Vector3(0, 0, 0);
+        NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
+        NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        selectionCards[0] = NewCard;
+        NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        while (NewCard.ID == selectionCards[0].ID)
+        {
+            NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        }
+        NewCard = Instantiate(NewCard, new Vector3(0, 0, 0), Quaternion.identity);
+        NewCard.transform.SetParent(SelectionParent);
+        NewCard.transform.localPosition = new Vector3(0, 0, 0);
+        NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
+        NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        selectionCards[1] = NewCard;
+        NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        while (NewCard.ID == selectionCards[0].ID || NewCard.ID == selectionCards[1].ID)
+        {
+            NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        }
+        NewCard = Instantiate(NewCard, new Vector3(0, 0, 0), Quaternion.identity);
+        NewCard.transform.SetParent(SelectionParent);
+        NewCard.transform.localPosition = new Vector3(0, 0, 0);
+        NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
+        NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        selectionCards[2] = NewCard;
+
+        selection = true;
+    }
+    public void EndSelection()
+    {
+        DiscardHand();
+        ReshuffleDeck();
+        GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        selectionUI.SetActive(false);
     }
 }
