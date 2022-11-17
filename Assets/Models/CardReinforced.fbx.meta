@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: 39dc5d03c8ed88245bdec4d59a920891
+guid: f21fca7b9df3d744598946647ef70d28
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable:
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      74: 5161638068303961212
-    second: Cave_T2|Cave_T2.001|Cave_T2|Cave_T2Action
-  - first:
-      74: 1022525248214278072
-    second: Cave_T2|Cave_T2.001|Cave_T2|Cave_T2Action.001
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 85cd098e08bf47a4cb935fd1ce8ed9d2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -43,7 +42,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 20
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
@@ -97,7 +96,7 @@ ModelImporter:
     globalScale: 20
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1

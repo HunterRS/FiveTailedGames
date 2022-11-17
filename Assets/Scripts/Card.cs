@@ -70,21 +70,29 @@ public class Card : MonoBehaviour
                         {
                             GameManager.instance.EnemyStats.Health = GameManager.instance.EnemyStats.Health - value;
                         }
+
                         if (GameManager.instance.Anima < 0)
                         {
                             GameManager.instance.Anima = 0;
                         }
-                        CardManager.AnimaChange();
+
                         CardManager.instance.MoveToDiscard(this);
                     }
+
                     if (GameManager.instance.EnemyStats.Health <= 0)
                     {
+                        GameManager.instance.Anima = 0;
+
                         Object.Destroy(GameManager.instance.Enemy);
                         CardManager.instance.StartSelection();
                     }
+                    
+                    CardManager.AnimaChange();
+
                     UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
                     UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyStats.Block.ToString();
                     break;
+
                 case "defend":
                     if (GameManager.instance.Anima >= animaCost)
                     {
