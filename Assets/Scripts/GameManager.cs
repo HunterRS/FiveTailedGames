@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         updateHP();
     }
 
-    private void updateCorruption()
+    public void updateCorruption()
     {
         if (playerCorruption < 10)
         {
@@ -104,13 +104,13 @@ public class GameManager : MonoBehaviour
             phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
-
-        CardManager.instance.DrawCard(3);
         
         if (EnemyStats.MoveNum == EnemyStats.MovePattern.Count - 1)
         {
             EnemyStats.MoveNum = 0;
         }
         else { EnemyStats.MoveNum++; }
+
+        CardManager.instance.DrawCard(3);
     }
 }

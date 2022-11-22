@@ -1870,6 +1870,10 @@ MonoBehaviour:
   - {fileID: 8520119545592729383, guid: 0332fcdb3f8c61d46ad7f4fc49bae990, type: 3}
   - {fileID: 5537692646374465108, guid: e8e9ee9e53935fa4f8b59f07bb24244b, type: 3}
   - {fileID: 3553345969603315353, guid: 1646b7a094f01ac40830ad7c3f2532db, type: 3}
+  - {fileID: 7837401983003039822, guid: 7f4e981c3607e9b4b88ce4ea6320239f, type: 3}
+  - {fileID: 2676014400792105678, guid: 4f9b76025feeb104f87a64c2e3ee5cfb, type: 3}
+  - {fileID: 5658682757702529185, guid: 10854758890912342a1c36ef2d3538f1, type: 3}
+  - {fileID: 190778113572410652, guid: ae9c61a987be1154dbcf88dc9433e2dc, type: 3}
   CurrentDeckList: []
   DrawDeckList: []
   HandList: []

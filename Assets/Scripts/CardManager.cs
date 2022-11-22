@@ -73,7 +73,7 @@ public class CardManager : MonoBehaviour
             {
                 ReshuffleDeck();
             }
-            NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count - 1)];
+            NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count)];
             NewCard.transform.SetParent(HandParent);
             CurrentDeckList.Remove(NewCard);
             HandList.Add(NewCard);
@@ -134,16 +134,16 @@ public class CardManager : MonoBehaviour
     {
         GameManager.instance.BattleCamera.SetActive(false);
         selectionUI.SetActive(true);
-        NewCard = Instantiate(CardList[Random.Range(0, CardList.Count - 1)], new Vector3( 0,0,0), Quaternion.identity);
+        NewCard = Instantiate(CardList[Random.Range(0, CardList.Count)], new Vector3( 0,0,0), Quaternion.identity);
         NewCard.transform.SetParent(SelectionParent);
         NewCard.transform.localPosition = new Vector3(0, 0, 0);
         NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
         NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
         selectionCards[0] = NewCard;
-        NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        NewCard = CardList[Random.Range(0, CardList.Count)];
         while (NewCard.ID == selectionCards[0].ID)
         {
-            NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+            NewCard = CardList[Random.Range(0, CardList.Count)];
         }
         NewCard = Instantiate(NewCard, new Vector3(0, 0, 0), Quaternion.identity);
         NewCard.transform.SetParent(SelectionParent);
@@ -151,10 +151,10 @@ public class CardManager : MonoBehaviour
         NewCard.transform.localScale = new Vector3(1f, 1f, 1f);
         NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
         selectionCards[1] = NewCard;
-        NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+        NewCard = CardList[Random.Range(0, CardList.Count)];
         while (NewCard.ID == selectionCards[0].ID || NewCard.ID == selectionCards[1].ID)
         {
-            NewCard = CardList[Random.Range(0, CardList.Count - 1)];
+            NewCard = CardList[Random.Range(0, CardList.Count)];
         }
         NewCard = Instantiate(NewCard, new Vector3(0, 0, 0), Quaternion.identity);
         NewCard.transform.SetParent(SelectionParent);

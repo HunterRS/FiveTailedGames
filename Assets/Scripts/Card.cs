@@ -9,6 +9,11 @@ public class Card : MonoBehaviour
     public int animaCost;
     public int profanedAnima;
     public int value;
+    public int profanedValue;
+    public bool secondaryEffect;
+    public string secondaryEffectName;
+    public int secondaryEffectValue;
+    public int profanedSecondaryEffectValue;
     public bool Profane;
     public bool Reinforced;
     // Start is called before the first frame update
@@ -39,37 +44,107 @@ public class Card : MonoBehaviour
             CardManager.AnimaChange();
             Profane = true;
             CardManager.instance.MoveToDiscard(this);
+            return;
         }
         else
         {
-            switch (Type)
+            if (Profane == true)
             {
-                case "attack":
-                    Attack(value);
-                    break;
+                switch (Type)
+                {
+                    case "attack":
+                        Attack(profanedValue);
+                        break;
 
-                case "defend":
-                    Defend(value);
-                    break;
+                    case "defend":
+                        Defend(profanedValue);
+                        break;
 
-                case "triattack":
-                    Attack(value);
-                    Attack(value);
-                    Attack(value);
-                    break;
+                    case "triattack":
+                        Attack(profanedValue);
+                        Attack(profanedValue);
+                        Attack(profanedValue);
+                        break;
 
-                case "discardattack":
-                    break;
+                    case "discardattack":
+                        Attack(CardManager.instance.Discard.Count);
+                        break;
 
-                case "handattack":
-                    break;
+                    case "handattack":
+                        Attack(CardManager.instance.HandList.Count);
+                        break;
 
-                case "discarddefend":
-                    break;
+                    case "discarddefend":
+                        Defend(CardManager.instance.Discard.Count);
+                        break;
 
-                case "handdefend":
-                    break;
+                    case "handdefend":
+                        Defend(CardManager.instance.HandList.Count);
+                        break;
+
+                    case "cleanse":
+                        Cleanse(profanedValue);
+                        break;
+                }
+                if (secondaryEffect == true)
+                {
+                    switch (secondaryEffectName)
+                    {
+                        case "cleanse":
+                            Cleanse(profanedSecondaryEffectValue);
+                            break;
+                    }
+                }
             }
+            else
+            {
+                switch (Type)
+                {
+                    case "attack":
+                        Attack(value);
+                        break;
+
+                    case "defend":
+                        Defend(value);
+                        break;
+
+                    case "triattack":
+                        Attack(value);
+                        Attack(value);
+                        Attack(value);
+                        break;
+
+                    case "discardattack":
+                        Attack(CardManager.instance.Discard.Count);
+                        break;
+
+                    case "handattack":
+                        Attack(CardManager.instance.HandList.Count);
+                        break;
+
+                    case "discarddefend":
+                        Defend(CardManager.instance.Discard.Count);
+                        break;
+
+                    case "handdefend":
+                        Defend(CardManager.instance.HandList.Count);
+                        break;
+
+                    case "cleanse":
+                        Cleanse(value);
+                        break;
+                }
+                if (secondaryEffect == true)
+                {
+                    switch (secondaryEffectName)
+                    {
+                        case "cleanse":
+                            Cleanse(secondaryEffectValue);
+                            break;
+                    }
+                }
+            }
+
         }
     }
 
@@ -137,5 +212,11 @@ public class Card : MonoBehaviour
             CardManager.AnimaChange();
             CardManager.instance.MoveToDiscard(this);
         }
+    }
+    private void Cleanse(int cleansePower)
+    {
+        GameManager.instance.playerCorruption += cleansePower;
+        GameManager.instance.updateCorruption();
+        CardManager.instance.MoveToDiscard(this);
     }
 }
