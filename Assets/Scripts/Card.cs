@@ -30,6 +30,8 @@ public class Card : MonoBehaviour
         if (CardManager.instance.selection == true)
         {
             CardManager.instance.CurrentDeckList.Add(this);
+            this.transform.SetParent(CardManager.instance.startDeckParent);
+            this.transform.localPosition = new Vector3(0, 0, 0);
             CardManager.instance.EndSelection();
             return;
         }
@@ -42,9 +44,17 @@ public class Card : MonoBehaviour
                 GameManager.instance.Anima = 4;
             }
             CardManager.AnimaChange();
-            Profane = true;
-            CardManager.instance.MoveToDiscard(this);
-            return;
+            if (Profane == true)
+            {
+                CardManager.instance.HandList.Remove(this);
+                GameObject.Destroy(this.gameObject);
+            }
+            else
+            {
+                Profane = true;
+                CardManager.instance.MoveToDiscard(this);
+                return;
+            }
         }
         else
         {
@@ -84,6 +94,10 @@ public class Card : MonoBehaviour
 
                     case "cleanse":
                         Cleanse(profanedValue);
+                        break;
+
+                    case "heal":
+                        Heal(profanedValue);
                         break;
                 }
                 if (secondaryEffect == true)
@@ -132,6 +146,10 @@ public class Card : MonoBehaviour
 
                     case "cleanse":
                         Cleanse(value);
+                        break;
+
+                    case "heal":
+                        Heal(value);
                         break;
                 }
                 if (secondaryEffect == true)
@@ -217,6 +235,15 @@ public class Card : MonoBehaviour
     {
         GameManager.instance.playerCorruption += cleansePower;
         GameManager.instance.updateCorruption();
+        CardManager.instance.MoveToDiscard(this);
+    }
+    private void Heal(int healPower)
+    {
+        GameManager.instance.PlayerHealth += healPower;
+        if (GameManager.instance.PlayerHealth > 100 /* Replace with Max hehalth */)
+        {
+            GameManager.instance.PlayerHealth = 100;
+        }
         CardManager.instance.MoveToDiscard(this);
     }
 }

@@ -20,13 +20,14 @@ public class CardManager : MonoBehaviour
     [SerializeField] private Transform HandParent;
     [SerializeField] private Transform DeckParent;
     [SerializeField] private Transform SelectionParent;
+    [SerializeField] public Transform startDeckParent;
 
     [SerializeField]    private List<Card> StartDeckList = new List<Card>();
     [SerializeField]    private List<Card> CardList = new List<Card>();
 
     public List<Card> CurrentDeckList = new List<Card>();
 
-    public List<Card> DrawDeckList = new List<Card>();
+    public List<Card> battleDeckList = new List<Card>();
     public List<Card> HandList = new List<Card>();
     public List<Card> Discard = new List<Card>();
 
@@ -63,19 +64,28 @@ public class CardManager : MonoBehaviour
         }
 
     }
+    public void CreateBattleDeck()
+    {
+        for (int i = 0; i < CurrentDeckList.Count; i++)
+        {
+            NewCard = Instantiate(CurrentDeckList[i], new Vector3(0, 0, 0), Quaternion.identity);
+            NewCard.transform.SetParent(DeckParent);
+            battleDeckList.Add(NewCard);
 
+        }
+    }
     public void DrawCard(int CardAmount)
     {
-        Debug.Log(CurrentDeckList.Count);
+        Debug.Log(battleDeckList.Count);
         for (int i = 0; i < CardAmount; i++)
         {
-            if (CurrentDeckList.Count == 0)
+            if (battleDeckList.Count == 0)
             {
                 ReshuffleDeck();
             }
-            NewCard = CurrentDeckList[Random.Range(0, CurrentDeckList.Count)];
+            NewCard = battleDeckList[Random.Range(0, battleDeckList.Count)];
             NewCard.transform.SetParent(HandParent);
-            CurrentDeckList.Remove(NewCard);
+            battleDeckList.Remove(NewCard);
             HandList.Add(NewCard);
             NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
             NewCard.transform.localPosition = new Vector3(0, 0, 0);
@@ -105,7 +115,7 @@ public class CardManager : MonoBehaviour
         Debug.Log(Discard.Count);
         foreach (Card DiscardedCard in Discard)
         {
-            CurrentDeckList.Add(DiscardedCard);
+            battleDeckList.Add(DiscardedCard);
             DiscardedCard.transform.SetParent(DeckParent);
             DiscardedCard.transform.localPosition = new Vector3(0, 0, 0);
         }
@@ -167,8 +177,14 @@ public class CardManager : MonoBehaviour
     }
     public void EndSelection()
     {
-        DiscardHand();
-        ReshuffleDeck();
+        foreach (Transform child in HandParent)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (Transform child in DeckParent)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         selectionUI.SetActive(false);
     }
