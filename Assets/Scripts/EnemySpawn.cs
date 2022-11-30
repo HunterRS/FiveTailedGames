@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
 
-    private GameObject EnemyInst = new GameObject();
+    private GameObject EnemyInst;
 
     [SerializeField] private GameObject Enemy;
     [SerializeField] private Transform SpawnPoint;
@@ -34,6 +34,7 @@ public class EnemySpawn : MonoBehaviour
         Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);
         Destroy(this.gameObject);
+        CardManager.instance.CreateBattleDeck();
         }
     }
 }

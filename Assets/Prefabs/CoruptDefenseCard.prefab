@@ -55,6 +55,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1452583955133727643, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_text
+      value: 'Adds 8 Block
+
+        Increases Corruption by 10'
+      objectReference: {fileID: 0}
     - target: {fileID: 1891257270936820066, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_text
       value: Corrupt Defense
@@ -78,6 +84,26 @@ PrefabInstance:
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: profanedAnima
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: profanedValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: secondaryEffect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: secondaryEffectName
+      value: cleanse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: secondaryEffectValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: profanedSecondaryEffectValue
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
