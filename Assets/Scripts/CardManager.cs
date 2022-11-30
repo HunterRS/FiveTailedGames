@@ -82,6 +82,14 @@ public class CardManager : MonoBehaviour
             if (battleDeckList.Count == 0)
             {
                 ReshuffleDeck();
+                if (battleDeckList.Count == 0 && Discard.Count == 0 && HandList.Count == 0)
+                {
+                    Camera.main.GetComponent<Animator>().enabled = true;
+                }
+                else
+                {
+                    return;
+                }
             }
             NewCard = battleDeckList[Random.Range(0, battleDeckList.Count)];
             NewCard.transform.SetParent(HandParent);

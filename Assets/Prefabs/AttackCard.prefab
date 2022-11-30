@@ -61,7 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1891257270936820066, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_text
-      value: Attack
+      value: Claw
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334245902067870203, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_text
+      value: Strike for 3 Damage
       objectReference: {fileID: 0}
     - target: {fileID: 2778366278270623581, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_IsActive
@@ -86,6 +90,14 @@ PrefabInstance:
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: profanedValue
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333176677310252833, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786908720870413478, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}

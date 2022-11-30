@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Card : MonoBehaviour
     public int profanedSecondaryEffectValue;
     public bool Profane;
     public bool Reinforced;
+
+    public GameObject nDesc;
+    public GameObject cDesc;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,53 @@ public class Card : MonoBehaviour
     void Update()
     {
     }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            if (Profane == false)
+            {
+                nDesc.SetActive(false);
+                cDesc.SetActive(true);
+            }
+            else
+            {
+                nDesc.SetActive(true);
+                cDesc.SetActive(false);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            if (Profane == false)
+            {
+                nDesc.SetActive(true);
+                cDesc.SetActive(false);
+            }
+            else
+            {
+                nDesc.SetActive(false);
+                cDesc.SetActive(true);
+            }
+        }
+    }
+    private void OnMouseExit()
+    {
+        if (Profane == false)
+        {
+            nDesc.SetActive(true);
+            cDesc.SetActive(false);
+        }
+        else
+        {
+            nDesc.SetActive(false);
+            cDesc.SetActive(true);
+        }
+    }
+
+
+
     private void OnMouseDown()
     {
         if (CardManager.instance.selection == true)
@@ -46,11 +97,14 @@ public class Card : MonoBehaviour
             CardManager.AnimaChange();
             if (Profane == true)
             {
+                Debug.Log("Profaned");
                 CardManager.instance.HandList.Remove(this);
                 GameObject.Destroy(this.gameObject);
+                return;
             }
             else
             {
+                Debug.Log("Profaning");
                 Profane = true;
                 CardManager.instance.MoveToDiscard(this);
                 return;
@@ -199,7 +253,6 @@ public class Card : MonoBehaviour
             {
                 GameManager.instance.Anima = 0;
             }
-
             CardManager.instance.MoveToDiscard(this);
         }
 
@@ -233,17 +286,25 @@ public class Card : MonoBehaviour
     }
     private void Cleanse(int cleansePower)
     {
-        GameManager.instance.playerCorruption += cleansePower;
-        GameManager.instance.updateCorruption();
-        CardManager.instance.MoveToDiscard(this);
+        if (GameManager.instance.Anima >= animaCost)
+        {
+            GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
+            GameManager.instance.playerCorruption += cleansePower;
+            GameManager.instance.updateCorruption();
+            CardManager.instance.MoveToDiscard(this);
+        }
     }
     private void Heal(int healPower)
     {
-        GameManager.instance.PlayerHealth += healPower;
-        if (GameManager.instance.PlayerHealth > 100 /* Replace with Max hehalth */)
+        if (GameManager.instance.Anima >= animaCost)
         {
-            GameManager.instance.PlayerHealth = 100;
+            GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
+            GameManager.instance.PlayerHealth += healPower;
+            if (GameManager.instance.PlayerHealth > 100 /* Replace with Max hehalth */)
+            {
+                GameManager.instance.PlayerHealth = 100;
+            }
+            CardManager.instance.MoveToDiscard(this);
         }
-        CardManager.instance.MoveToDiscard(this);
     }
 }

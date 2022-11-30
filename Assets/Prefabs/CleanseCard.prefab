@@ -61,7 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1891257270936820066, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_text
-      value: Cleanse
+      value: Meditation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334245902067870203, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_text
+      value: Add 10 Corruption
       objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: ID
@@ -86,6 +90,14 @@ PrefabInstance:
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: profanedValue
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6365101102410326489, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752515848713531871, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_text
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}

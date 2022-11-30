@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: m_text
       value: DiscardDefense
       objectReference: {fileID: 0}
+    - target: {fileID: 2334245902067870203, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_text
+      value: Adds 1 Block for every card in discard
+      objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: Type
       value: discarddefend

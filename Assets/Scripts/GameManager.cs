@@ -60,15 +60,25 @@ public class GameManager : MonoBehaviour
             corruptFrame.startLifetime = (float)playerCorruption / 100 * 9;
             corruptVignette.color = new Color(1, 1, 1, (float)playerCorruption/100);
         }
+        if (playerCorruption >= 100)
+        {
+            Camera.main.GetComponent<Animator>().enabled = true;
+        }
+
     }
 
     private void updateHP()
     {
         HBar.transform.localScale = Vector3.MoveTowards(HBar.transform.localScale, new Vector3((float)PlayerHealth/30,.8f,.8f), .0005f);
+        if (PlayerHealth <= 0)
+        {
+            Camera.main.GetComponent<Animator>().enabled = true;
+        }
     }
 
     public void endTurn()
     {
+        GameManager.instance.EnemyBlock = 0;
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack")
         {
             if (GameManager.instance.PlayerBlock > 0)
@@ -87,20 +97,16 @@ public class GameManager : MonoBehaviour
                 {
                     GameManager.instance.PlayerBlock = 0;
                 }
-                UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
-                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
                 Debug.Log("Test");
             }
             else if (GameManager.instance.PlayerBlock == 0)
             {
                 GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
-                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
             }
         }
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
         {
             GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
-            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
             phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
@@ -112,5 +118,9 @@ public class GameManager : MonoBehaviour
         else { EnemyStats.MoveNum++; }
 
         CardManager.instance.DrawCard(3);
+        PlayerBlock = 0;
+        UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+        UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+        UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
     }
 }
