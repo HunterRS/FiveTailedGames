@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1452583955133727643, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_text
+      value: Deals 4 Damage for every card in hand
+      objectReference: {fileID: 0}
     - target: {fileID: 1891257270936820066, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_text
       value: HandAttack
