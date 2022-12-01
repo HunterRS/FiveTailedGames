@@ -2059,7 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de32ecbf2a02cf94d96aca53baaf6522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCorruption: 80
+  playerCorruption: 0
   corruptFrame: {fileID: 3520169674914893568}
   corruptVignette: {fileID: 3520169675385122886}
   HBar: {fileID: 5741794378748330437}
@@ -2076,6 +2076,7 @@ MonoBehaviour:
   Playerrigidbody: {fileID: 1092779461}
   BattleCamera: {fileID: 3520169676168527105}
   AnimaPlaque: {fileID: 1654858762}
+  TutorialFight: 0
 --- !u!4 &629412297
 Transform:
   m_ObjectHideFlags: 0
@@ -2094,6 +2095,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &635789834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4613476891235715242, guid: 3b4f26b8f2cb8c843b784055db8b7d65, type: 3}
+  m_PrefabInstance: {fileID: 608090707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &635789838
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635789834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2628972628591738867, guid: 3b4f26b8f2cb8c843b784055db8b7d65, type: 3}
 --- !u!1001 &647758417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4982,7 +5002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092779455}
   m_LocalRotation: {x: -0, y: 0.10594375, z: -0, w: 0.9943721}
-  m_LocalPosition: {x: -269, y: -82.6, z: 664.25}
+  m_LocalPosition: {x: 96, y: 47.2, z: -560}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5974,6 +5994,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6485b312bc3e22499c50e3362b04a8b, type: 3}
+--- !u!1 &1755204031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1755204033}
+  - component: {fileID: 1755204032}
+  m_Layer: 0
+  m_Name: CaveGenObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1755204032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755204031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d9050090588ac45bc301e8e48e5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cave1: {fileID: 5944988246402042085, guid: 7290bfdef7cca6f47b7fa3a75d3008fc, type: 3}
+  Cave2: {fileID: 2289314625838242952, guid: 75a3076ec2211ef429bee17cef235b9a, type: 3}
+  Cave3: {fileID: 5256153435361124583, guid: c2029f79207682345ba007670449920f, type: 3}
+--- !u!4 &1755204033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755204031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13754.875, y: -6755.1924, z: -2015.2937}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765825351 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7094161544771493823, guid: f6485b312bc3e22499c50e3362b04a8b, type: 3}

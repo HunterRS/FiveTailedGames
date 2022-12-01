@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6312428536686427278}
   - component: {fileID: 6953661888174559821}
   - component: {fileID: 669338084261922493}
+  - component: {fileID: 6773117456718188085}
   m_Layer: 0
   m_Name: Cave_T1
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6773117456718188085
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653005154508720253}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2628972628591738867, guid: 39dc5d03c8ed88245bdec4d59a920891, type: 3}
 --- !u!1 &2289314625838242952
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,15 @@ public class EnemySpawn : MonoBehaviour
         BattleCamera.SetActive(true);
         Destroy(this.gameObject);
         CardManager.instance.CreateBattleDeck();
+        /* 
+        if (Gamemanager.instance.TutorialFight == true)
+        {
+            GameManager.instance.RunFirstFight();
+            
+        }
+        
+        
+        */
         }
     }
 }

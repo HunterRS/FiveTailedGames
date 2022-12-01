@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public GameObject BattleCamera;
     public GameObject AnimaPlaque;
 
+    public bool TutorialFight;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
         else
         {
             corruptFrame.gameObject.SetActive(true);
-            corruptFrame.startLifetime = (float)playerCorruption / 100 * 9;
+            corruptFrame.startLifetime = ((float)playerCorruption/2) / 100 * 9;
             corruptVignette.color = new Color(1, 1, 1, (float)playerCorruption/100);
         }
         if (playerCorruption >= 100)
