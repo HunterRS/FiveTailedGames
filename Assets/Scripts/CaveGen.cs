@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CaveGen : MonoBehaviour
 {
+    [Header("Caves")]
     public GameObject Cave1;
     public GameObject Cave2;
     public GameObject Cave3;

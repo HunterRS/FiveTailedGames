@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Scene Names")]
     public string gameScene;
 
     // Start is called before the first frame update

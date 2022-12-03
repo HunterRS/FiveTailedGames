@@ -5,6 +5,7 @@ using TMPro;
 
 public class Card : MonoBehaviour
 {
+    [Header("Card Stats")]
     public int ID;
     public string Type;
     public int animaCost;
@@ -15,9 +16,10 @@ public class Card : MonoBehaviour
     public string secondaryEffectName;
     public int secondaryEffectValue;
     public int profanedSecondaryEffectValue;
+    [Header("Card Bools")]
     public bool Profane;
     public bool Reinforced;
-
+    [Header("Text Fields")]
     public GameObject nDesc;
     public GameObject cDesc;
     // Start is called before the first frame update

@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class DeathCamera : MonoBehaviour
 {
+    [Header("UI Elements")]
     public GameObject HUD;
     public GameObject animaPlaque;
     public GameObject Amulet;
     public GameObject Cloth;
     public GameObject CombatCanvas;
+    [Header("Scene Names")]
     public string endSceneName;
     // Start is called before the first frame update
     void Start()

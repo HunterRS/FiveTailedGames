@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawn : MonoBehaviour
+public class RandomSpawn : MonoBehaviour
 {
+    [Header("Player and UI Aspects")]
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
 
+    [Header("Enemey Instances")]
     private GameObject EnemyInst;
-
     [SerializeField] private GameObject Enemy;
     [SerializeField] private Transform SpawnPoint;
+
+    [Header("Misc")]
     Vector3 currentEulerAngles;
     // Start is called before the first frame update
     void Start()

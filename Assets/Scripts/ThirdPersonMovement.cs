@@ -4,32 +4,35 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    public Transform orientation;
+    [Header("Player Info")]
     public Transform player;
     public Transform playerObj;
     public Rigidbody rb;
+    public Transform orientation;
+    public float playerHeight;
+    private Animator playerAnim;
+    public GameObject playerMeshObj;
 
+    [Header("Move Variables")]
     public float rotationSpeed;
     public float groundDrag;
-
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
+    public float moveSpeed;
     bool readytoJump;
 
+    [Header("Slope Data")]
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
 
-    public float moveSpeed;
+    [Header("Move Misc")]
     float horizontalInput;
     float verticalInput;
     Vector3 moveDirection;
-    public float playerHeight;
     public LayerMask whatisGround;
     bool grounded;
 
-    private Animator playerAnim;
-    public GameObject playerMeshObj;
     // Start is called before the first frame update
     void Start()
     {
