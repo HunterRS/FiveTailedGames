@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public bool TutorialFight;
 
+    public GameObject CameraGimbal;
     // Start is called before the first frame update
     private void Awake()
     {

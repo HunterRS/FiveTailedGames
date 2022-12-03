@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Playerrigidbody: {fileID: 0}
   BattleCamera: {fileID: 0}
+  RotationFinder: {fileID: 1393446853234456780}
   Enemy: {fileID: 214638033415366548, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
   SpawnPoint: {fileID: 1393446853234456780}
 --- !u!1 &4554938941603675458

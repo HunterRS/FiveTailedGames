@@ -48,7 +48,6 @@ public class ThirdPersonMovement : MonoBehaviour
     {
 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        Debug.Log(moveDirection);
 
         if (OnSlope())
         {
@@ -69,7 +68,6 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-            Debug.Log(flatVel.magnitude);
         }
     }
     // Update is called once per frame
