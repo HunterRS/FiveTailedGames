@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject phaseDetector;
     public Material phase_Material;
     public GameObject AnimaPlaque;
+    public GameObject DeckObject;
 
     [Header("Enemy Stats")]
     public int EnemyHealth;
@@ -130,5 +131,10 @@ public class GameManager : MonoBehaviour
         UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
         UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
         UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
+    }
+
+    public void HideUI(){
+        AnimaPlaque.SetActive(false);
+        DeckObject.SetActive(false);
     }
 }

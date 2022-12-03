@@ -261,7 +261,7 @@ public class Card : MonoBehaviour
         if (GameManager.instance.EnemyStats.Health <= 0)
         {
             GameManager.instance.Anima = 0;
-
+            GameManager.instance.HideUI();
             Object.Destroy(GameManager.instance.Enemy);
             CardManager.instance.StartSelection();
         }

@@ -7,6 +7,8 @@ public class RandomSpawn : MonoBehaviour
     [Header("Player and UI Aspects")]
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
+    private GameObject DeckObject;
+    private GameObject Plaque;
 
     [Header("Forced Combat Check")]
     public bool combatForecdSpawn;
@@ -27,6 +29,8 @@ public class RandomSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DeckObject = GameObject.Find("GameManager/UICamera/3DCanvas/EndTurnButton");
+        Plaque = GameObject.Find("GameManager/UICamera/3DCanvas/AnimaPlaque");
         if (combatForecdSpawn == true)
         {
             SpawnMoper();
@@ -63,6 +67,8 @@ public class RandomSpawn : MonoBehaviour
         {
             if (combatForecdSpawn == true)
             {
+                Plaque.SetActive(true);
+                DeckObject.SetActive(true);
                 StartCombat();
             }
             else
@@ -102,4 +108,5 @@ public class RandomSpawn : MonoBehaviour
     {
 
     }
+
 }
