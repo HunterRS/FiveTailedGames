@@ -12,6 +12,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public float rotationSpeed;
     public float groundDrag;
 
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    bool readytoJump;
+
+    public float maxSlopeAngle;
+    private RaycastHit slopeHit;
+
     public float moveSpeed;
     float horizontalInput;
     float verticalInput;
@@ -19,9 +27,13 @@ public class ThirdPersonMovement : MonoBehaviour
     public float playerHeight;
     public LayerMask whatisGround;
     bool grounded;
+
+    private Animator playerAnim;
+    public GameObject playerMeshObj;
     // Start is called before the first frame update
     void Start()
     {
+        playerAnim = playerMeshObj.GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -34,8 +46,20 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        Debug.Log(moveDirection);
+
+        if (OnSlope())
+        {
+            rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+        }
+
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
+
+
+        rb.useGravity = !OnSlope();
     }
     private void SpeedControl()
     {
@@ -45,6 +69,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            Debug.Log(flatVel.magnitude);
         }
     }
     // Update is called once per frame
@@ -71,10 +96,28 @@ public class ThirdPersonMovement : MonoBehaviour
         if (inputDir != Vector3.zero)
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+            playerAnim.SetBool("Run", true);
+        }
+        else
+        {
+            playerAnim.SetBool("Run",false);
         }
     }
     private void FixedUpdate()
     {
         MovePlayer();
+    }
+    private bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+        return false;
+    }
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 }
