@@ -8,16 +8,46 @@ public class RandomSpawn : MonoBehaviour
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
 
-    [Header("Enemey Instances")]
+    [Header("Forced Combat Check")]
+    public bool combatForecdSpawn;
+
+    [Header("Game Instance RNG")]
+    [SerializeField] private int RNGNum;
+    private string eventType;
+
+    [Header("Enemy Instances")]
     private GameObject EnemyInst;
     [SerializeField] private GameObject Enemy;
     [SerializeField] private Transform SpawnPoint;
+
+    [Header("Not Enemey Instances")]
 
     [Header("Misc")]
     Vector3 currentEulerAngles;
     // Start is called before the first frame update
     void Start()
     {
+        if (combatForecdSpawn == true)
+        {
+            SpawnMoper();
+        }
+        else
+        {
+            RNGNum = Random.Range(1,3);
+            Debug.Log(RNGNum);
+            if (RNGNum == 1)
+            {
+                SpawnMoper();
+            }
+            else if (RNGNum == 2)
+            {
+                // SpawnAnima();
+            }
+            else
+            {
+
+            }
+        }
         Playerrigidbody = GameObject.Find("Player").GetComponent<Rigidbody>();
         BattleCamera = GameManager.instance.BattleCamera;
     }
@@ -31,19 +61,14 @@ public class RandomSpawn : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-        EnemyInst = Instantiate(Enemy, SpawnPoint.position, SpawnPoint.rotation);
-        EnemyInst.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
-        GameManager.instance.Enemy = EnemyInst;
-        //GameManager.instance.EnemySpawner = this.gameObject;
-        GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
-        Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
-        BattleCamera.SetActive(true);
-        Destroy(this.gameObject);
-        GameManager.instance.CameraGimbal.SetActive(false);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        CardManager.instance.CreateBattleDeck();
-        CardManager.instance.DrawCard(3);
+            if (combatForecdSpawn == true)
+            {
+                StartCombat();
+            }
+            else
+            {
+
+            }
         /* 
         if (Gamemanager.instance.TutorialFight == true)
         {
@@ -55,5 +80,26 @@ public class RandomSpawn : MonoBehaviour
         */
         }
     }
+
+    private void StartCombat()
+    {
+        GameManager.instance.Enemy = EnemyInst;
+        GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
+        Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        BattleCamera.SetActive(true);
+        Destroy(this.gameObject);
+        GameManager.instance.CameraGimbal.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        CardManager.instance.CreateBattleDeck();
+        CardManager.instance.DrawCard(3);
+    }
+    private void SpawnMoper()
+    {
+        EnemyInst = Instantiate(Enemy, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+    }
+    private void SpawnAnima()
+    {
+
+    }
 }
-//(SpawnPoint.transform.position.x, SpawnPoint.transform.position.y, SpawnPoint.transform.position.z)

@@ -29,7 +29,6 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3565983334337829056}
   m_RootOrder: 0
@@ -53,7 +52,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -124,7 +122,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.75, y: 2.75, z: 2.75}
-  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3565983334337829056}
   - {fileID: 4757438583459062379}
@@ -158,7 +155,6 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6312428536686427278}
   m_Father: {fileID: 5142297212154493903}
@@ -214,6 +210,10 @@ PrefabInstance:
     - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_Name
       value: EnemySpawner+Blocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: combatForecdSpawn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7697785532477541684, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -384,6 +384,10 @@ PrefabInstance:
     - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_Name
       value: EnemySpawner+Blocker (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: combatForecdSpawn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
