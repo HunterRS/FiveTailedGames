@@ -10,27 +10,28 @@ public class CardManager : MonoBehaviour
 
     private Card placeholder;
     private Card NewCard;
+    [Header("UI Elements")]
     public Transform canvas;
     public GameObject[] animaArrayTemp;
     public static GameObject[] animaArray;
 
+    [Header("UI Parents")]
     [SerializeField] private GameObject HandArea;
-
     [SerializeField] private Transform DiscardParent;
     [SerializeField] private Transform HandParent;
     [SerializeField] private Transform DeckParent;
     [SerializeField] private Transform SelectionParent;
     [SerializeField] public Transform startDeckParent;
 
+    [Header("Card Lists")]
     [SerializeField]    private List<Card> StartDeckList = new List<Card>();
     [SerializeField]    private List<Card> CardList = new List<Card>();
-
     public List<Card> CurrentDeckList = new List<Card>();
-
     public List<Card> battleDeckList = new List<Card>();
     public List<Card> HandList = new List<Card>();
     public List<Card> Discard = new List<Card>();
 
+    [Header("Post Battle UI")]
     [SerializeField] private GameObject selectionUI;
     public Card[] selectionCards;
     public bool selection = false;

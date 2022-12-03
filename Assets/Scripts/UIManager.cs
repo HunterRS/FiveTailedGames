@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    [Header("UI Elements")]
     public TextMeshProUGUI PlayerHealthTxT;
     public TextMeshProUGUI EnemyHealthTxT;
     public TextMeshProUGUI PlayerBlockTxT;

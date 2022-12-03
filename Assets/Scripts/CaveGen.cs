@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CaveGen : MonoBehaviour
 {
+    [Header("Caves")]
     public GameObject Cave1;
     public GameObject Cave2;
     public GameObject Cave3;
@@ -29,14 +30,14 @@ public class CaveGen : MonoBehaviour
                 if (randCave3 == 1) {
                     GameObject newCave3 = Instantiate(Cave2, new Vector3(125,-20,-4645), Quaternion.identity);
                     if (randCave4 == 0) {GameObject newCave4 = Instantiate(Cave1, new Vector3(485,-18,-5909), Quaternion.identity);}
-                    if (randCave4 == 1) {GameObject newCave4 = Instantiate(Cave2, new Vector3(174,-34,-5919), Quaternion.identity);}
+                    if (randCave4 == 1) {GameObject newCave4 = Instantiate(Cave2, new Vector3(183,-34,-6168), Quaternion.identity);}
                     if (randCave4 == 2) {GameObject newCave4 = Instantiate(Cave3, new Vector3(233,-19,-6550), Quaternion.identity);}
                     }
                 if (randCave3 == 2) {
                     GameObject newCave3 = Instantiate(Cave3, new Vector3(185,-4,-5008), Quaternion.identity);
                     if (randCave4 == 0) {GameObject newCave4 = Instantiate(Cave1, new Vector3(491,-18,-5887), Quaternion.identity);}
                     if (randCave4 == 1) {GameObject newCave4 = Instantiate(Cave2, new Vector3(174,-34,-5919), Quaternion.identity);}
-                    if (randCave4 == 2) {GameObject newCave4 = Instantiate(Cave3, new Vector3(233,-19,-6299), Quaternion.identity);}
+                    if (randCave4 == 2) {GameObject newCave4 = Instantiate(Cave3, new Vector3(241,-19,-6544), Quaternion.identity);}
                     }
             }
             if (randCave2 == 1) {
@@ -76,7 +77,7 @@ public class CaveGen : MonoBehaviour
                     }
                 if (randCave3 == 2) {
                     GameObject newCave3 = Instantiate(Cave3, new Vector3(187,-6,-5257), Quaternion.identity);
-                    if (randCave4 == 0) {GameObject newCave4 = Instantiate(Cave1, new Vector3(485,-18,-5661), Quaternion.identity);}
+                    if (randCave4 == 0) {GameObject newCave4 = Instantiate(Cave1, new Vector3(498,-21,-6162), Quaternion.identity);}
                     if (randCave4 == 1) {GameObject newCave4 = Instantiate(Cave2, new Vector3(186,-34,-6420), Quaternion.identity);}
                     if (randCave4 == 2) {GameObject newCave4 = Instantiate(Cave3, new Vector3(244,-23,-6790), Quaternion.identity);}
                     }

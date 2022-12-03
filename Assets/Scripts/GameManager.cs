@@ -7,26 +7,34 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("Player Stats")]
+    public int PlayerHealth;
+    public int PlayerBlock;
     public int playerCorruption = 0;
+    public int Anima;
 
+    [Header("UI Elements")]
     public ParticleSystem corruptFrame;
     public Image corruptVignette;
     public GameObject HBar;
-    public int Anima;
-    public int PlayerHealth;
-    public int EnemyHealth;
-    public int PlayerBlock;
-    public int EnemyBlock;
-    public string enemyPhase;
     public GameObject phaseDetector;
     public Material phase_Material;
+    public GameObject AnimaPlaque;
+
+    [Header("Enemy Stats")]
+    public int EnemyHealth;
+    public int EnemyBlock;
+    public string enemyPhase;
     public GameObject Enemy;
     public EnemyStats EnemyStats;
 
+    [Header("Misc")]
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
-    public GameObject AnimaPlaque;
 
+    public bool TutorialFight;
+
+    public GameObject CameraGimbal;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -57,7 +65,7 @@ public class GameManager : MonoBehaviour
         else
         {
             corruptFrame.gameObject.SetActive(true);
-            corruptFrame.startLifetime = (float)playerCorruption / 100 * 9;
+            corruptFrame.startLifetime = ((float)playerCorruption/2) / 100 * 9;
             corruptVignette.color = new Color(1, 1, 1, (float)playerCorruption/100);
         }
         if (playerCorruption >= 100)

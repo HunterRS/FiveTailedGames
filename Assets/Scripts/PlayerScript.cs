@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    { /*
         running = false;
         if(RB.velocity.magnitude <= maxSpeed){
             if(Input.GetKey("a")){
@@ -63,7 +63,7 @@ public class PlayerScript : MonoBehaviour
 
 
         //RB.velocity = RB.velocity.normalized * charSpeed;
-
+        */
     }
 
     

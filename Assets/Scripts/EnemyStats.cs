@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+    [Header("Enenmy Stats")]
     public int Health;
     public int Block;
-    public int MoveNum;
 
+    [Header("Enenmy Moves")]
+    public int MoveNum;
     public List<string> MovePattern = new List<string>();
     public List<int> MovePatternNum = new List<int>();
 

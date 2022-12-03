@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AnimaScript : MonoBehaviour
 {
+    [Header("Anima Transforms")]
     public Transform SpawnPoint;
     public Transform SetPoint;
 
+    [Header("Anima Misc")]
     private bool isSet = false;
     private float rate = 0;
     public Rigidbody RB;
