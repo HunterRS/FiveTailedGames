@@ -101,7 +101,6 @@ public class CardManager : MonoBehaviour
             NewCard.transform.localScale = new Vector3(.2f,.2f,.2f);
         }
     }
-
     public void MoveToDiscard(Card DiscardCard)
     {
         HandList.Remove(DiscardCard);
