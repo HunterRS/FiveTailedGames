@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 295d63e1d9ec55b45b487560db388002
+guid: 30e0afe1e581e3d4c9c22f7e7707f286
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Run
+    second: Take 001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Osin_Rig_Final_Osin_Texture
-    second: {fileID: 2100000, guid: bef32b463f2b2e842acf2235a0f1d1b3, type: 2}
+      name: Being_Rig1_blinn1
+    second: {fileID: 2100000, guid: 656c37a75ea6e044f817d6b5ad169f17, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -38,40 +38,11 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Run
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 1
-      lastFrame: 20
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -122,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 20
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
