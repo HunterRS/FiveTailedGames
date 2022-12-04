@@ -3613,7 +3613,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.023158934, y: 0.97032374, z: -0.21736573, w: 0.10338182}
+  m_LocalRotation: {x: 0.023158917, y: 0.97032374, z: -0.21736573, w: 0.103381746}
   m_LocalPosition: {x: -1.0534774, y: 3, z: 4.887759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3715,7 +3715,7 @@ MonoBehaviour:
   jumpForce: 200
   jumpCooldown: 0.25
   airMultiplier: 0.4
-  moveSpeed: 200
+  moveSpeed: 100
   maxSlopeAngle: 180
   whatisGround:
     serializedVersion: 2
@@ -5300,14 +5300,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092779455}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 1
   m_Drag: 2
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 2
   m_Constraints: 112
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!1 &1094430236
 GameObject:
   m_ObjectHideFlags: 3
@@ -5377,7 +5377,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094430236}
-  m_LocalRotation: {x: 0.000000042159773, y: 0.98532784, z: -0.17067228, w: 0.00000024339744}
+  m_LocalRotation: {x: 0.000000039223114, y: 0.98532784, z: -0.17067228, w: 0.00000022644352}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5804,7 +5804,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191353348}
-  m_LocalRotation: {x: 0.000000055878584, y: 0.9758155, z: -0.21859595, w: 0.00000024944282}
+  m_LocalRotation: {x: 0.000000048356092, y: 0.9758155, z: -0.21859595, w: 0.00000021586231}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
