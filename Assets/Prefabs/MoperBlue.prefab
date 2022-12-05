@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 461084439913269106}
   - component: {fileID: 7658672313711236010}
   m_Layer: 8
-  m_Name: Moperbase
+  m_Name: MoperBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4731867370822168118}
   m_Father: {fileID: 0}
@@ -57,7 +56,7 @@ MonoBehaviour:
   MovePatternNum: 0500000003000000
 --- !u!95 &360300897271614097
 Animator:
-  serializedVersion: 4
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -70,7 +69,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -192,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -4928935926709253485, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e967e1303bec57744ac8a9cd33b64ba8, type: 2}
     - target: {fileID: -4458300861916654385, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -304,6 +306,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3780636841889848318, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e967e1303bec57744ac8a9cd33b64ba8, type: 2}
     - target: {fileID: 4020491550727925078, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -332,6 +338,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5764060182272278684, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e967e1303bec57744ac8a9cd33b64ba8, type: 2}
     - target: {fileID: 5926474957469703428, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -354,19 +364,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
---- !u!4 &4731867370822168118 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
-  m_PrefabInstance: {fileID: 5053110460025440733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5395638776350225548 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
   m_PrefabInstance: {fileID: 5053110460025440733}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4731867370822168118 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e3cab927ec6bc7e4781aa32d35c751ef, type: 3}
+  m_PrefabInstance: {fileID: 5053110460025440733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &8710316722103188010
 Animator:
-  serializedVersion: 4
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -379,7 +389,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

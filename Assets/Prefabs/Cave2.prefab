@@ -105,6 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5142297212154493903}
+  - component: {fileID: 2331680349282873805}
   m_Layer: 0
   m_Name: Cave2
   m_TagString: Untagged
@@ -129,6 +130,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2331680349282873805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2289314625838242952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81306765a33ab4146b08f881106a699a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caveOrderNum: 0
 --- !u!1 &4194885755008123514
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker
       objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: caveObject
+      value: 
+      objectReference: {fileID: 2331680349282873805}
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: combatForecdSpawn
       value: 1
@@ -385,6 +403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: caveObject
+      value: 
+      objectReference: {fileID: 2331680349282873805}
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: combatForecdSpawn
       value: 1

@@ -136,6 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5905821095685448711}
+  - component: {fileID: 7323285827030252977}
   m_Layer: 0
   m_Name: Cave1
   m_TagString: Untagged
@@ -164,6 +165,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7323285827030252977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944988246402042085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81306765a33ab4146b08f881106a699a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caveOrderNum: 0
 --- !u!1001 &912753161557809752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,6 +205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: caveObject
+      value: 
+      objectReference: {fileID: 7323285827030252977}
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: combatForecdSpawn
       value: 1
@@ -273,6 +291,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: caveObject
+      value: 
+      objectReference: {fileID: 7323285827030252977}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -347,6 +369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: caveObject
+      value: 
+      objectReference: {fileID: 7323285827030252977}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -421,6 +447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: caveObject
+      value: 
+      objectReference: {fileID: 7323285827030252977}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -495,6 +525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: caveObject
+      value: 
+      objectReference: {fileID: 7323285827030252977}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -521,7 +555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 144.08528
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -550,6 +584,22 @@ PrefabInstance:
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093115404581619919, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_Size.x
+      value: 140.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093115404581619919, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_Size.y
+      value: 101.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093115404581619919, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_Center.x
+      value: -16.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093115404581619919, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_Center.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
@@ -605,6 +655,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -47.403
       objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.800018
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25.499996
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9182217
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.05307114
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3696997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.13181263
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -43.862
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464990048544382874, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -16.338
+      objectReference: {fileID: 0}
     - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_Name
       value: EnemySpawner+Blocker
@@ -613,6 +699,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: caveObject
+      value: 
+      objectReference: {fileID: 7323285827030252977}
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: combatForecdSpawn
       value: 1
