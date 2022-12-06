@@ -150,6 +150,8 @@ public class CardManager : MonoBehaviour
     }
     public void StartSelection()
     {
+        HandList.Clear();
+        Discard.Clear();
         GameManager.instance.BattleCamera.SetActive(false);
         selectionUI.SetActive(true);
         NewCard = Instantiate(CardList[Random.Range(0, CardList.Count)], new Vector3( 0,0,0), Quaternion.identity);

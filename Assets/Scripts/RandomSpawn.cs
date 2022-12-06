@@ -29,6 +29,7 @@ public class RandomSpawn : MonoBehaviour
     [Header("Misc")]
     Vector3 currentEulerAngles;
     [SerializeField] private CaveVariables caveObject;
+    Collider m_Collider;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,7 +97,8 @@ public class RandomSpawn : MonoBehaviour
         GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
         Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);
-        Destroy(this.gameObject);
+        m_Collider = GetComponent<Collider>();
+        m_Collider.enabled = !m_Collider.enabled;
         GameManager.instance.CameraGimbal.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
