@@ -65,8 +65,8 @@ MonoBehaviour:
   combatForecdSpawn: 0
   RNGNum: 0
   EnemyPhase1: {fileID: 214638033415366548, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
-  EnemyPhase2: {fileID: 214638033415366548, guid: 6c1b8abb1bbf8c8429b230c27e10a258, type: 3}
-  EnemyPhase3: {fileID: 214638033415366548, guid: 82c22fde63cddc54485508b7924beb86, type: 3}
+  EnemyPhase2: {fileID: 4012387795387796211, guid: d404441a1437f6b4eb8a1c30fe89dcf4, type: 3}
+  EnemyPhase3: {fileID: 8072523255291846467, guid: 9773d64e9189a274a9f8729435f30886, type: 3}
   SpawnPoint: {fileID: 1393446853234456780}
   caveObject: {fileID: 0}
 --- !u!1 &4554938941603675458
