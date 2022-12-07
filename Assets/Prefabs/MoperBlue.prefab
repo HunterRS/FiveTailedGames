@@ -15,6 +15,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e967e1303bec57744ac8a9cd33b64ba8, type: 2}
+    - target: {fileID: 4175425219556446481, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+      propertyPath: Health
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175425219556446481, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+      propertyPath: MaxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175425219556446481, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+      propertyPath: MovePattern.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175425219556446481, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+      propertyPath: MovePattern.Array.data[2]
+      value: block
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175425219556446481, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+      propertyPath: MovePatternNum.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175425219556446481, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+      propertyPath: MovePatternNum.Array.data[2]
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8239269674500084259, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
