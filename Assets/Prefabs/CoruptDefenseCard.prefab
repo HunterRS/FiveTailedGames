@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11437425658272086, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437425658272086, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f043832d10ee8744aabc08f120ece2fc, type: 2}
+    - target: {fileID: 11437425658272086, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7243e09b74e9492468fbd279e54cf7fe, type: 2}
     - target: {fileID: 595547486074260289, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_Name
       value: CoruptDefenseCard

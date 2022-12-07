@@ -22,9 +22,12 @@ public class Card : MonoBehaviour
     [Header("Text Fields")]
     public GameObject nDesc;
     public GameObject cDesc;
+
+    public GameObject playerAnim;
     // Start is called before the first frame update
     void Start()
     {
+        playerAnim = GameObject.FindGameObjectWithTag("PlayerModel");
     }
 
     // Update is called once per frame
@@ -88,7 +91,7 @@ public class Card : MonoBehaviour
             CardManager.instance.EndSelection();
             return;
         }
-        Debug.Log("click");
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             GameManager.instance.Anima = GameManager.instance.Anima + profanedAnima;
@@ -225,6 +228,7 @@ public class Card : MonoBehaviour
 
     private void Attack(int attackPower)
     {
+        playerAnim.GetComponent<Animator>().SetTrigger("Attack");
         if (GameManager.instance.Anima >= animaCost)
         {
             GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
@@ -262,6 +266,7 @@ public class Card : MonoBehaviour
         {
             GameManager.instance.Anima = 0;
             GameManager.instance.HideUI();
+            GameManager.instance.CombatView(false);
             Object.Destroy(GameManager.instance.Enemy);
             CardManager.instance.StartSelection();
         }

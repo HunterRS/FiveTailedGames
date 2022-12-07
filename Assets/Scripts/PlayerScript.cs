@@ -22,48 +22,50 @@ public class PlayerScript : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    { /*
-        running = false;
-        if(RB.velocity.magnitude <= maxSpeed){
-            if(Input.GetKey("a")){
-            RB.velocity += gameObject.transform.forward * charSpeed;
-            running = true;
-            runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
+    {
+        if(GameManager.instance.gameState == "move"){
+            gameObject.transform.Rotate(0,Input.GetAxis("Mouse X"),0);
 
-        }
-        if(Input.GetKey("d")){
-            RB.velocity += gameObject.transform.forward * -charSpeed;
-            running = true;
-            runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
+            running = false;
+            if(RB.velocity.magnitude <= maxSpeed){
+                if(Input.GetKey("a")){
+                RB.velocity += gameObject.transform.forward * charSpeed;
+                running = true;
+                runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
 
-        }
-        if(Input.GetKey("w")){
-            RB.velocity += gameObject.transform.right * charSpeed;
-            running = true;
-            runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
+                }
+                if(Input.GetKey("d")){
+                    RB.velocity += gameObject.transform.forward * -charSpeed;
+                    running = true;
+                    runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
 
+                }
+                if(Input.GetKey("w")){
+                    RB.velocity += gameObject.transform.right * charSpeed;
+                    running = true;
+                    runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
+
+                }
+                if(Input.GetKey("s")){
+                    RB.velocity += gameObject.transform.right * -charSpeed;
+                    running = true;
+                    runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
+                }
+                
+                tempDirection = Vector3.RotateTowards(playerMeshObj.transform.forward,runDirection,(float)maxSpeed*Time.deltaTime,0.0f);
+                playerMeshObj.transform.rotation = Quaternion.LookRotation(tempDirection);
+
+                if(running)
+                    playerAnim.SetBool("Run",true);
+                else
+                    playerAnim.SetBool("Run",false);
+            }
         }
-        if(Input.GetKey("s")){
-            RB.velocity += gameObject.transform.right * -charSpeed;
-            running = true;
-            runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
-        }
-        if(running)
-            playerAnim.SetBool("Run",true);
         else
-            playerAnim.SetBool("Run",false);
+            RB.velocity = Vector3.zero;
 
-        
-        tempDirection = Vector3.RotateTowards(playerMeshObj.transform.forward,runDirection,(float)maxSpeed*Time.deltaTime,0.0f);
-        playerMeshObj.transform.rotation = Quaternion.LookRotation(tempDirection);
-        }
-        if(Input.GetKeyDown("space")){
+        if(Input.GetKeyDown("space"))
             RB.AddForce(gameObject.transform.up * charSpeed * 2000);
-        }      
-
-
-        //RB.velocity = RB.velocity.normalized * charSpeed;
-        */
     }
 
     

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11437425658272086, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebe28af701061354ea858acc121f7481, type: 2}
     - target: {fileID: 595547486074260289, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_Name
       value: DefenseCard
@@ -90,6 +94,10 @@ PrefabInstance:
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: profanedValue
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945823239278685761, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}

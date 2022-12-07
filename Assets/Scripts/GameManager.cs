@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Player Stats")]
+    public GameObject Player;
     public int PlayerHealth;
     public int PlayerBlock;
     public int playerCorruption = 0;
@@ -17,8 +18,8 @@ public class GameManager : MonoBehaviour
     public ParticleSystem corruptFrame;
     public Image corruptVignette;
     public GameObject HBar;
-    public GameObject phaseDetector;
-    public Material phase_Material;
+    //public GameObject phaseDetector;
+    //public Material phase_Material;
     public GameObject AnimaPlaque;
     public GameObject DeckObject;
 
@@ -32,11 +33,17 @@ public class GameManager : MonoBehaviour
     [Header("Misc")]
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
+    public GameObject cameraAnchor;
+    public Animator playerAnim;
+    public string gameState;
+
+    public Vector3 camBattleOffset;
+    private Vector3 camMainOffset;
+    private float difAngle;
+
 
     public bool TutorialFight;
 
-    public GameObject CameraGimbal;
-    // Start is called before the first frame update
     private void Awake()
     {
         instance = this;
@@ -44,9 +51,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        gameState = "move";
+        camMainOffset = cameraAnchor.transform.GetChild(0).transform.localPosition;
         CardManager.instance.DeckCreate();
-        phase_Material = phaseDetector.GetComponent<Renderer>().material;
-        phase_Material.color = new Color(1f, 0f, 0f);
+        //phase_Material = phaseDetector.GetComponent<Renderer>().material;
+        //phase_Material.color = new Color(1f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -78,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     private void updateHP()
     {
-        HBar.transform.localScale = Vector3.MoveTowards(HBar.transform.localScale, new Vector3((float)PlayerHealth/30,.8f,.8f), .0005f);
+        HBar.transform.localScale = Vector3.MoveTowards(HBar.transform.localScale, new Vector3((float)PlayerHealth/30,.8f,.8f), .001f);
         if (PlayerHealth <= 0)
         {
             Camera.main.GetComponent<Animator>().enabled = true;
@@ -116,7 +125,7 @@ public class GameManager : MonoBehaviour
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
         {
             GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
-            phase_Material.color = new Color(1f, 0f, 0f);
+            //phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
         
@@ -136,5 +145,24 @@ public class GameManager : MonoBehaviour
     public void HideUI(){
         AnimaPlaque.SetActive(false);
         DeckObject.SetActive(false);
+    }
+    public void SetIdle(){
+        playerAnim.SetBool("Run",false);
+    }
+    public void CombatView(bool x){
+        if(x){
+            cameraAnchor.transform.position = Player.transform.position + .5f*(Enemy.transform.position - Player.transform.position);
+            cameraAnchor.transform.GetChild(0).transform.localPosition = camBattleOffset;
+            cameraAnchor.transform.GetChild(0).transform.Rotate(13,0,0);
+            difAngle = Vector3.Angle(new Vector3((Enemy.transform.position - Player.transform.position).x, 0, (Enemy.transform.position - Player.transform.position).z), new Vector3(cameraAnchor.transform.forward.x,0,cameraAnchor.transform.forward.z));
+            cameraAnchor.transform.Rotate(0,-(180 - difAngle),0);
+        }
+        else{
+            cameraAnchor.transform.localPosition = Vector3.zero;
+            cameraAnchor.transform.Rotate(0,180 - difAngle,0);
+            cameraAnchor.transform.GetChild(0).transform.localPosition = camMainOffset;
+            cameraAnchor.transform.GetChild(0).transform.Rotate(-13,0,0);
+            
+        }
     }
 }

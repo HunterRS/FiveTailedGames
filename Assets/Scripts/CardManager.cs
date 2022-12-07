@@ -10,6 +10,7 @@ public class CardManager : MonoBehaviour
 
     private Card placeholder;
     private Card NewCard;
+
     [Header("UI Elements")]
     public Transform canvas;
     public GameObject[] animaArrayTemp;
@@ -194,7 +195,7 @@ public class CardManager : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         selectionUI.SetActive(false);
+        GameManager.instance.gameState = "move";
     }
 }

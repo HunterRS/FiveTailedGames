@@ -31,6 +31,7 @@ public class RandomSpawn : MonoBehaviour
     {
         DeckObject = GameObject.Find("GameManager/UICamera/3DCanvas/EndTurnButton");
         Plaque = GameObject.Find("GameManager/UICamera/3DCanvas/AnimaPlaque");
+        
         if (combatForecdSpawn == true)
         {
             SpawnMoper();
@@ -65,11 +66,15 @@ public class RandomSpawn : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            GameManager.instance.gameState = "combat";
+            GameManager.instance.SetIdle();
+            Playerrigidbody.velocity = Vector3.zero;
             if (combatForecdSpawn == true)
             {
                 Plaque.SetActive(true);
                 DeckObject.SetActive(true);
                 StartCombat();
+                GameManager.instance.CombatView(true);
             }
             else
             {
@@ -91,10 +96,8 @@ public class RandomSpawn : MonoBehaviour
     {
         GameManager.instance.Enemy = EnemyInst;
         GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
-        Playerrigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         BattleCamera.SetActive(true);
         Destroy(this.gameObject);
-        GameManager.instance.CameraGimbal.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         CardManager.instance.CreateBattleDeck();
@@ -103,6 +106,7 @@ public class RandomSpawn : MonoBehaviour
     private void SpawnMoper()
     {
         EnemyInst = Instantiate(Enemy, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+        EnemyInst.transform.parent = this.gameObject.transform.parent;
     }
     private void SpawnAnima()
     {
