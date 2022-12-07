@@ -52,7 +52,7 @@ public class CaveGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int randCave1 = Random.Range(2, 3);
+        int randCave1 = Random.Range(0, 3);
         int randCave2 = Random.Range(0, 3);
         int randCave3 = Random.Range(0, 3);
         int randCave4 = Random.Range(0, 3);
@@ -790,7 +790,8 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(32f, 3f, -1059f);
+                spawnedCave2.transform.localPosition = new Vector3(324, -25, -1213);
+
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
                 if (randCave3 == 0)
@@ -907,7 +908,7 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(83, -2, -1809);
+                spawnedCave2.transform.localPosition = new Vector3(16, -42.25f, -1467);
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
                 if (randCave3 == 0)
