@@ -152,6 +152,7 @@ public class CardManager : MonoBehaviour
     {
         HandList.Clear();
         Discard.Clear();
+        battleDeckList.Clear();
         GameManager.instance.BattleCamera.SetActive(false);
         selectionUI.SetActive(true);
         NewCard = Instantiate(CardList[Random.Range(0, CardList.Count)], new Vector3( 0,0,0), Quaternion.identity);
@@ -197,5 +198,11 @@ public class CardManager : MonoBehaviour
         }
         GameManager.instance.Playerrigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         selectionUI.SetActive(false);
+        foreach (Transform child in selectionUI.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+     //   selectionCards.Clear();
+        selection = false;
     }
 }

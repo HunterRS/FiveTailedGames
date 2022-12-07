@@ -61,7 +61,7 @@ public class CaveGen : MonoBehaviour
         {
             spawnedCave1 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity, spawnPoint1.transform);
             spawnedCave1.transform.localScale = new Vector3(0.000549999997f, 0.000549999997f, 0.000549999997f);
-            spawnedCave1.transform.localPosition = new Vector3(0.0617000014f, -0.00300000003f, -0.167400002f);
+            spawnedCave1.transform.localPosition = new Vector3(0.0593772866f, -0.0156586412f, -0.173299998f);
             spawnPoint2 = spawnedCave1.transform.Find("SpawnPoint").gameObject;
             spawnPoint2.transform.parent = null;
 
