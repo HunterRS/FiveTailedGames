@@ -51,7 +51,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
+        Debug.Log(moveDirection.normalized);
         if (OnSlope())
         {
             rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);

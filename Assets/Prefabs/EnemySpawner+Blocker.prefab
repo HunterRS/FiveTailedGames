@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 1393446853234456780}
   - {fileID: 4971514843657400348}
+  - {fileID: 1464990048544382874}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64,8 +65,11 @@ MonoBehaviour:
   BattleCamera: {fileID: 0}
   combatForecdSpawn: 0
   RNGNum: 0
-  Enemy: {fileID: 214638033415366548, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+  EnemyPhase1: {fileID: 214638033415366548, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+  EnemyPhase2: {fileID: 4012387795387796211, guid: d404441a1437f6b4eb8a1c30fe89dcf4, type: 3}
+  EnemyPhase3: {fileID: 8072523255291846467, guid: 9773d64e9189a274a9f8729435f30886, type: 3}
   SpawnPoint: {fileID: 1393446853234456780}
+  caveObject: {fileID: 0}
 --- !u!1 &4554938941603675458
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +100,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8000501462320889832}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5227488336850359878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1464990048544382874}
+  m_Layer: 0
+  m_Name: CameraMoveLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1464990048544382874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5227488336850359878}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.12786388, y: 3.3285728, z: 1.2536488}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8000501462320889832}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5580811596703817065
 GameObject:

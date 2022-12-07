@@ -94,6 +94,10 @@ public class Card : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            if (GameManager.instance.Anima == 4)
+            {
+                return;
+            }
             GameManager.instance.Anima = GameManager.instance.Anima + profanedAnima;
             if (GameManager.instance.Anima > 4)
             {
