@@ -80,7 +80,11 @@ public class CardManager : MonoBehaviour
         Debug.Log(battleDeckList.Count);
         for (int i = 0; i < CardAmount; i++)
         {
-            if (battleDeckList.Count == 0)
+            if (HandList.Count == 6)
+            {
+                return;
+            }
+                if (battleDeckList.Count == 0)
             {
                 ReshuffleDeck();
                 if (battleDeckList.Count == 0 && Discard.Count == 0 && HandList.Count == 0)
