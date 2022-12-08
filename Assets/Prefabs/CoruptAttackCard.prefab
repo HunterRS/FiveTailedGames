@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11437425658272086, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ec39d7ad87e0fcb42809263daf3484ea, type: 2}
     - target: {fileID: 595547486074260289, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_Name
       value: CoruptAttackCard

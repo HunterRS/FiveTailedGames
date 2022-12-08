@@ -60,7 +60,7 @@ public class CaveGen : MonoBehaviour
         if (randCave1 == 0)
         {
             spawnedCave1 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity, spawnPoint1.transform);
-            spawnedCave1.transform.localScale = new Vector3(0.000549999997f, 0.000549999997f, 0.000549999997f);
+            spawnedCave1.transform.localScale = new Vector3(.005f,.005f,.005f);
             spawnedCave1.transform.localPosition = new Vector3(0.0593772866f, -0.0156586412f, -0.173299998f);
             spawnPoint2 = spawnedCave1.transform.Find("SpawnPoint").gameObject;
             spawnPoint2.transform.parent = null;
@@ -420,7 +420,7 @@ public class CaveGen : MonoBehaviour
         if (randCave1 == 1)
         {
             spawnedCave1 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity, spawnPoint1.transform);
-            spawnedCave1.transform.localScale = new Vector3(0.000549999997f, 0.000549999997f, 0.000549999997f);
+            spawnedCave1.transform.localScale = new Vector3(.005f,.005f,.005f);
             spawnedCave1.transform.localPosition = new Vector3(0, -0.0057000001f, -0.229800001f);
             spawnPoint2 = spawnedCave1.transform.Find("SpawnPoint").gameObject;
             spawnPoint2.transform.parent = null;
@@ -781,8 +781,7 @@ public class CaveGen : MonoBehaviour
         if (randCave1 == 2)
         {
             spawnedCave1 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity, spawnPoint1.transform);
-            spawnedCave1.transform.localScale = new Vector3(0.000549999997f, 0.000549999997f, 0.000549999997f);
-            spawnedCave1.transform.localPosition = new Vector3(0.0107000005f, -0.00430000015f, -0.30399999f);
+            spawnedCave1.transform.localScale = new Vector3(.005f,.005f,.005f);
             spawnPoint2 = spawnedCave1.transform.Find("SpawnPoint").gameObject;
             spawnPoint2.transform.parent = null;
             if (randCave2 == 0)
