@@ -81,6 +81,10 @@ public class CardManager : MonoBehaviour
         Debug.Log(battleDeckList.Count);
         for (int i = 0; i < CardAmount; i++)
         {
+            if (HandList.Count == 6)
+            {
+                return;
+            }
             if (battleDeckList.Count == 0)
             {
                 ReshuffleDeck();
@@ -150,6 +154,9 @@ public class CardManager : MonoBehaviour
     }
     public void StartSelection()
     {
+        HandList.Clear();
+        Discard.Clear();
+        battleDeckList.Clear();
         GameManager.instance.BattleCamera.SetActive(false);
         selectionUI.SetActive(true);
         NewCard = Instantiate(CardList[Random.Range(0, CardList.Count)], new Vector3( 0,0,0), Quaternion.identity);
@@ -195,5 +202,10 @@ public class CardManager : MonoBehaviour
         }
         selectionUI.SetActive(false);
         GameManager.instance.gameState = "move";
+        foreach (Transform child in selectionUI.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        selection = false;
     }
 }
