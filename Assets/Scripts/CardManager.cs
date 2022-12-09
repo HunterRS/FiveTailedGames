@@ -135,13 +135,11 @@ public class CardManager : MonoBehaviour
     {
         for (int i = 0; i < animaArray.Length; i++)
         {
-            if (GameManager.instance.Anima >= i && animaArray[i].active == false)
+            if (GameManager.instance.Anima > i && animaArray[i].active == false)
             {
-                animaArray[i].GetComponent<AnimaScript>().Reset();
                 animaArray[i].SetActive(true);
+                animaArray[i].GetComponent<AnimaScript>().Reset();
                 animaArray[i].GetComponent<AnimaScript>().VelReset();
-
-
             }
             if (GameManager.instance.Anima <= i)
             {

@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: combatForecdSpawn
       value: 1
@@ -501,6 +505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -630,6 +638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -720,6 +732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -794,6 +810,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner+Blocker (2)
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781438569878496414, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 214638033415366548, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
+>>>>>>> Stashed changes
     - target: {fileID: 8000501462320889832, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -907,6 +934,10 @@ PrefabInstance:
     - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_Name
       value: EnemySpawner+Blocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505418292050237638, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2438574311137075100, guid: 63784974a0784e4459219d81e6db5e6a, type: 3}
       propertyPath: m_Enabled

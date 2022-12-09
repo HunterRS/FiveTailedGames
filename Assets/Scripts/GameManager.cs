@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     //public Material phase_Material;
     public GameObject AnimaPlaque;
     public GameObject DeckObject;
+    public GameObject[] ShieldArray;
 
     [Header("Enemy Stats")]
     public int EnemyHealth;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        UpdateBlock();
         gameState = "move";
         camMainOffset = cameraAnchor.transform.GetChild(0).transform.localPosition;
         CardManager.instance.DeckCreate();
@@ -93,6 +95,14 @@ public class GameManager : MonoBehaviour
             Camera.main.GetComponent<Animator>().enabled = true;
         }
     }
+    public void UpdateBlock(){
+        foreach(GameObject x in ShieldArray){
+            if(System.Array.IndexOf(ShieldArray, x) < PlayerBlock)
+                x.SetActive(true);
+            else
+                x.SetActive(false);
+        }
+    }
 
     public void endTurn()
     {
@@ -121,6 +131,7 @@ public class GameManager : MonoBehaviour
             {
                 GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
             }
+            UpdateBlock();
         }
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
         {
@@ -153,15 +164,17 @@ public class GameManager : MonoBehaviour
         if(x){
             cameraAnchor.transform.position = Player.transform.position + .5f*(Enemy.transform.position - Player.transform.position);
             cameraAnchor.transform.GetChild(0).transform.localPosition = camBattleOffset;
-            cameraAnchor.transform.GetChild(0).transform.Rotate(13,0,0);
+            cameraAnchor.transform.GetChild(0).transform.Rotate(28,0,0);
             difAngle = Vector3.Angle(new Vector3((Enemy.transform.position - Player.transform.position).x, 0, (Enemy.transform.position - Player.transform.position).z), new Vector3(cameraAnchor.transform.forward.x,0,cameraAnchor.transform.forward.z));
             cameraAnchor.transform.Rotate(0,-(180 - difAngle),0);
+            //Playerrigidbody.transform.parent.LookAt(GameManager.instance.Enemy.transform);
+            //GameManager.instance.Enemy.transform.LookAt(Player.transform);
         }
         else{
             cameraAnchor.transform.localPosition = Vector3.zero;
             cameraAnchor.transform.Rotate(0,180 - difAngle,0);
             cameraAnchor.transform.GetChild(0).transform.localPosition = camMainOffset;
-            cameraAnchor.transform.GetChild(0).transform.Rotate(-13,0,0);
+            cameraAnchor.transform.GetChild(0).transform.Rotate(-28,0,0);
             
         }
     }

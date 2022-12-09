@@ -24,7 +24,8 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         if(GameManager.instance.gameState == "move"){
-            gameObject.transform.Rotate(0,Input.GetAxis("Mouse X"),0);
+            Cursor.visible = false;
+            gameObject.transform.Rotate(0,Input.GetAxis("Mouse X")*1.5f,0);
 
             running = false;
             if(RB.velocity.magnitude <= maxSpeed){
@@ -60,12 +61,13 @@ public class PlayerScript : MonoBehaviour
                 else
                     playerAnim.SetBool("Run",false);
             }
+            if(Input.GetKeyDown("space") && RB.velocity.y < 20 && RB.velocity.y > -20)
+                RB.AddForce(gameObject.transform.up * charSpeed * 40000);
         }
-        else
+        else{
             RB.velocity = Vector3.zero;
-
-        if(Input.GetKeyDown("space"))
-            RB.AddForce(gameObject.transform.up * charSpeed * 2000);
+            Cursor.visible = true;
+        }
     }
 
     
