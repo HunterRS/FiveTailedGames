@@ -115,5 +115,9 @@ PrefabInstance:
       propertyPath: profanedSecondaryEffectValue
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5333176677310252833, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}

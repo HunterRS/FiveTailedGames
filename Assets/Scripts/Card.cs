@@ -227,6 +227,7 @@ public class Card : MonoBehaviour
             }
 
         }
+    CardManager.AnimaChange();
     }
 
 
@@ -291,9 +292,10 @@ public class Card : MonoBehaviour
             {
                 GameManager.instance.Anima = 0;
             }
-            CardManager.AnimaChange();
             CardManager.instance.MoveToDiscard(this);
         }
+        GameManager.instance.UpdateBlock();
+        CardManager.AnimaChange();
     }
     private void Cleanse(int cleansePower)
     {
@@ -304,6 +306,7 @@ public class Card : MonoBehaviour
             GameManager.instance.updateCorruption();
             CardManager.instance.MoveToDiscard(this);
         }
+        CardManager.AnimaChange();
     }
     private void Heal(int healPower)
     {
@@ -317,5 +320,6 @@ public class Card : MonoBehaviour
             }
             CardManager.instance.MoveToDiscard(this);
         }
+        CardManager.AnimaChange();
     }
 }
