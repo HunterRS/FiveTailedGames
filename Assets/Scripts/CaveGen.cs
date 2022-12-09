@@ -21,31 +21,26 @@ public class CaveGen : MonoBehaviour
     public GameObject spawnPoint5;
 
     /* Coordinates for Spawn Points 
-     Cave 1 -->  Cave 1 Vector3(293, -3, -438);
-     Cave 1 -->  Cave 2 Vector3(-22f, -12f, -692f);
-     Cave 1 -->  Cave 3 Vector3(32f, 3f, -1059f);
+     Cave 1 -->  Cave 1 Vector3(0,-10,4); FIXED
+     Cave 1 -->  Cave 2 Vector3(-22f, -12f, -692f); FIXED
+     Cave 1 -->  Cave 3 Vector3(32f, 3f, -1059f); FIXED
      Cave 1 -->  Cave 4
      Cave 1 -->  Cave 5
-     Cave 2 -->  Cave 1 Vector3(337f, -4f, -1185f);
-     Cave 2 -->  Cave 2 Vector3(31,-20,-1421);
-     Cave 2 -->  Cave 3 Vector3(83,-2,-1809);
+     Cave 2 -->  Cave 1 Vector3(68,25,-1551); FIXED
+     Cave 2 -->  Cave 2 Vector3(49,23,-2242) FIXED
+     Cave 2 -->  Cave 3 Vector3(83,-2,-1809); FIXED
      Cave 2 -->  Cave 4
      Cave 2 -->  Cave 5         
-     Cave 3 -->  Cave 1 Vector3(324,-26,-1211);
-     Cave 3 -->  Cave 2 Vector3(17,-43,-1476);
-     Cave 3 -->  Cave 3 Vector3(70,-26.2000008f,-1836);
+     Cave 3 -->  Cave 1 Vector3(58,-38,-1527); FIXED
+     Cave 3 -->  Cave 2 Vector3(40,-42,-2205); FIXED
+     Cave 3 -->  Cave 3 Vector3(93,-26,-2594); FIXED
      Cave 3 -->  Cave 4 
      Cave 1 -->  Cave 5         
      Cave 4 -->  Cave 1
      Cave 4 -->  Cave 2 
      Cave 4 -->  Cave 3  
      Cave 4 -->  Cave 4 
-     Cave 1 -->  Cave 5         
-     Cave 5 -->  Cave 1
-     Cave 5 -->  Cave 2
-     Cave 5 -->  Cave 3
-     Cave 5 -->  Cave 4 
-     Cave 1 -->  Cave 5         
+     Cave 1 -->  Cave 5              
     */
 
 
@@ -60,8 +55,8 @@ public class CaveGen : MonoBehaviour
         if (randCave1 == 0)
         {
             spawnedCave1 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity, spawnPoint1.transform);
-            spawnedCave1.transform.localScale = new Vector3(.005f,.005f,.005f);
-            spawnedCave1.transform.localPosition = new Vector3(0.0593772866f, -0.0156586412f, -0.173299998f);
+            spawnedCave1.transform.localScale = new Vector3(.011f,.011f,.011f);
+            spawnedCave1.transform.localPosition = new Vector3(-0.0410000011f, -0.0900000036f, -0.0810000002f);
             spawnPoint2 = spawnedCave1.transform.Find("SpawnPoint").gameObject;
             spawnPoint2.transform.parent = null;
 
@@ -70,7 +65,7 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(293, -3, -438);
+                spawnedCave2.transform.localPosition = new Vector3(0,-10,4);
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
                 if (randCave3 == 0)
@@ -78,7 +73,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(293, -3, -438);
+                    spawnedCave3.transform.localPosition = new Vector3(0,-10,4);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -86,7 +81,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -122,7 +117,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                        spawnedCave4.transform.localPosition = new Vector3(68,25,-1551);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -131,7 +126,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -140,7 +135,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -158,7 +153,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -167,7 +162,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -176,7 +171,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -195,7 +190,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                    spawnedCave3.transform.localPosition = new Vector3(68,25,-1551);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -203,7 +198,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -231,7 +226,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(31, -20, -1421);
+                    spawnedCave3.transform.localPosition = new Vector3(49,23,-2242);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -239,7 +234,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -248,7 +243,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -257,7 +252,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -267,7 +262,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(83, -2, -1809);
+                    spawnedCave3.transform.localPosition = new Vector3(102, 39, -2585);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -275,7 +270,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -284,7 +279,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -293,7 +288,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -312,15 +307,16 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(324, -26, -1211);
+                    spawnedCave3.transform.localPosition = new Vector3(58,-38,-1527);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
+                    Debug.Log("test");
                     if (randCave4 == 0)
                     {
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -348,7 +344,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(17, -43, -1476);
+                    spawnedCave3.transform.localPosition = new Vector3(40,-42,-2205);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -356,7 +352,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                        spawnedCave4.transform.localPosition = new Vector3(68,25,-1551);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -365,7 +361,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -374,7 +370,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -384,7 +380,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                    spawnedCave3.transform.localPosition = new Vector3(93, -26, -2594);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -392,7 +388,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -401,7 +397,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -410,7 +406,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -420,8 +416,8 @@ public class CaveGen : MonoBehaviour
         if (randCave1 == 1)
         {
             spawnedCave1 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity, spawnPoint1.transform);
-            spawnedCave1.transform.localScale = new Vector3(.005f,.005f,.005f);
-            spawnedCave1.transform.localPosition = new Vector3(0, -0.0057000001f, -0.229800001f);
+            spawnedCave1.transform.localScale = new Vector3(.011f,.011f,.011f);
+            spawnedCave1.transform.localPosition = new Vector3(-0.115000002f, -0.0979999974f, -2.78600001f);
             spawnPoint2 = spawnedCave1.transform.Find("SpawnPoint").gameObject;
             spawnPoint2.transform.parent = null;
 
@@ -430,7 +426,7 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                spawnedCave2.transform.localPosition = new Vector3(68,25,-1551);
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
                 if (randCave3 == 0)
@@ -438,7 +434,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(293, -3, -438);
+                    spawnedCave3.transform.localPosition = new Vector3(0,-10,4);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -446,7 +442,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -482,7 +478,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                        spawnedCave4.transform.localPosition = new Vector3(68,25,-1551);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -491,7 +487,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -500,7 +496,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -518,7 +514,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -527,7 +523,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -536,7 +532,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -547,7 +543,7 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(31, -20, -1421);
+                spawnedCave2.transform.localPosition = new Vector3(49,23,-2242);
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
                 if (randCave3 == 0)
@@ -555,7 +551,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                    spawnedCave3.transform.localPosition = new Vector3(68,25,-1551);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -563,7 +559,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -591,7 +587,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(31, -20, -1421);
+                    spawnedCave3.transform.localPosition = new Vector3(49,23,-2242);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -599,7 +595,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -608,7 +604,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -617,7 +613,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -627,7 +623,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(83, -2, -1809);
+                    spawnedCave3.transform.localPosition = new Vector3(102, 39, -2585);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -635,7 +631,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -644,7 +640,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -653,7 +649,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -664,7 +660,7 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(83, -2, -1809);
+                spawnedCave2.transform.localPosition = new Vector3(102, 39, -2585);
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
                 if (randCave3 == 0)
@@ -672,7 +668,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(324, -26, -1211);
+                    spawnedCave3.transform.localPosition = new Vector3(58,-38,-1527);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -680,7 +676,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -708,7 +704,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(17, -43, -1476);
+                    spawnedCave3.transform.localPosition = new Vector3(40,-42,-2205);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -716,7 +712,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                        spawnedCave4.transform.localPosition = new Vector3(68,25,-1551);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -725,7 +721,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -734,7 +730,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -744,7 +740,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                    spawnedCave3.transform.localPosition = new Vector3(93, -26, -2594);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -752,7 +748,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -761,7 +757,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -770,7 +766,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -781,7 +777,8 @@ public class CaveGen : MonoBehaviour
         if (randCave1 == 2)
         {
             spawnedCave1 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity, spawnPoint1.transform);
-            spawnedCave1.transform.localScale = new Vector3(.005f,.005f,.005f);
+            spawnedCave1.transform.localScale = new Vector3(.011f,.011f,.011f);
+            spawnedCave1.transform.localPosition = new Vector3(0.101999998f, -0.0829999968f, -4.21700001f);
             spawnPoint2 = spawnedCave1.transform.Find("SpawnPoint").gameObject;
             spawnPoint2.transform.parent = null;
             if (randCave2 == 0)
@@ -789,7 +786,7 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(324, -25, -1213);
+                spawnedCave2.transform.localPosition = new Vector3(58,-38,-1527);;
 
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
@@ -798,7 +795,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(293, -3, -438);
+                    spawnedCave3.transform.localPosition = new Vector3(0,-10,4);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -806,7 +803,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -842,7 +839,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                        spawnedCave4.transform.localPosition = new Vector3(68,25,-1551);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -851,7 +848,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -860,7 +857,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -878,7 +875,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -887,7 +884,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -896,7 +893,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -907,7 +904,7 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(16, -42.25f, -1467);
+                spawnedCave2.transform.localPosition = new Vector3(40,-42,-2205);;
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
                 if (randCave3 == 0)
@@ -915,7 +912,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                    spawnedCave3.transform.localPosition = new Vector3(68,25,-1551);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -923,7 +920,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -951,7 +948,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(31, -20, -1421);
+                    spawnedCave3.transform.localPosition = new Vector3(49,23,-2242);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -959,7 +956,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -968,7 +965,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -977,7 +974,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -987,7 +984,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(83, -2, -1809);
+                    spawnedCave3.transform.localPosition = new Vector3(102, 39, -2585);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -995,7 +992,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1004,7 +1001,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1013,7 +1010,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1024,7 +1021,7 @@ public class CaveGen : MonoBehaviour
                 spawnedCave2 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                 spawnedCave2.transform.parent = spawnPoint2.transform;
                 spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                spawnedCave2.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                spawnedCave2.transform.localPosition = new Vector3(93, -26, -2594);
                 spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
                 spawnPoint3.transform.parent = null;
                 if (randCave3 == 0)
@@ -1032,7 +1029,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(324, -26, -1211);
+                    spawnedCave3.transform.localPosition = new Vector3(58,-38,-1527);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -1040,7 +1037,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(293, -3, -438);
+                        spawnedCave4.transform.localPosition = new Vector3(0,-10,4);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1068,7 +1065,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(17, -43, -1476);
+                    spawnedCave3.transform.localPosition = new Vector3(40,-42,-2205);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -1076,7 +1073,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(337f, -4f, -1185f);
+                        spawnedCave4.transform.localPosition = new Vector3(68,25,-1551);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1085,7 +1082,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(31, -20, -1421);
+                        spawnedCave4.transform.localPosition = new Vector3(49,23,-2242);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1094,7 +1091,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(83, -2, -1809);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1104,7 +1101,7 @@ public class CaveGen : MonoBehaviour
                     spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedCave3.transform.parent = spawnPoint3.transform;
                     spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                    spawnedCave3.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                    spawnedCave3.transform.localPosition = new Vector3(93, -26, -2594);
                     spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
                     spawnPoint4.transform.parent = null;
                     if (randCave4 == 0)
@@ -1112,7 +1109,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(324, -26, -1211);
+                        spawnedCave4.transform.localPosition = new Vector3(58,-38,-1527);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1121,7 +1118,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(17, -43, -1476);
+                        spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
@@ -1130,7 +1127,7 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
-                        spawnedCave4.transform.localPosition = new Vector3(70, -26.2000008f, -1836);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
