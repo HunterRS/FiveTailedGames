@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7658672313711236010, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
 =======
 >>>>>>> parent of 6aa34053 (Cave 1 and 2 spawn points fixed)

@@ -22,8 +22,8 @@ public class CaveGen : MonoBehaviour
 
     /* Coordinates for Spawn Points 
      Cave 1 -->  Cave 1 Vector3(293, -3, -438);
-     Cave 1 -->  Cave 2 Vector3(-22f, -12f, -692f); CONFIRMED
-     Cave 1 -->  Cave 3 Vector3(32f, 3f, -1059f); CONFIRMED
+     Cave 1 -->  Cave 2 Vector3(-22f, -12f, -692f);
+     Cave 1 -->  Cave 3 Vector3(32f, 3f, -1059f);
      Cave 1 -->  Cave 4
      Cave 1 -->  Cave 5
      Cave 2 -->  Cave 1 Vector3(337f, -4f, -1185f);
@@ -40,7 +40,12 @@ public class CaveGen : MonoBehaviour
      Cave 4 -->  Cave 2 
      Cave 4 -->  Cave 3  
      Cave 4 -->  Cave 4 
-     Cave 1 -->  Cave 5              
+     Cave 1 -->  Cave 5         
+     Cave 5 -->  Cave 1
+     Cave 5 -->  Cave 2
+     Cave 5 -->  Cave 3
+     Cave 5 -->  Cave 4 
+     Cave 1 -->  Cave 5         
     */
 
 
