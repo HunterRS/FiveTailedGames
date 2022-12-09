@@ -31,7 +31,11 @@ Transform:
   - {fileID: 3565983334337829056}
   - {fileID: 4757438583459062379}
   - {fileID: 932003995226970896}
+<<<<<<< HEAD
   - {fileID: 1354244877941800221}
+=======
+  - {fileID: 4076759539994695649}
+>>>>>>> parent of 6aa34053 (Cave 1 and 2 spawn points fixed)
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,6 +102,7 @@ Transform:
   m_Father: {fileID: 5142297212154493903}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &1075779087127937997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,6 +196,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 59ba302d9d170ab489cc494cd8ba0458, type: 3}
   m_PrefabInstance: {fileID: 1075779087127937997}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of 6aa34053 (Cave 1 and 2 spawn points fixed)
 --- !u!1001 &3243344478436695427
 PrefabInstance:
   m_ObjectHideFlags: 0
