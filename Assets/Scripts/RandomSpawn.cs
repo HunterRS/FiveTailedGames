@@ -53,7 +53,7 @@ public class RandomSpawn : MonoBehaviour
 
             }
         }
-        Playerrigidbody = GameManager.instance.Player.GetComponent<Rigidbody>();
+        Playerrigidbody = GameObject.Find("Player").GetComponent<Rigidbody>();
         BattleCamera = GameManager.instance.BattleCamera;
     }
 
@@ -106,7 +106,11 @@ public class RandomSpawn : MonoBehaviour
     }
     private void SpawnMoper()
     {
+<<<<<<< Updated upstream
+        EnemyInst = Instantiate(Enemy, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+=======
         EnemyInst = Instantiate(Enemy, SpawnPoint.position, Quaternion.identity, SpawnPoint.transform);
+>>>>>>> Stashed changes
         EnemyInst.transform.parent = this.gameObject.transform.parent;
     }
     private void SpawnAnima()
