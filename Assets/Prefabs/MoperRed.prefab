@@ -15,6 +15,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6f62e163298995a499c1096aebaa3e0e, type: 2}
+<<<<<<< HEAD
     - target: {fileID: 4175425219556446481, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
       propertyPath: Health
       value: 40
@@ -39,10 +40,18 @@ PrefabInstance:
       propertyPath: MovePatternNum.Array.data[2]
       value: 8
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 7658672313711236010, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 6aa34053 (Cave 1 and 2 spawn points fixed)
+=======
+>>>>>>> parent of 10fe3bbe (attack cards updated)
+=======
+>>>>>>> parent of 10fe3bbe (attack cards updated)
     - target: {fileID: 8239269674500084259, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
