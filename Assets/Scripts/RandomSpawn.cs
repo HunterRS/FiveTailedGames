@@ -19,13 +19,16 @@ public class RandomSpawn : MonoBehaviour
 
     [Header("Enemy Instances")]
     private GameObject EnemyInst;
-    [SerializeField] private GameObject Enemy;
+    [SerializeField] private GameObject EnemyPhase1;
+    [SerializeField] private GameObject EnemyPhase2;
+    [SerializeField] private GameObject EnemyPhase3;
     [SerializeField] private Transform SpawnPoint;
 
     [Header("Not Enemey Instances")]
 
     [Header("Misc")]
-    Vector3 currentEulerAngles;
+    [SerializeField] private CaveVariables caveObject;
+    Collider m_Collider;
     // Start is called before the first frame update
     void Start()
     {
@@ -105,8 +108,26 @@ public class RandomSpawn : MonoBehaviour
     }
     private void SpawnMoper()
     {
-        EnemyInst = Instantiate(Enemy, SpawnPoint.position, Quaternion.Euler(0,0,0), SpawnPoint.transform);
-        EnemyInst.transform.parent = this.gameObject.transform.parent;
+        if (caveObject == null)
+        {
+            EnemyInst = Instantiate(EnemyPhase1, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+            return;
+        }
+        if (caveObject.caveOrderNum == 1 || caveObject.caveOrderNum == 2)
+        {
+            EnemyInst = Instantiate(EnemyPhase1, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+            return;
+        }
+        else if (caveObject.caveOrderNum == 3 || caveObject.caveOrderNum == 4)
+        {
+            EnemyInst = Instantiate(EnemyPhase2, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+            return;
+        }
+        else if (caveObject.caveOrderNum == 5)
+        {
+            EnemyInst = Instantiate(EnemyPhase3, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+            return;
+        }
     }
     private void SpawnAnima()
     {
