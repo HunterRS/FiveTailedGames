@@ -66,9 +66,7 @@ public class RandomSpawn : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.instance.gameState = "combat";
-            GameManager.instance.SetIdle();
-            Playerrigidbody.velocity = Vector3.zero;
+
             if (combatForecdSpawn == true)
             {
                 Plaque.SetActive(true);
@@ -95,8 +93,11 @@ public class RandomSpawn : MonoBehaviour
     private void StartCombat()
     {
         GameManager.instance.Enemy = EnemyInst;
-        GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
         BattleCamera.SetActive(true);
+        GameManager.instance.EnemyStats = EnemyInst.GetComponent<EnemyStats>();
+        GameManager.instance.gameState = "combat";
+        GameManager.instance.SetIdle();
+        Playerrigidbody.velocity = Vector3.zero;
         Destroy(this.gameObject);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -105,7 +106,7 @@ public class RandomSpawn : MonoBehaviour
     }
     private void SpawnMoper()
     {
-        EnemyInst = Instantiate(Enemy, SpawnPoint.position, Quaternion.Euler(0,0,0), SpawnPoint.transform);
+        EnemyInst = Instantiate(Enemy, SpawnPoint.position, Quaternion.identity, SpawnPoint.transform);
         EnemyInst.transform.parent = this.gameObject.transform.parent;
     }
     private void SpawnAnima()
