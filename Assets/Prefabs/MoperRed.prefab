@@ -41,12 +41,15 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 7658672313711236010, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
 =======
 >>>>>>> parent of 6aa34053 (Cave 1 and 2 spawn points fixed)
+=======
+>>>>>>> parent of 10fe3bbe (attack cards updated)
 =======
 >>>>>>> parent of 10fe3bbe (attack cards updated)
     - target: {fileID: 8239269674500084259, guid: e24cebc4f0b374b4ab8bb386cbc642ef, type: 3}
