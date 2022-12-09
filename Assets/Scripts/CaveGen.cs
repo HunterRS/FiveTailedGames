@@ -24,9 +24,6 @@ public class CaveGen : MonoBehaviour
      Cave 1 -->  Cave 1 Vector3(0,-10,4); FIXED
      Cave 1 -->  Cave 2 Vector3(-22f, -12f, -692f); FIXED
      Cave 1 -->  Cave 3 Vector3(32f, 3f, -1059f); FIXED
-     Cave 1 -->  Cave 1 Vector3(293, -3, -438);
-     Cave 1 -->  Cave 2 Vector3(-22f, -12f, -692f);
-     Cave 1 -->  Cave 3 Vector3(32f, 3f, -1059f);
      Cave 1 -->  Cave 4
      Cave 1 -->  Cave 5
      Cave 2 -->  Cave 1 Vector3(68,25,-1551); FIXED
@@ -43,12 +40,7 @@ public class CaveGen : MonoBehaviour
      Cave 4 -->  Cave 2 
      Cave 4 -->  Cave 3  
      Cave 4 -->  Cave 4 
-     Cave 1 -->  Cave 5         
-     Cave 5 -->  Cave 1
-     Cave 5 -->  Cave 2
-     Cave 5 -->  Cave 3
-     Cave 5 -->  Cave 4 
-     Cave 1 -->  Cave 5         
+     Cave 1 -->  Cave 5              
     */
 
 
