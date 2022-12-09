@@ -5,9 +5,11 @@ using UnityEngine;
 public class CaveGen : MonoBehaviour
 {
     [Header("Caves")]
-    public GameObject Cave1;
-    public GameObject Cave2;
-    public GameObject Cave3;
+    [SerializeField] private GameObject Cave1;
+    [SerializeField] private GameObject Cave2;
+    [SerializeField] private GameObject Cave3;
+    [SerializeField] private GameObject Cave4;
+    [SerializeField] private GameObject Cave5;
 
     public GameObject spawnedCave1;
     public GameObject spawnedCave2;
@@ -1119,6 +1121,366 @@ public class CaveGen : MonoBehaviour
                         spawnedCave4.transform.parent = spawnPoint4.transform;
                         spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
                         spawnedCave4.transform.localPosition = new Vector3(40,-42,-2205);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+            }
+        }
+        if (randCave1 == 3)
+        {
+            spawnedCave1 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity, spawnPoint1.transform);
+            spawnedCave1.transform.localScale = new Vector3(.011f, .011f, .011f);
+            spawnedCave1.transform.localPosition = new Vector3(0.101999998f, -0.0829999968f, -4.21700001f);
+            spawnPoint2 = spawnedCave1.transform.Find("SpawnPoint").gameObject;
+            spawnPoint2.transform.parent = null;
+            if (randCave2 == 0)
+            {
+                spawnedCave2 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                spawnedCave2.transform.parent = spawnPoint2.transform;
+                spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                spawnedCave2.transform.localPosition = new Vector3(58, -38, -1527); ;
+
+                spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
+                spawnPoint3.transform.parent = null;
+                if (randCave3 == 0)
+                {
+                    spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(0, -10, 4);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(0, -10, 4);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(-22f, -12f, -692f);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(32f, 3f, -1059f);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+                if (randCave3 == 1)
+                {
+                    spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(-22f, -12f, -692f);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(68, 25, -1551);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(49, 23, -2242);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+                if (randCave3 == 2)
+                {
+                    spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(32f, 3f, -1059f);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(58, -38, -1527);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(40, -42, -2205);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+            }
+            if (randCave2 == 1)
+            {
+                spawnedCave2 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                spawnedCave2.transform.parent = spawnPoint2.transform;
+                spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                spawnedCave2.transform.localPosition = new Vector3(40, -42, -2205); ;
+                spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
+                spawnPoint3.transform.parent = null;
+                if (randCave3 == 0)
+                {
+                    spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(68, 25, -1551);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(0, -10, 4);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(-22f, -12f, -692f);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(32f, 3f, -1059f);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+                if (randCave3 == 1)
+                {
+                    spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(49, 23, -2242);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(0, -10, 4);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(49, 23, -2242);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+                if (randCave3 == 2)
+                {
+                    spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(102, 39, -2585);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(58, -38, -1527);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(40, -42, -2205);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(93, -26, -2594);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+            }
+            if (randCave2 == 2)
+            {
+                spawnedCave2 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                spawnedCave2.transform.parent = spawnPoint2.transform;
+                spawnedCave2.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                spawnedCave2.transform.localPosition = new Vector3(93, -26, -2594);
+                spawnPoint3 = spawnedCave2.transform.Find("SpawnPoint").gameObject;
+                spawnPoint3.transform.parent = null;
+                if (randCave3 == 0)
+                {
+                    spawnedCave3 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(58, -38, -1527);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(0, -10, 4);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(-22f, -12f, -692f);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(32f, 3f, -1059f);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+                if (randCave3 == 1)
+                {
+                    spawnedCave3 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(40, -42, -2205);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(68, 25, -1551);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(49, 23, -2242);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 2)
+                    {
+                        spawnedCave4 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(102, 39, -2585);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                }
+                if (randCave3 == 2)
+                {
+                    spawnedCave3 = Instantiate(Cave3, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedCave3.transform.parent = spawnPoint3.transform;
+                    spawnedCave3.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                    spawnedCave3.transform.localPosition = new Vector3(93, -26, -2594);
+                    spawnPoint4 = spawnedCave3.transform.Find("SpawnPoint").gameObject;
+                    spawnPoint4.transform.parent = null;
+                    if (randCave4 == 0)
+                    {
+                        spawnedCave4 = Instantiate(Cave1, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(58, -38, -1527);
+                        spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
+                        spawnPoint5.transform.parent = null;
+                    }
+                    if (randCave4 == 1)
+                    {
+                        spawnedCave4 = Instantiate(Cave2, new Vector3(0, 0, 0), Quaternion.identity);
+                        spawnedCave4.transform.parent = spawnPoint4.transform;
+                        spawnedCave4.transform.localScale = new Vector3(2.75f, 2.75f, 2.75f);
+                        spawnedCave4.transform.localPosition = new Vector3(40, -42, -2205);
                         spawnPoint5 = spawnedCave4.transform.Find("SpawnPoint").gameObject;
                         spawnPoint5.transform.parent = null;
                     }
