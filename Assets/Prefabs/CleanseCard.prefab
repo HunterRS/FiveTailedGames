@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: animaCost
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: profanedAnima
