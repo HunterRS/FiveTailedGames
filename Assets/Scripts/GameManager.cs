@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject AnimaPlaque;
     public GameObject DeckObject;
     public GameObject[] ShieldArray;
+    public GameObject[] AmuletArrayC;
+    public GameObject[] AmuletArray;
 
     [Header("Enemy Stats")]
     public int EnemyHealth;
@@ -69,6 +71,16 @@ public class GameManager : MonoBehaviour
 
     public void updateCorruption()
     {
+        for(int x = 0; x < 10; x++){
+            if((int)Mathf.Floor(playerCorruption/10) > x){
+                AmuletArray[x].SetActive(false);
+                AmuletArrayC[x].SetActive(true);
+            }
+            else{
+                AmuletArray[x].SetActive(true);
+                AmuletArrayC[x].SetActive(false);
+            }
+        }
         if (playerCorruption < 10)
         {
             corruptFrame.gameObject.SetActive(false);
@@ -84,6 +96,7 @@ public class GameManager : MonoBehaviour
         {
             Camera.main.GetComponent<Animator>().enabled = true;
         }
+
 
     }
 
@@ -127,12 +140,14 @@ public class GameManager : MonoBehaviour
                 }
                 Debug.Log("Test");
             }
+            
             else if (GameManager.instance.PlayerBlock == 0)
             {
                 GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
             }
             UpdateBlock();
         }
+        
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
         {
             GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
@@ -147,7 +162,7 @@ public class GameManager : MonoBehaviour
         else { EnemyStats.MoveNum++; }
 
         CardManager.instance.DrawCard(3);
-        PlayerBlock = 0;
+        //PlayerBlock = 0;
         UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
         UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
         UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
