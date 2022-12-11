@@ -92,10 +92,6 @@ public class CardManager : MonoBehaviour
                 {
                     Camera.main.GetComponent<Animator>().enabled = true;
                 }
-                else
-                {
-                    return;
-                }
             }
             NewCard = battleDeckList[Random.Range(0, battleDeckList.Count)];
             NewCard.transform.SetParent(HandParent);

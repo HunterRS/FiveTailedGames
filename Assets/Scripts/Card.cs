@@ -24,10 +24,21 @@ public class Card : MonoBehaviour
     public GameObject cDesc;
 
     public GameObject playerAnim;
+    [Header("Materials")]
+    public Material[] materials;
+    public Renderer materialPlane;
+    public GameObject reinforcedCorners;
+     
+
     // Start is called before the first frame update
     void Start()
     {
         playerAnim = GameObject.FindGameObjectWithTag("PlayerModel");
+        materials[0] = materialPlane.material;
+        if (Reinforced == true)
+        {
+            reinforcedCorners.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -83,6 +94,12 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.instance.reinforcingCards == true)
+        {
+            Reinforced = true;
+            GameManager.instance.CardsReinforced();
+            return;
+        }
         if (CardManager.instance.selection == true)
         {
             CardManager.instance.CurrentDeckList.Add(this);
@@ -113,8 +130,16 @@ public class Card : MonoBehaviour
             }
             else
             {
+                if (Reinforced == true)
+                {
+                    reinforcedCorners.SetActive(false);
+                    Reinforced = false;
+                    CardManager.instance.MoveToDiscard(this);
+                    return;
+                }
                 Debug.Log("Profaning");
                 Profane = true;
+                materialPlane.materials = materials;
                 CardManager.instance.MoveToDiscard(this);
                 return;
             }
@@ -127,6 +152,7 @@ public class Card : MonoBehaviour
                 {
                     case "attack":
                         Attack(profanedValue);
+                        
                         break;
 
                     case "defend":
@@ -165,10 +191,11 @@ public class Card : MonoBehaviour
                 }
                 if (secondaryEffect == true)
                 {
+                    Debug.Log("AAAAAA");
                     switch (secondaryEffectName)
                     {
                         case "cleanse":
-                            Cleanse(profanedSecondaryEffectValue);
+                            CleanseNoDiscard(profanedSecondaryEffectValue);
                             break;
                     }
                 }
@@ -220,7 +247,7 @@ public class Card : MonoBehaviour
                     switch (secondaryEffectName)
                     {
                         case "cleanse":
-                            Cleanse(secondaryEffectValue);
+                            CleanseNoDiscard(secondaryEffectValue);
                             break;
                     }
                 }
@@ -314,12 +341,23 @@ public class Card : MonoBehaviour
         {
             GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
             GameManager.instance.PlayerHealth += healPower;
+            if (GameManager.instance.PlayerHealth > 30)
+            {
+                GameManager.instance.PlayerHealth = 30;
+            }
             if (GameManager.instance.PlayerHealth > 100 /* Replace with Max hehalth */)
             {
                 GameManager.instance.PlayerHealth = 100;
             }
             CardManager.instance.MoveToDiscard(this);
         }
+        CardManager.AnimaChange();
+    }
+
+    private void CleanseNoDiscard(int cleansePower)
+    {
+        GameManager.instance.playerCorruption += cleansePower;
+        GameManager.instance.updateCorruption();
         CardManager.AnimaChange();
     }
 }
