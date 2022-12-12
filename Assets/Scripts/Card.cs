@@ -23,7 +23,11 @@ public class Card : MonoBehaviour
     public GameObject nDesc;
     public GameObject cDesc;
 
+    [Header("Effects")]
+    public MeshRenderer CardMesh;
     public GameObject playerAnim;
+    public Material[] MatProgression;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -116,6 +120,7 @@ public class Card : MonoBehaviour
                 Debug.Log("Profaning");
                 Profane = true;
                 CardManager.instance.MoveToDiscard(this);
+                CardMesh.materials = MatProgression;
                 return;
             }
         }

@@ -9,6 +9,9 @@ public class PlayerScript : MonoBehaviour
     public GameObject playerMeshObj;
 
     public Rigidbody RB;
+    public GameObject PlayerCam;
+    
+    
     private bool running;
     private Animator playerAnim;
 
@@ -26,7 +29,10 @@ public class PlayerScript : MonoBehaviour
         if(GameManager.instance.gameState == "move"){
             Cursor.visible = false;
             gameObject.transform.Rotate(0,Input.GetAxis("Mouse X")*1.5f,0);
-
+            // if((PlayerCam.transform.localRotation.x > -10 || PlayerCam.transform.localRotation.x > 350)&& Input.GetAxis("Mouse Y") < 0)
+            //     PlayerCam.transform.Rotate(Input.GetAxis("Mouse Y"),0,0);
+            // if(PlayerCam.transform.localRotation.x < 24 && Input.GetAxis("Mouse Y") > 0)
+            //     PlayerCam.transform.Rotate(Input.GetAxis("Mouse Y"),0,0);
             running = false;
             if(RB.velocity.magnitude <= maxSpeed){
                 if(Input.GetKey("a")){
