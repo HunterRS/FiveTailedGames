@@ -207,6 +207,9 @@ public class GameManager : MonoBehaviour
         {
             PlayerHealth = 30;
         }
+        CampUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void CampCleanse()
     {
@@ -215,6 +218,9 @@ public class GameManager : MonoBehaviour
         {
             playerCorruption = 0;
         }
+        CampUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void CampReinforce()
     {
@@ -240,5 +246,7 @@ public class GameManager : MonoBehaviour
             child.localPosition = new Vector3(0, 0, 0);
             child.localScale = new Vector3(0, 0, 0);
         }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
