@@ -18,8 +18,8 @@ public class GameManager : MonoBehaviour
     public ParticleSystem corruptFrame;
     public Image corruptVignette;
     public GameObject HBar;
-    //public GameObject phaseDetector;
-    //public Material phase_Material;
+    public GameObject phaseDetector;
+    public Material phase_Material;
     public GameObject AnimaPlaque;
     public GameObject DeckObject;
     public GameObject[] ShieldArray;
@@ -33,19 +33,12 @@ public class GameManager : MonoBehaviour
     public GameObject Enemy;
     public EnemyStats EnemyStats;
 
-    [Header("Camp")]
-    public GameObject CampUI;
-    public bool reinforcingCards;
-    public Transform ReinforceUI;
-    public Transform StartDeck;
-
     [Header("Misc")]
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
     public GameObject cameraAnchor;
     public Animator playerAnim;
     public string gameState;
-
 
     public Vector3 camBattleOffset;
     private Vector3 camMainOffset;
@@ -54,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     public bool TutorialFight;
 
+    // Start is called before the first frame update
     private void Awake()
     {
         instance = this;
@@ -61,12 +55,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        UpdateBlock();
-        gameState = "move";
-        camMainOffset = cameraAnchor.transform.GetChild(0).transform.localPosition;
         CardManager.instance.DeckCreate();
-        //phase_Material = phaseDetector.GetComponent<Renderer>().material;
-        //phase_Material.color = new Color(1f, 0f, 0f);
+        phase_Material = phaseDetector.GetComponent<Renderer>().material;
+        phase_Material.color = new Color(1f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -76,18 +67,8 @@ public class GameManager : MonoBehaviour
         updateHP();
     }
 
-    public void updateCorruption()
+    private void updateCorruption()
     {
-        for(int x = 0; x < 10; x++){
-            if((int)Mathf.Floor(playerCorruption/10) > x){
-                AmuletArray[x].SetActive(false);
-                AmuletArrayC[x].SetActive(true);
-            }
-            else{
-                AmuletArray[x].SetActive(true);
-                AmuletArrayC[x].SetActive(false);
-            }
-        }
         if (playerCorruption < 10)
         {
             corruptFrame.gameObject.SetActive(false);
@@ -96,38 +77,18 @@ public class GameManager : MonoBehaviour
         else
         {
             corruptFrame.gameObject.SetActive(true);
-            corruptFrame.startLifetime = ((float)playerCorruption/2) / 100 * 9;
+            corruptFrame.startLifetime = (float)playerCorruption / 100 * 9;
             corruptVignette.color = new Color(1, 1, 1, (float)playerCorruption/100);
         }
-        if (playerCorruption >= 100)
-        {
-            Camera.main.GetComponent<Animator>().enabled = true;
-        }
-
-
     }
 
     private void updateHP()
     {
-        HBar.transform.localScale = Vector3.MoveTowards(HBar.transform.localScale, new Vector3((float)PlayerHealth/30,.8f,.8f), .001f);
-        if (PlayerHealth <= 0)
-        {
-            Camera.main.GetComponent<Animator>().enabled = true;
-        }
-        UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
-    }
-    public void UpdateBlock(){
-        foreach(GameObject x in ShieldArray){
-            if(System.Array.IndexOf(ShieldArray, x) < PlayerBlock)
-                x.SetActive(true);
-            else
-                x.SetActive(false);
-        }
+        HBar.transform.localScale = Vector3.MoveTowards(HBar.transform.localScale, new Vector3((float)PlayerHealth/30,.8f,.8f), .0005f);
     }
 
     public void endTurn()
     {
-        GameManager.instance.EnemyBlock = 0;
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack")
         {
             if (GameManager.instance.PlayerBlock > 0)
@@ -146,33 +107,30 @@ public class GameManager : MonoBehaviour
                 {
                     GameManager.instance.PlayerBlock = 0;
                 }
+                UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
                 Debug.Log("Test");
             }
-            
             else if (GameManager.instance.PlayerBlock == 0)
             {
                 GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
+                UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
             }
-            UpdateBlock();
         }
-        
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
         {
             GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
-            //phase_Material.color = new Color(1f, 0f, 0f);
+            UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
+            phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
         
+        CardManager.instance.DrawCard(3);
         if (EnemyStats.MoveNum == EnemyStats.MovePattern.Count - 1)
         {
             EnemyStats.MoveNum = 0;
         }
         else { EnemyStats.MoveNum++; }
-
-        CardManager.instance.DrawCard(3);
-        //PlayerBlock = 0;
-        UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
-        UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
     }
 
     public void HideUI(){
@@ -189,8 +147,6 @@ public class GameManager : MonoBehaviour
             cameraAnchor.transform.GetChild(0).transform.Rotate(28,0,0);
             difAngle = Vector3.Angle(new Vector3((Enemy.transform.position - Player.transform.position).x, 0, (Enemy.transform.position - Player.transform.position).z), new Vector3(cameraAnchor.transform.forward.x,0,cameraAnchor.transform.forward.z));
             cameraAnchor.transform.Rotate(0,-(180 - difAngle),0);
-            //Playerrigidbody.transform.parent.LookAt(GameManager.instance.Enemy.transform);
-            //GameManager.instance.Enemy.transform.LookAt(Player.transform);
         }
         else{
             cameraAnchor.transform.localPosition = Vector3.zero;
@@ -198,47 +154,6 @@ public class GameManager : MonoBehaviour
             cameraAnchor.transform.GetChild(0).transform.localPosition = camMainOffset;
             cameraAnchor.transform.GetChild(0).transform.Rotate(-28,0,0);
             
-        }
-    }
-    public void CampHeal()
-    {
-        PlayerHealth += 15;
-        if (PlayerHealth > 30)
-        {
-            PlayerHealth = 30;
-        }
-    }
-    public void CampCleanse()
-    {
-        playerCorruption = playerCorruption - 30;
-        if (playerCorruption < 0)
-        {
-            playerCorruption = 0;
-        }
-    }
-    public void CampReinforce()
-    {
-        reinforcingCards = true;
-        CampUI.SetActive(false);
-        ReinforceUI.gameObject.SetActive(true);
-        while (StartDeck.childCount > 0)
-        {
-            Transform child = StartDeck.GetChild(0);
-            child.SetParent(ReinforceUI);
-            child.localRotation = Quaternion.Euler(0, -180, 0);
-            child.localPosition = new Vector3 (child.localPosition.x, child.localPosition.y, 0);
-            child.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-        }
-    }
-    public void CardsReinforced()
-    {
-        reinforcingCards = false;
-        while (ReinforceUI.childCount > 0)
-        {
-            Transform child = ReinforceUI.GetChild(0);
-            child.SetParent(StartDeck);
-            child.localPosition = new Vector3(0, 0, 0);
-            child.localScale = new Vector3(0, 0, 0);
         }
     }
 }

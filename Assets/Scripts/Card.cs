@@ -252,8 +252,8 @@ public class Card : MonoBehaviour
                     }
                 }
             }
-
         }
+        
     CardManager.AnimaChange();
     }
 

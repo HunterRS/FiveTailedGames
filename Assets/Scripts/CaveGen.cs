@@ -1505,8 +1505,8 @@ public class CaveGen : MonoBehaviour
         c3v.caveOrderNum = 3;
         CaveVariables c4v = spawnedCave4.GetComponent<CaveVariables>();
         c4v.caveOrderNum = 4;
-        //CaveVariables c5v = spawnedCave5.GetComponent<CaveVariables>();
-        //c5v.caveOrderNum = 5;
+        CaveVariables c5v = spawnedCave5.GetComponent<CaveVariables>();
+        c5v.caveOrderNum = 5;
     }
 }
 

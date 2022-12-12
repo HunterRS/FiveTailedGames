@@ -76,8 +76,7 @@ public class RandomSpawn : MonoBehaviour
                 GameManager.instance.gameState = "combat";
                 GameManager.instance.SetIdle();
                 Playerrigidbody.velocity = Vector3.zero;
-                Plaque.SetActive(true);
-                DeckObject.SetActive(true);
+                GameManager.instance.HideUI();
                 StartCombat();
                 GameManager.instance.CombatView(true);
             }
@@ -97,6 +96,34 @@ public class RandomSpawn : MonoBehaviour
         }
     }
 
+    private void SpawnMoper()
+    {
+        if (caveObject == null)
+        {
+            EnemyInst = Instantiate(EnemyPhase1, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+            EnemyInst.transform.parent = gameObject.transform.parent;
+            return;
+        }
+        if (caveObject.caveOrderNum == 1 || caveObject.caveOrderNum == 2)
+        {
+            EnemyInst = Instantiate(EnemyPhase1, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+            EnemyInst.transform.parent = gameObject.transform.parent;
+            return;
+        }
+        else if (caveObject.caveOrderNum == 3 || caveObject.caveOrderNum == 4)
+        {
+            EnemyInst = Instantiate(EnemyPhase2, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+            EnemyInst.transform.parent = gameObject.transform.parent;
+            return;
+        }
+        else if (caveObject.caveOrderNum == 5)
+        {
+            EnemyInst = Instantiate(EnemyPhase3, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
+            EnemyInst.transform.parent = gameObject.transform.parent;
+            return;
+        }
+    }
+
     private void StartCombat()
     {
         GameManager.instance.Enemy = EnemyInst;
@@ -108,32 +135,4 @@ public class RandomSpawn : MonoBehaviour
         CardManager.instance.CreateBattleDeck();
         CardManager.instance.DrawCard(3);
     }
-    private void SpawnMoper()
-    {
-        if (caveObject == null)
-        {
-            EnemyInst = Instantiate(EnemyPhase1, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
-            return;
-        }
-        if (caveObject.caveOrderNum == 1 || caveObject.caveOrderNum == 2)
-        {
-            EnemyInst = Instantiate(EnemyPhase1, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
-            return;
-        }
-        else if (caveObject.caveOrderNum == 3 || caveObject.caveOrderNum == 4)
-        {
-            EnemyInst = Instantiate(EnemyPhase2, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
-            return;
-        }
-        else if (caveObject.caveOrderNum == 5)
-        {
-            EnemyInst = Instantiate(EnemyPhase3, SpawnPoint.position, SpawnPoint.rotation, SpawnPoint.transform);
-            return;
-        }
-    }
-    private void SpawnAnima()
-    {
-
-    }
-
 }

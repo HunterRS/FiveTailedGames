@@ -2529,10 +2529,10 @@ MonoBehaviour:
   enemyPhase: attack
   Enemy: {fileID: 0}
   EnemyStats: {fileID: 0}
-  CampUI: {fileID: 0}
+  CampUI: {fileID: 8990114732279655640, guid: 4905051bd540af34f85b4525339e056e, type: 3}
   reinforcingCards: 0
-  ReinforceUI: {fileID: 0}
-  StartDeck: {fileID: 0}
+  ReinforceUI: {fileID: 461620471}
+  StartDeck: {fileID: 1202803698}
   Playerrigidbody: {fileID: 1092779461}
   BattleCamera: {fileID: 3520169676168527105}
   cameraAnchor: {fileID: 2058048286}
@@ -3728,7 +3728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &890253812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5866,7 +5866,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1092779459}
-  - component: {fileID: 1092779458}
   - component: {fileID: 1092779456}
   - component: {fileID: 1092779460}
   - component: {fileID: 1092779461}
@@ -5891,14 +5890,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.95, z: 0}
---- !u!33 &1092779458
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092779455}
-  m_Mesh: {fileID: -4650390976156102637, guid: bcb3c77af5bc84041beaf5130a1ad3f7, type: 3}
 --- !u!4 &1092779459
 Transform:
   m_ObjectHideFlags: 0
@@ -5907,7 +5898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092779455}
   m_LocalRotation: {x: 0, y: 0.8269333, z: 0, w: 0.5622999}
-  m_LocalPosition: {x: 9, y: 14.9, z: -117}
+  m_LocalPosition: {x: 9, y: 14.9, z: -26.99}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5930,11 +5921,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081fef7b1f1df3a4a918b7e957be779e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charSpeed: 10
-  maxSpeed: 70
+  charSpeed: 5
+  maxSpeed: 80
   playerMeshObj: {fileID: 209946375}
   RB: {fileID: 1092779461}
-  PlayerCam: {fileID: 0}
+  PlayerCam: {fileID: 963194227}
 --- !u!54 &1092779461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7317,7 +7308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1562335162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7916,7 +7907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1755204032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7932,8 +7923,8 @@ MonoBehaviour:
   Cave1: {fileID: 5944988246402042085, guid: 7290bfdef7cca6f47b7fa3a75d3008fc, type: 3}
   Cave2: {fileID: 2289314625838242952, guid: 75a3076ec2211ef429bee17cef235b9a, type: 3}
   Cave3: {fileID: 5256153435361124583, guid: c2029f79207682345ba007670449920f, type: 3}
-  Cave4: {fileID: 0}
-  Cave5: {fileID: 0}
+  Cave4: {fileID: 5256153435361124583, guid: 5924416a89056b14cb827ec702d6275a, type: 3}
+  Cave5: {fileID: 5256153435361124583, guid: c4cf04f79483bc64fb82a7a426aed68e, type: 3}
   spawnedCave1: {fileID: 0}
   spawnedCave2: {fileID: 0}
   spawnedCave3: {fileID: 0}
