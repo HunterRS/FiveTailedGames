@@ -75,15 +75,13 @@ MonoBehaviour:
   Reinforced: 0
   nDesc: {fileID: 6786908720870413478}
   cDesc: {fileID: 5333176677310252833}
-  CardMesh: {fileID: 11437425658272086}
   playerAnim: {fileID: 0}
-  MatProgression:
-  - {fileID: 2100000, guid: e57a52accc31d244cb7c6f53d5e1e7a0, type: 2}
-  - {fileID: 2100000, guid: 7243e09b74e9492468fbd279e54cf7fe, type: 2}
+  materials:
+  - {fileID: 0}
   - {fileID: 2100000, guid: 2b27fc9685744824ba5ed450aaaa9ba4, type: 2}
-  - {fileID: 2100000, guid: e57a52accc31d244cb7c6f53d5e1e7a0, type: 2}
   - {fileID: 2100000, guid: 7243e09b74e9492468fbd279e54cf7fe, type: 2}
-  - {fileID: 2100000, guid: 2b27fc9685744824ba5ed450aaaa9ba4, type: 2}
+  materialPlane: {fileID: 11437425658272086}
+  reinforcedCorners: {fileID: 6945823239278685761}
 --- !u!114 &4649570447379637496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +269,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

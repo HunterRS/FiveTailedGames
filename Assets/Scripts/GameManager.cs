@@ -33,12 +33,19 @@ public class GameManager : MonoBehaviour
     public GameObject Enemy;
     public EnemyStats EnemyStats;
 
+    [Header("Camp")]
+    public GameObject CampUI;
+    public bool reinforcingCards;
+    public Transform ReinforceUI;
+    public Transform StartDeck;
+
     [Header("Misc")]
     public Rigidbody Playerrigidbody;
     public GameObject BattleCamera;
     public GameObject cameraAnchor;
     public Animator playerAnim;
     public string gameState;
+
 
     public Vector3 camBattleOffset;
     private Vector3 camMainOffset;
@@ -107,6 +114,7 @@ public class GameManager : MonoBehaviour
         {
             Camera.main.GetComponent<Animator>().enabled = true;
         }
+        UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
     }
     public void UpdateBlock(){
         foreach(GameObject x in ShieldArray){
@@ -165,7 +173,6 @@ public class GameManager : MonoBehaviour
         //PlayerBlock = 0;
         UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
         UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
-        UIManager.instance.PlayerHealthTxT.text = GameManager.instance.PlayerHealth.ToString();
     }
 
     public void HideUI(){
@@ -191,6 +198,47 @@ public class GameManager : MonoBehaviour
             cameraAnchor.transform.GetChild(0).transform.localPosition = camMainOffset;
             cameraAnchor.transform.GetChild(0).transform.Rotate(-28,0,0);
             
+        }
+    }
+    public void CampHeal()
+    {
+        PlayerHealth += 15;
+        if (PlayerHealth > 30)
+        {
+            PlayerHealth = 30;
+        }
+    }
+    public void CampCleanse()
+    {
+        playerCorruption = playerCorruption - 30;
+        if (playerCorruption < 0)
+        {
+            playerCorruption = 0;
+        }
+    }
+    public void CampReinforce()
+    {
+        reinforcingCards = true;
+        CampUI.SetActive(false);
+        ReinforceUI.gameObject.SetActive(true);
+        while (StartDeck.childCount > 0)
+        {
+            Transform child = StartDeck.GetChild(0);
+            child.SetParent(ReinforceUI);
+            child.localRotation = Quaternion.Euler(0, -180, 0);
+            child.localPosition = new Vector3 (child.localPosition.x, child.localPosition.y, 0);
+            child.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
+    }
+    public void CardsReinforced()
+    {
+        reinforcingCards = false;
+        while (ReinforceUI.childCount > 0)
+        {
+            Transform child = ReinforceUI.GetChild(0);
+            child.SetParent(StartDeck);
+            child.localPosition = new Vector3(0, 0, 0);
+            child.localScale = new Vector3(0, 0, 0);
         }
     }
 }
