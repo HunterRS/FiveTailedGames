@@ -59,6 +59,7 @@ MonoBehaviour:
   - attack
   - block
   MovePatternNum: 0500000003000000
+  IsBoss: 0
 --- !u!95 &360300897271614097
 Animator:
   serializedVersion: 4

@@ -5858,7 +5858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092779455}
   m_LocalRotation: {x: 0, y: 0.8269333, z: 0, w: 0.5622999}
-  m_LocalPosition: {x: 9, y: 14.9, z: -114}
+  m_LocalPosition: {x: 49, y: -104, z: 2988}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8412,6 +8412,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 783281295}
     m_Modifications:
+    - target: {fileID: 2378718356850783823, guid: c4cf04f79483bc64fb82a7a426aed68e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12786388
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378718356850783823, guid: c4cf04f79483bc64fb82a7a426aed68e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3285728
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378718356850783823, guid: c4cf04f79483bc64fb82a7a426aed68e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.2536488
+      objectReference: {fileID: 0}
     - target: {fileID: 5256153435361124583, guid: c4cf04f79483bc64fb82a7a426aed68e, type: 3}
       propertyPath: m_Name
       value: Cave5

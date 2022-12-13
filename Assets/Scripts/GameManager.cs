@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
     {
         updateCorruption();
         updateHP();
+        if (Enemy != null) {
+        // enemyAnim = Enemy.GetComponent<Animator>();
+        // Debug.Log(enemyAnim);
+        //Debug.Log(Enemy.GetComponent<Animator>().Trigger("Attack"));
+        }
     }
 
     public void updateCorruption()
@@ -131,9 +136,11 @@ public class GameManager : MonoBehaviour
         GameManager.instance.EnemyBlock = 0;
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack")
         {
+            Enemy.GetComponent<Animator>().SetTrigger("Attack");
+
             if (GameManager.instance.PlayerBlock > 0)
             {
-                int tempvalue = 3 - GameManager.instance.PlayerBlock;
+                int tempvalue = EnemyStats.MovePatternNum[EnemyStats.MoveNum] - GameManager.instance.PlayerBlock;
                 if (tempvalue > 0)
                 {
                     GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - tempvalue;
@@ -141,39 +148,135 @@ public class GameManager : MonoBehaviour
                 }
                 else if (tempvalue < 0)
                 {
-                    GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock - 3;
+                    GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock - EnemyStats.MovePatternNum[EnemyStats.MoveNum];
                 }
                 else
                 {
                     GameManager.instance.PlayerBlock = 0;
                 }
-                Debug.Log("Test");
+                //Debug.Log("Test");
             }
             
             else if (GameManager.instance.PlayerBlock == 0)
             {
-                GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - 3;
+                GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - EnemyStats.MovePatternNum[EnemyStats.MoveNum];
             }
             UpdateBlock();
         }
         
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
         {
-            GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
+            GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + EnemyStats.MovePatternNum[EnemyStats.MoveNum];
             //phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
+
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "atkBlk") {
+
+            Enemy.GetComponent<Animator>().SetTrigger("Attack");
+
+            if (GameManager.instance.PlayerBlock > 0)
+            {
+                int tempvalue = EnemyStats.MovePatternNum[EnemyStats.MoveNum] - GameManager.instance.PlayerBlock;
+                if (tempvalue > 0)
+                {
+                    GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - tempvalue;
+                    GameManager.instance.PlayerBlock = 0;
+                }
+                else if (tempvalue < 0)
+                {
+                    GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock - EnemyStats.MovePatternNum[EnemyStats.MoveNum];
+                }
+                else
+                {
+                    GameManager.instance.PlayerBlock = 0;
+                }
+            }
+            
+            else if (GameManager.instance.PlayerBlock == 0)
+            {
+                GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - EnemyStats.MovePatternNum[EnemyStats.MoveNum];
+            }
+            UpdateBlock();
+
+            GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + EnemyStats.MovePatternNum[EnemyStats.MoveNum];
+        }
+
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "animasteal") {
+
+            Enemy.GetComponent<Animator>().SetTrigger("Attack");
+
+            if (GameManager.instance.PlayerBlock > 0)
+            {
+                int tempvalue = EnemyStats.MovePatternNum[EnemyStats.MoveNum] - GameManager.instance.PlayerBlock;
+                if (tempvalue > 0)
+                {
+                    GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - tempvalue;
+                    GameManager.instance.PlayerBlock = 0;
+
+                    // Debug.Log("You have" + Anima + "Anima!");
+                    if (Anima > 0) {
+                    Debug.Log("Anima stolen!");
+                    Anima = Anima - 1;
+                    CardManager.AnimaChange();
+                    }
+                }
+                else if (tempvalue < 0)
+                {
+                    GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock - EnemyStats.MovePatternNum[EnemyStats.MoveNum];
+                }
+                else
+                {
+                    GameManager.instance.PlayerBlock = 0;
+                }
+            }
+            
+            else if (GameManager.instance.PlayerBlock == 0)
+            {
+                GameManager.instance.PlayerHealth = GameManager.instance.PlayerHealth - EnemyStats.MovePatternNum[EnemyStats.MoveNum];
+
+                if (Anima > 0) {
+                    Debug.Log("Anima stolen!");
+                    Anima = Anima - 1;
+                    CardManager.AnimaChange();
+                    }
+            }
+            UpdateBlock();
+
+        }
         
-        if (EnemyStats.MoveNum == EnemyStats.MovePattern.Count - 1)
+        if (EnemyStats.MoveNum == EnemyStats.MovePattern.Count - 1 && EnemyStats.IsBoss == false)
         {
             EnemyStats.MoveNum = 0;
         }
-        else { EnemyStats.MoveNum++; }
+        else if (EnemyStats.IsBoss == false){ EnemyStats.MoveNum++; }
+
+        if (EnemyStats.IsBoss == true) {
+            GenBossStage(Random.Range(91, 100));
+        }
 
         CardManager.instance.DrawCard(3);
         //PlayerBlock = 0;
         UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
         UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+    }
+
+    public void GenBossStage(int number) {
+        if (number >= 1 && number < 35) {
+            EnemyStats.MoveNum = 0;
+        }
+
+        if (number >= 35 && number < 70) {
+            EnemyStats.MoveNum = 1;
+        }
+
+        if (number >= 70 && number < 90) {
+            EnemyStats.MoveNum = 2;
+        }
+
+        if (number >= 90) {
+            EnemyStats.MoveNum = 3;
+        }
     }
 
     public void HideUI(){
