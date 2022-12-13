@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,17 +48,19 @@ public class GameManager : MonoBehaviour
     public Animator playerAnim;
     public string gameState;
 
-
     public Vector3 camBattleOffset;
     private Vector3 camMainOffset;
     private float difAngle;
 
+    private TMP_Text ActTrackText;
+    private string nAct;
 
     public bool TutorialFight;
 
     private void Awake()
     {
         instance = this;
+        ActTrackText = GameObject.Find("NextAction").GetComponent<TMP_Text>();
     }
 
     void Start()
@@ -75,10 +78,21 @@ public class GameManager : MonoBehaviour
     {
         updateCorruption();
         updateHP();
-        if (Enemy != null) {
-        // enemyAnim = Enemy.GetComponent<Animator>();
-        // Debug.Log(enemyAnim);
-        //Debug.Log(Enemy.GetComponent<Animator>().Trigger("Attack"));
+        if (Enemy != null && gameState == "combat") {
+        ActTrackText.text = "Next Action: " + nAct;
+
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack") {
+            nAct = "Attack for " + EnemyStats.MovePatternNum[EnemyStats.MoveNum];
+        } else
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block") {
+            nAct = "Block for " + EnemyStats.MovePatternNum[EnemyStats.MoveNum];
+        } else
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "atkBlk") {
+            nAct = "Attack and Block for " + EnemyStats.MovePatternNum[EnemyStats.MoveNum];
+        } else
+        if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "animasteal") {
+            nAct = "Attack for " + EnemyStats.MovePatternNum[EnemyStats.MoveNum] + "and steal Anima!";
+        }
         }
     }
 
@@ -252,7 +266,7 @@ public class GameManager : MonoBehaviour
         else if (EnemyStats.IsBoss == false){ EnemyStats.MoveNum++; }
 
         if (EnemyStats.IsBoss == true) {
-            GenBossStage(Random.Range(91, 100));
+            GenBossStage(Random.Range(1, 100));
         }
 
         CardManager.instance.DrawCard(3);
