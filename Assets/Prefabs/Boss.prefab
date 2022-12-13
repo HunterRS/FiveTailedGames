@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e706b3856391f42904c93249864fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 70
   Block: 0
   HBar: {fileID: 2428765740894606099}
   MaxHealth: 100
