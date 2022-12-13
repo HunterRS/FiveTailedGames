@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: value
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: animaCost
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: profanedValue
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4118488900446813706, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: secondaryEffect

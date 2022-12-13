@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour
                 PlayerCam.transform.Rotate(-Input.GetAxis("Mouse Y"),0,0);
                 camRotateOffset += Input.GetAxis("Mouse Y");
             }
-            if(camRotateOffset < 24 && Input.GetAxis("Mouse Y") > 0){
+            if(camRotateOffset < 30 && Input.GetAxis("Mouse Y") > 0){
                 PlayerCam.transform.Rotate(-Input.GetAxis("Mouse Y"),0,0);
                 camRotateOffset += Input.GetAxis("Mouse Y");
             }

@@ -24,8 +24,6 @@ public class RandomSpawn : MonoBehaviour
     [SerializeField] private GameObject EnemyPhase3;
     [SerializeField] private Transform SpawnPoint;
 
-    [Header("Not Enemey Instances")]
-
     [Header("Misc")]
     Vector3 currentEulerAngles;
     [SerializeField] private CaveVariables caveObject;
@@ -50,7 +48,7 @@ public class RandomSpawn : MonoBehaviour
             }
             else if (RNGNum == 2)
             {
-                // SpawnAnima();
+                //SpawnAnima();
             }
             else
             {
@@ -76,23 +74,10 @@ public class RandomSpawn : MonoBehaviour
                 GameManager.instance.gameState = "combat";
                 GameManager.instance.SetIdle();
                 Playerrigidbody.velocity = Vector3.zero;
-                GameManager.instance.HideUI();
+                GameManager.instance.ShowUI();
                 StartCombat();
                 GameManager.instance.CombatView(true);
             }
-            else
-            {
-
-            }
-        /* 
-        if (Gamemanager.instance.TutorialFight == true)
-        {
-            GameManager.instance.RunFirstFight();
-            
-        }
-        
-        
-        */
         }
     }
 

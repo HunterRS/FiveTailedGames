@@ -23,7 +23,8 @@ public class Card : MonoBehaviour
     public GameObject nDesc;
     public GameObject cDesc;
 
-    public GameObject playerAnim;
+    private GameObject playerAnim;
+
     [Header("Materials")]
     public Material[] materials;
     public Renderer materialPlane;
@@ -305,8 +306,8 @@ public class Card : MonoBehaviour
 
         CardManager.AnimaChange();
 
-        UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
-        UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyStats.Block.ToString();
+        //UIManager.instance.EnemyHealthTxT.text = GameManager.instance.EnemyStats.Health.ToString();
+        //UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyStats.Block.ToString();
     }
     private void Defend(int defendPower)
     {
@@ -314,7 +315,7 @@ public class Card : MonoBehaviour
         {
             GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
             GameManager.instance.PlayerBlock = GameManager.instance.PlayerBlock + defendPower;
-            UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+            //UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
             if (GameManager.instance.Anima < 0)
             {
                 GameManager.instance.Anima = 0;

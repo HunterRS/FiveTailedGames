@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     //public Material phase_Material;
     public GameObject AnimaPlaque;
     public GameObject DeckObject;
+    public GameObject helpButton;
     public GameObject[] ShieldArray;
     public GameObject[] AmuletArrayC;
     public GameObject[] AmuletArray;
@@ -178,6 +179,12 @@ public class GameManager : MonoBehaviour
     public void HideUI(){
         AnimaPlaque.SetActive(false);
         DeckObject.SetActive(false);
+        helpButton.SetActive(false);
+    }
+    public void ShowUI(){
+        AnimaPlaque.SetActive(true);
+        DeckObject.SetActive(true);
+        helpButton.SetActive(true);
     }
     public void SetIdle(){
         playerAnim.SetBool("Run",false);
