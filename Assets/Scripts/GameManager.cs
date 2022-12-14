@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Misc")]
     public Rigidbody Playerrigidbody;
+    public GameObject PlayerMesh;
     public GameObject BattleCamera;
     public GameObject cameraAnchor;
     public Animator playerAnim;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     public Vector3 camBattleOffset;
     private Vector3 camMainOffset;
     private float difAngle;
+    private float difAngleP;
 
 
     public bool TutorialFight;
@@ -75,6 +77,8 @@ public class GameManager : MonoBehaviour
     {
         updateCorruption();
         updateHP();
+        if(gameState != "move" && Enemy.GetComponent<Rigidbody>().velocity.magnitude > 1)
+            CVUpdate();
     }
 
     public void updateCorruption()
@@ -176,6 +180,7 @@ public class GameManager : MonoBehaviour
         UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
     }
 
+
     public void HideUI(){
         AnimaPlaque.SetActive(false);
         DeckObject.SetActive(false);
@@ -189,22 +194,34 @@ public class GameManager : MonoBehaviour
     public void SetIdle(){
         playerAnim.SetBool("Run",false);
     }
+
+    public void CVUpdate(){
+        cameraAnchor.transform.position = Player.transform.position + .5f*(Enemy.transform.position - Player.transform.position);
+        cameraAnchor.transform.GetChild(0).transform.localPosition = camBattleOffset + new Vector3((Player.transform.position + .5f*(Enemy.transform.position - Player.transform.position)).magnitude * -.0005f,camBattleOffset.y,camBattleOffset.z);
+    }
     public void CombatView(bool x){
         if(x){
+            //Sets Camera Anchor to centrpoint
             cameraAnchor.transform.position = Player.transform.position + .5f*(Enemy.transform.position - Player.transform.position);
+            
+            //Rotates and Positions Camera
             cameraAnchor.transform.GetChild(0).transform.localPosition = camBattleOffset;
-            cameraAnchor.transform.GetChild(0).transform.Rotate(28,0,0);
-            difAngle = Vector3.Angle(new Vector3((Enemy.transform.position - Player.transform.position).x, 0, (Enemy.transform.position - Player.transform.position).z), new Vector3(cameraAnchor.transform.forward.x,0,cameraAnchor.transform.forward.z));
-            cameraAnchor.transform.Rotate(0,-(180 - difAngle),0);
-            //Playerrigidbody.transform.parent.LookAt(GameManager.instance.Enemy.transform);
-            //GameManager.instance.Enemy.transform.LookAt(Player.transform);
+            cameraAnchor.transform.GetChild(0).transform.LookAt(cameraAnchor.transform.position);
+            // cameraAnchor.transform.GetChild(0).transform.rotation = Quaternion.Euler(12,0,0);
+            // cameraAnchor.transform.GetChild(0).transform.Rotate(28,0,0);
+            
+            // difAngle = Vector3.Angle(new Vector3((Enemy.transform.position - Player.transform.position).x, 0, (Enemy.transform.position - Player.transform.position).z), new Vector3(cameraAnchor.transform.forward.x,0,cameraAnchor.transform.forward.z));
+
+            // cameraAnchor.transform.Rotate(0,difAngle,0);
+
+            PlayerMesh.gameObject.transform.LookAt(GameManager.instance.Enemy.transform);
+            GameManager.instance.Enemy.transform.LookAt(Player.transform);
         }
         else{
             cameraAnchor.transform.localPosition = Vector3.zero;
             cameraAnchor.transform.Rotate(0,180 - difAngle,0);
             cameraAnchor.transform.GetChild(0).transform.localPosition = camMainOffset;
-            cameraAnchor.transform.GetChild(0).transform.Rotate(-28,0,0);
-            
+            cameraAnchor.transform.GetChild(0).transform.Rotate(-28,0,0);    
         }
     }
     public void CampHeal()

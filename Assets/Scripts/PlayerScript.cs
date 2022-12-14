@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class PlayerScript : MonoBehaviour
 
     public Rigidbody RB;
     public Camera PlayerCam;
+    public TMP_Text centerText;
+
     private float camRotateOffset = 12;
     
     
     private bool running;
     private Animator playerAnim;
+    private Rigidbody playerRB;
 
     private Vector3 tempDirection = new Vector3(1,0,0);
     private Vector3 runDirection;
@@ -22,11 +26,13 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         playerAnim = playerMeshObj.GetComponent<Animator>();
+        playerRB = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        HelpCheck();
         if(GameManager.instance.gameState == "move"){
             Cursor.visible = false;
             gameObject.transform.Rotate(0,Input.GetAxis("Mouse X")*1.2f,0);
@@ -73,11 +79,20 @@ public class PlayerScript : MonoBehaviour
                     playerAnim.SetBool("Run",false);
             }
             if(Input.GetKeyDown("space") && RB.velocity.y < 20 && RB.velocity.y > -20)
-                RB.AddForce(gameObject.transform.up * charSpeed * 40000);
+                RB.AddForce(gameObject.transform.up * charSpeed * 60000);
         }
         else{
             RB.velocity = Vector3.zero;
             Cursor.visible = true;
+        }
+    }
+
+    private void HelpCheck(){
+        if(playerRB.velocity.magnitude < 2 && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))){
+            centerText.text = "Spacebar to Jump";
+        }
+        else{
+            centerText.text = "";
         }
     }
 

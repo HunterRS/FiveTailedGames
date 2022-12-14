@@ -162,6 +162,7 @@ public class CardManager : MonoBehaviour
         NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
         selectionCards[0] = NewCard;
         NewCard = CardList[Random.Range(0, CardList.Count)];
+        
         while (NewCard.ID == selectionCards[0].ID)
         {
             NewCard = CardList[Random.Range(0, CardList.Count)];
@@ -173,6 +174,7 @@ public class CardManager : MonoBehaviour
         NewCard.transform.localRotation = Quaternion.Euler(0, 180, 0);
         selectionCards[1] = NewCard;
         NewCard = CardList[Random.Range(0, CardList.Count)];
+        
         while (NewCard.ID == selectionCards[0].ID || NewCard.ID == selectionCards[1].ID)
         {
             NewCard = CardList[Random.Range(0, CardList.Count)];
