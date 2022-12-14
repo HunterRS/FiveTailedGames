@@ -15,6 +15,9 @@ public class EnemyStats : MonoBehaviour
     public List<string> MovePattern = new List<string>();
     public List<int> MovePatternNum = new List<int>();
 
+    [Header("Boss Only")]
+    public bool IsBoss;
+
     // Start is called before the first frame update
     void Start()
     {
