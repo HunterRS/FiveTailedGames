@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1452583955133727643, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_text
-      value: 'Strike for 10 damage
+      value: 'Strike for 6 damage
 
         Increases Corruption by 10'
       objectReference: {fileID: 0}
@@ -71,7 +71,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2334245902067870203, guid: aa2b7e3746b237e4c8fca9091dc48c47, type: 3}
       propertyPath: m_text
-      value: 'Strike for 6 damage
+      value: 'Strike for 10 damage
 
         Increases Corruption by 20'
       objectReference: {fileID: 0}

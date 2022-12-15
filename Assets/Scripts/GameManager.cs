@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     public GameObject AnimaPlaque;
     public GameObject DeckObject;
     public GameObject helpButton;
+    public TMP_Text shiftTxt;
+    public HelpScript helpRef;
     public GameObject[] ShieldArray;
     public GameObject[] AmuletArrayC;
     public GameObject[] AmuletArray;
@@ -77,8 +80,8 @@ public class GameManager : MonoBehaviour
     {
         updateCorruption();
         updateHP();
-        if(gameState != "move" && Enemy.GetComponent<Rigidbody>().velocity.magnitude > 1)
-            CVUpdate();
+        // if(gameState != "move" && Enemy.GetComponent<Rigidbody>().velocity.magnitude > 1)
+        //     CVUpdate();
     }
 
     public void updateCorruption()
@@ -132,9 +135,10 @@ public class GameManager : MonoBehaviour
 
     public void endTurn()
     {
-        GameManager.instance.EnemyBlock = 0;
+        //EnemyBlock = 0;
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "attack")
         {
+        Enemy.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Attack");
             if (GameManager.instance.PlayerBlock > 0)
             {
                 int tempvalue = 3 - GameManager.instance.PlayerBlock;
@@ -151,7 +155,6 @@ public class GameManager : MonoBehaviour
                 {
                     GameManager.instance.PlayerBlock = 0;
                 }
-                Debug.Log("Test");
             }
             
             else if (GameManager.instance.PlayerBlock == 0)
@@ -163,7 +166,7 @@ public class GameManager : MonoBehaviour
         
         if (EnemyStats.MovePattern[EnemyStats.MoveNum] == "block")
         {
-            GameManager.instance.EnemyBlock = GameManager.instance.EnemyBlock + 3;
+            EnemyBlock += Enemy.GetComponent<EnemyStats>().Block;
             //phase_Material.color = new Color(1f, 0f, 0f);
             enemyPhase = "attack";
         }
@@ -176,8 +179,7 @@ public class GameManager : MonoBehaviour
 
         CardManager.instance.DrawCard(3);
         //PlayerBlock = 0;
-        UIManager.instance.EnemyBlockTxT.text = GameManager.instance.EnemyBlock.ToString();
-        UIManager.instance.PlayerBlockTxT.text = GameManager.instance.PlayerBlock.ToString();
+        UpdateUI();
     }
 
 
@@ -191,8 +193,16 @@ public class GameManager : MonoBehaviour
         DeckObject.SetActive(true);
         helpButton.SetActive(true);
     }
+    public void UpdateUI(){
+        UIManager.instance.EnemyBlockTxT.text = EnemyBlock.ToString();
+        UIManager.instance.PlayerBlockTxT.text = PlayerBlock.ToString();
+        UIManager.instance.EnemyHealthTxT.text = Enemy.GetComponent<EnemyStats>().Health.ToString();
+    }
     public void SetIdle(){
         playerAnim.SetBool("Run",false);
+    }
+    public void ShowShift(bool x){
+        shiftTxt.enabled = x;
     }
 
     public void CVUpdate(){
@@ -201,14 +211,17 @@ public class GameManager : MonoBehaviour
     }
     public void CombatView(bool x){
         if(x){
+            if(Enemy.GetComponent<EnemyStats>().IsBoss)
+                return;
             //Sets Camera Anchor to centrpoint
             cameraAnchor.transform.position = Player.transform.position + .5f*(Enemy.transform.position - Player.transform.position);
             
             //Rotates and Positions Camera
-            cameraAnchor.transform.GetChild(0).transform.localPosition = camBattleOffset;
             cameraAnchor.transform.GetChild(0).transform.LookAt(cameraAnchor.transform.position);
-            // cameraAnchor.transform.GetChild(0).transform.rotation = Quaternion.Euler(12,0,0);
-            // cameraAnchor.transform.GetChild(0).transform.Rotate(28,0,0);
+            cameraAnchor.transform.GetChild(0).transform.localPosition = camBattleOffset;
+            //cameraAnchor.transform.GetChild(0).transform.rotation = Quaternion.Euler(0,PlayerMesh.gameObject.transform.rotation.y,0);
+            //cameraAnchor.transform.GetChild(0).transform.rotation = Quaternion.Euler(12,0,0);
+            cameraAnchor.transform.GetChild(0).transform.Rotate(28,0,0);
             
             // difAngle = Vector3.Angle(new Vector3((Enemy.transform.position - Player.transform.position).x, 0, (Enemy.transform.position - Player.transform.position).z), new Vector3(cameraAnchor.transform.forward.x,0,cameraAnchor.transform.forward.z));
 
@@ -219,9 +232,9 @@ public class GameManager : MonoBehaviour
         }
         else{
             cameraAnchor.transform.localPosition = Vector3.zero;
-            cameraAnchor.transform.Rotate(0,180 - difAngle,0);
+            //cameraAnchor.transform.Rotate(0,180 - difAngle,0);
             cameraAnchor.transform.GetChild(0).transform.localPosition = camMainOffset;
-            cameraAnchor.transform.GetChild(0).transform.Rotate(-28,0,0);    
+            cameraAnchor.transform.GetChild(0).transform.localRotation = Quaternion.Euler(12,90,0);    
         }
     }
     public void CampHeal()

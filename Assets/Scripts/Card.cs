@@ -49,6 +49,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
+        GameManager.instance.ShowShift(true);
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             if (Profane == false)
@@ -79,6 +80,7 @@ public class Card : MonoBehaviour
     }
     private void OnMouseExit()
     {
+        GameManager.instance.ShowShift(false);
         if (Profane == false)
         {
             nDesc.SetActive(true);
@@ -122,6 +124,7 @@ public class Card : MonoBehaviour
                 GameManager.instance.Anima = 4;
             }
             CardManager.AnimaChange();
+            
             if (Profane == true)
             {
                 Debug.Log("Profaned");
@@ -192,7 +195,6 @@ public class Card : MonoBehaviour
                 }
                 if (secondaryEffect == true)
                 {
-                    Debug.Log("AAAAAA");
                     switch (secondaryEffectName)
                     {
                         case "cleanse":
@@ -256,31 +258,34 @@ public class Card : MonoBehaviour
         }
         
     CardManager.AnimaChange();
+    GameManager.instance.UpdateUI();
     }
 
 
     private void Attack(int attackPower)
     {
+        if(GameManager.instance.Anima < animaCost)
+            return;
         playerAnim.GetComponent<Animator>().SetTrigger("Attack");
         if (GameManager.instance.Anima >= animaCost)
         {
             GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
-            if (GameManager.instance.EnemyStats.Block > 0)
+            if (GameManager.instance.EnemyBlock > 0)
             {
-                int tempvalue = attackPower - GameManager.instance.EnemyStats.Block;
+                int tempvalue = attackPower - GameManager.instance.EnemyBlock;
                 Debug.Log(tempvalue);
                 if (tempvalue > 0)
                 {
                     GameManager.instance.EnemyStats.Health = GameManager.instance.EnemyStats.Health - tempvalue;
-                    GameManager.instance.EnemyStats.Block = 0;
+                    GameManager.instance.EnemyBlock = 0;
                 }
                 else if (tempvalue < 0)
                 {
-                    GameManager.instance.EnemyStats.Block = GameManager.instance.EnemyStats.Block - attackPower;
+                    GameManager.instance.EnemyStats.Block = GameManager.instance.EnemyBlock - attackPower;
                 }
                 else
                 {
-                    GameManager.instance.EnemyStats.Block = 0;
+                    GameManager.instance.EnemyBlock = 0;
                 }
             }
             else
@@ -298,6 +303,7 @@ public class Card : MonoBehaviour
         if (GameManager.instance.EnemyStats.Health <= 0)
         {
             GameManager.instance.Anima = 0;
+            GameManager.instance.helpRef.ForceClose();
             GameManager.instance.HideUI();
             GameManager.instance.CombatView(false);
             Object.Destroy(GameManager.instance.Enemy);
@@ -311,6 +317,8 @@ public class Card : MonoBehaviour
     }
     private void Defend(int defendPower)
     {
+        if(GameManager.instance.Anima < animaCost)
+            return;
         if (GameManager.instance.Anima >= animaCost)
         {
             GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
@@ -327,6 +335,8 @@ public class Card : MonoBehaviour
     }
     private void Cleanse(int cleansePower)
     {
+        if(GameManager.instance.Anima < animaCost)
+            return;
         if (GameManager.instance.Anima >= animaCost)
         {
             GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
@@ -338,6 +348,8 @@ public class Card : MonoBehaviour
     }
     private void Heal(int healPower)
     {
+        if(GameManager.instance.Anima < animaCost)
+            return;
         if (GameManager.instance.Anima >= animaCost)
         {
             GameManager.instance.Anima = GameManager.instance.Anima - animaCost;
@@ -357,6 +369,8 @@ public class Card : MonoBehaviour
 
     private void CleanseNoDiscard(int cleansePower)
     {
+        if(GameManager.instance.Anima < animaCost)
+            return;
         GameManager.instance.playerCorruption += cleansePower;
         GameManager.instance.updateCorruption();
         CardManager.AnimaChange();

@@ -26,4 +26,11 @@ public class HelpScript : MonoBehaviour
             on = false;
         }
     }
+
+    public void ForceClose(){
+        helpItems = GameObject.FindGameObjectsWithTag("Help");
+        foreach(GameObject x in helpItems){
+            x.GetComponent<TMP_Text>().enabled = false;
+        }
+    }
 }

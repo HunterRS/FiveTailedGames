@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float charSpeed;
     public float maxSpeed;
     public GameObject playerMeshObj;
+    public Transform portHack;
 
     public Rigidbody RB;
     public Camera PlayerCam;
@@ -35,6 +36,8 @@ public class PlayerScript : MonoBehaviour
         HelpCheck();
         if(GameManager.instance.gameState == "move"){
             Cursor.visible = false;
+            if(Input.GetKey(KeyCode.Escape))
+                gameObject.transform.position = portHack.position;
             gameObject.transform.Rotate(0,Input.GetAxis("Mouse X")*1.2f,0);
             if(camRotateOffset > -10 && Input.GetAxis("Mouse Y") < 0){
                 PlayerCam.transform.Rotate(-Input.GetAxis("Mouse Y"),0,0);
@@ -70,7 +73,7 @@ public class PlayerScript : MonoBehaviour
                     runDirection = new Vector3(RB.velocity.x, 0, RB.velocity.z);
                 }
                 
-                tempDirection = Vector3.RotateTowards(playerMeshObj.transform.forward,runDirection,(float)maxSpeed*Time.deltaTime,0.0f);
+                tempDirection = Vector3.RotateTowards(playerMeshObj.transform.forward,runDirection,(float)maxSpeed/2*Time.deltaTime,0.0f);
                 playerMeshObj.transform.rotation = Quaternion.LookRotation(tempDirection);
 
                 if(running)
@@ -79,7 +82,7 @@ public class PlayerScript : MonoBehaviour
                     playerAnim.SetBool("Run",false);
             }
             if(Input.GetKeyDown("space") && RB.velocity.y < 20 && RB.velocity.y > -20)
-                RB.AddForce(gameObject.transform.up * charSpeed * 60000);
+                RB.AddForce(gameObject.transform.up * charSpeed * 50000);
         }
         else{
             RB.velocity = Vector3.zero;
@@ -88,7 +91,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void HelpCheck(){
-        if(playerRB.velocity.magnitude < 2 && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))){
+        if(GameManager.instance.gameState == "move" && playerRB.velocity.magnitude < 2 && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) ){
             centerText.text = "Spacebar to Jump";
         }
         else{

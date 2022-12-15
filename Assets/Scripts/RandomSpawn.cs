@@ -68,7 +68,6 @@ public class RandomSpawn : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
             if (combatForecdSpawn == true)
             {
                 GameManager.instance.gameState = "combat";
@@ -77,6 +76,7 @@ public class RandomSpawn : MonoBehaviour
                 GameManager.instance.ShowUI();
                 StartCombat();
                 GameManager.instance.CombatView(true);
+                GameManager.instance.UpdateUI();
             }
         }
     }
